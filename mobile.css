@@ -1,0 +1,131 @@
+﻿/* ============================================================
+   mobile.css — Portfolio Mobile Fix
+   Loaded after style.css to override all mobile styles
+============================================================ */
+
+/* ── GLOBAL: Stop horizontal overflow ── */
+html, body { overflow-x: hidden !important; max-width: 100vw !important; }
+*, *::before, *::after { box-sizing: border-box !important; }
+img { max-width: 100% !important; height: auto !important; }
+@media (hover: none), (pointer: coarse) {
+  #cursor-dot-outer, #cursor-dot-inner { display: none !important; }
+  * { cursor: auto !important; }
+}
+
+@media (max-width: 768px) {
+  /* ── Topbar ── */
+  .topbar { display: none !important; }
+
+  /* ── Navbar ── */
+  #navbar { padding: 0 16px !important; height: 50px !important; width: 100% !important; position: sticky; top: 0; z-index: 999; }
+  .nav-logo { font-size: 1.1rem !important; }
+  .logo-avatar { width: 28px !important; height: 28px !important; }
+  .nav-links { position: fixed !important; top: 50px !important; left: 0 !important; right: 0 !important; width: 100vw !important; background: #050a14 !important; flex-direction: column !important; padding: 0 !important; border-top: 2px solid rgba(24,119,242,.4) !important; border-bottom: 1px solid rgba(24,119,242,.2) !important; opacity: 0 !important; transform: translateY(-8px) !important; pointer-events: none !important; transition: all .3s ease !important; z-index: 998 !important; }
+  .nav-links.open { opacity: 1 !important; transform: translateY(0) !important; pointer-events: all !important; }
+  .nav-links li { width: 100%; border-bottom: 1px solid rgba(255,255,255,.06); }
+  .nav-links li:last-child { border-bottom: none; }
+  .nav-links li a { display: block !important; padding: 14px 22px !important; font-size: .95rem !important; font-weight: 600 !important; color: rgba(255,255,255,.85) !important; }
+  #navbar .btn-cta { display: none !important; }
+  .hamburger { display: flex !important; }
+
+  /* ── Hero ── */
+  .hero { min-height: auto !important; padding: 20px 0 0 !important; }
+  .hero-grid { grid-template-columns: 1fr !important; padding: 10px 16px 20px !important; text-align: left !important; gap: 12px !important; }
+  .hero-left { align-items: flex-start !important; text-align: left !important; }
+  .hero-right { display: none !important; }
+  .hero-h1 { font-size: clamp(2rem, 9vw, 2.6rem) !important; line-height: 1.15 !important; margin-bottom: 12px !important; }
+  .hero-sub { font-size: .85rem !important; max-width: 100% !important; margin: 0 0 16px 0 !important; }
+  .hero-badge { justify-content: flex-start !important; flex-wrap: wrap; margin-bottom: 12px !important; }
+  .hero-btns { flex-direction: row !important; align-items: flex-start !important; justify-content: flex-start !important; gap: 8px !important; flex-wrap: wrap; }
+  .hero-btns a { width: auto !important; padding: 10px 16px !important; font-size: .8rem !important; font-weight: 500 !important; }
+  .hero-stats { justify-content: flex-start !important; gap: 16px !important; margin-top: 16px !important; }
+  .stat-item { align-items: flex-start !important; }
+  .stat-n { font-size: 1.6rem !important; }
+  .stat-lbl { font-size: .6rem !important; }
+  .hero-scroll { display: none !important; }
+
+  /* ── Spacing ── */
+  .section { padding: 40px 0 !important; }
+  .container { padding: 0 16px !important; max-width: 100% !important; }
+  .sh-wrap { margin-bottom: 24px !important; text-align: left !important; }
+  .sh { font-size: clamp(1.5rem, 6vw, 2rem) !important; }
+
+  /* ── About (fix cropping) ── */
+  .about-grid { grid-template-columns: 1fr !important; gap: 16px !important; padding: 10px 0 !important; }
+  .about-left { text-align: left !important; }
+  .bp { font-size: .85rem !important; line-height: 1.5 !important; margin-bottom: 12px !important; text-align: left !important; }
+  .about-right { padding: 10px 0 !important; overflow: visible !important; }
+  .about-card { max-width: 100% !important; padding: 20px 16px !important; height: auto !important; overflow: visible !important; }
+  .chip-row { gap: 6px; flex-wrap: wrap; justify-content: flex-start !important; }
+  .btn-row { justify-content: flex-start !important; }
+  .chip { font-size: .7rem !important; padding: 5px 10px !important; }
+
+  /* ── Services (2 Column Grid) ── */
+  .svc-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
+  .svc-card { padding: 16px 12px !important; }
+  .svc-card h3 { font-size: .85rem !important; margin-bottom: 6px !important; }
+  .svc-card p { font-size: .75rem !important; line-height: 1.4 !important; margin-bottom: 10px !important; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+
+  /* ── Portfolio tabs ── */
+  .pf-tabs {
+    display: flex !important; flex-wrap: nowrap !important; overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important; scrollbar-width: none !important;
+    padding: 0 0 8px !important; gap: 8px !important; margin-bottom: 16px !important;
+    justify-content: flex-start !important;
+  }
+  .pf-tabs::-webkit-scrollbar { display: none !important; }
+  .tab { flex-shrink: 0 !important; white-space: nowrap !important; font-size: .72rem !important; padding: 6px 14px !important; }
+
+  /* ── Portfolio grid (2 Column Split) ── */
+  .pf-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
+  .pf-img { aspect-ratio: 4/3 !important; }
+  .pf-footer { flex-direction: column !important; align-items: flex-start !important; gap: 6px !important; padding: 10px !important; }
+  .pf-cat-tag { font-size: .6rem !important; }
+  .pf-title { font-size: .8rem !important; line-height: 1.3 !important; }
+
+  /* ── Pricing (3 in horizontal line, fix clipping) ── */
+  .pr-s .sh-wrap { text-align: left !important; }
+  .pr-grid {
+    display: flex !important; flex-wrap: nowrap !important; overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important; scrollbar-width: none !important;
+    gap: 16px !important; padding: 24px 6px 30px 4px !important; margin: -20px -4px -20px -4px !important;
+  }
+  .pr-grid::-webkit-scrollbar { display: none !important; }
+  .pr-card { flex: 0 0 85% !important; padding: 20px 16px !important; max-width: 320px !important; }
+  .pr-price { font-size: 1.8rem !important; margin-bottom: 12px !important; }
+  .pr-list { margin-bottom: 16px !important; }
+  .pr-list li { font-size: .78rem !important; padding: 5px 0 !important; gap: 6px !important; }
+  .pr-btn { padding: 10px !important; font-size: .85rem !important; }
+  .pr-note { text-align: left !important; font-size: .75rem !important; line-height: 1.4 !important; max-width: 100% !important; margin-top: 10px !important; }
+
+  /* ── CTA Banner ── */
+  .cta-banner { padding: 24px 16px 20px !important; margin-bottom: 24px !important; text-align: center !important; }
+  .cta-inner { display: flex !important; flex-direction: column !important; align-items: center !important; text-align: center !important; }
+  .cta-inner h2 { font-size: clamp(1.4rem, 6.5vw, 1.8rem) !important; margin-bottom: 8px !important; text-align: center !important; }
+  .cta-eyebrow { justify-content: center !important; margin-bottom: 8px !important; }
+  .cta-inner p { font-size: .8rem !important; text-align: center !important; margin-bottom: 16px !important; }
+  .cta-btns { flex-direction: column !important; align-items: center !important; gap: 8px !important; margin-bottom: 16px !important; width: 100% !important; }
+  .cta-btns a { width: min(280px, 90%) !important; justify-content: center !important; }
+
+  /* ── Contact ── */
+  .ct-s .sh-wrap { display: none !important; }
+  .ct-grid { grid-template-columns: 1fr !important; gap: 20px !important; }
+  .ct-left-heading h2 { font-size: clamp(1.4rem, 6vw, 1.8rem) !important; margin-bottom: 10px !important; text-align: left !important; }
+  .ct-form { padding: 16px 14px !important; width: 100% !important; }
+  .f-row { grid-template-columns: 1fr !important; gap: 0 !important; }
+  .ct-form input, .ct-form textarea, .ct-form select { padding: 10px 14px !important; font-size: .85rem !important; }
+  .ct-row { flex-direction: row !important; align-items: flex-start !important; gap: 12px !important; font-size: .85rem !important; }
+  .soc-row { justify-content: flex-start !important; gap: 8px !important; }
+  .soc-a { width: 38px !important; height: 38px !important; }
+
+  /* ── Footer ── */
+  .ft-grid { grid-template-columns: 1fr !important; gap: 20px !important; padding-bottom: 24px !important; }
+  .ft-bottom { font-size: .7rem !important; padding: 12px 16px !important; text-align: left !important; }
+}
+
+@media (max-width: 480px) {
+  .hero-h1 { font-size: 1.8rem !important; }
+  .stat-n { font-size: 1.3rem !important; }
+  .cta-orb1 { width: 150px !important; height: 150px !important; top: -50px !important; left: -50px !important; }
+  .cta-orb2 { width: 120px !important; height: 120px !important; bottom: -40px !important; right: -40px !important; }
+}
