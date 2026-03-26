@@ -1,4 +1,4 @@
-﻿/* ============================================================
+/* ============================================================
    mobile.css — Portfolio Mobile Fix
    Loaded after style.css to override all mobile styles
 ============================================================ */
@@ -64,7 +64,7 @@ img { max-width: 100% !important; height: auto !important; }
   .svc-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
   .svc-card { padding: 16px 12px !important; }
   .svc-card h3 { font-size: .85rem !important; margin-bottom: 6px !important; }
-  .svc-card p { font-size: .75rem !important; line-height: 1.4 !important; margin-bottom: 10px !important; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  .svc-card p { font-size: .75rem !important; line-height: 1.4 !important; margin-bottom: 10px !important; display: -webkit-box; -webkit-line-clamp: 3; line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 
   /* ── Portfolio tabs ── */
   .pf-tabs {
@@ -78,25 +78,31 @@ img { max-width: 100% !important; height: auto !important; }
 
   /* ── Portfolio grid (2 Column Split) ── */
   .pf-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
-  .pf-img { aspect-ratio: 4/3 !important; }
+  .pf-img { aspect-ratio: 1/1 !important; }
   .pf-footer { flex-direction: column !important; align-items: flex-start !important; gap: 6px !important; padding: 10px !important; }
   .pf-cat-tag { font-size: .6rem !important; }
   .pf-title { font-size: .8rem !important; line-height: 1.3 !important; }
 
-  /* ── Pricing (3 in horizontal line, fix clipping) ── */
-  .pr-s .sh-wrap { text-align: left !important; }
+  /* ── Pricing (Horizontal Swipe Slider) ── */
+  .pr-s .sh-wrap { text-align: left !important; padding: 0 16px !important; }
   .pr-grid {
-    display: flex !important; flex-wrap: nowrap !important; overflow-x: auto !important;
+    display: flex !important; flex-wrap: nowrap !important; 
+    gap: 16px !important; padding: 12px 16px 32px !important; margin: 0 !important;
+    justify-content: flex-start !important;
+    overflow-x: auto !important; scroll-snap-type: x mandatory !important;
     -webkit-overflow-scrolling: touch !important; scrollbar-width: none !important;
-    gap: 16px !important; padding: 24px 6px 30px 4px !important; margin: -20px -4px -20px -4px !important;
   }
   .pr-grid::-webkit-scrollbar { display: none !important; }
-  .pr-card { flex: 0 0 85% !important; padding: 20px 16px !important; max-width: 320px !important; }
-  .pr-price { font-size: 1.8rem !important; margin-bottom: 12px !important; }
-  .pr-list { margin-bottom: 16px !important; }
-  .pr-list li { font-size: .78rem !important; padding: 5px 0 !important; gap: 6px !important; }
-  .pr-btn { padding: 10px !important; font-size: .85rem !important; }
-  .pr-note { text-align: left !important; font-size: .75rem !important; line-height: 1.4 !important; max-width: 100% !important; margin-top: 10px !important; }
+  .pr-card { flex: 0 0 85% !important; scroll-snap-align: center !important; padding: 32px 24px !important; max-width: none !important; border-radius: 18px !important; }
+  .pr-tier { font-size: 0.75rem !important; margin-bottom: 8px !important; }
+  .pr-price { font-size: 2.2rem !important; margin-bottom: 12px !important; letter-spacing: -1px !important; }
+  .pc-sym { font-size: 1.2rem !important; }
+  .pr-per { font-size: 0.75rem !important; margin-bottom: 16px !important; }
+  .pr-list { margin-bottom: 20px !important; }
+  .pr-list li { font-size: 0.85rem !important; padding: 6px 0 !important; gap: 8px !important; line-height: 1.4 !important; }
+  .pr-list i { font-size: 1rem !important; }
+  .pr-btn { padding: 12px !important; font-size: 0.85rem !important; border-radius: 100px !important; margin-top: auto !important; }
+  .pr-note { text-align: left !important; font-size: 0.75rem !important; line-height: 1.5 !important; max-width: 100% !important; margin-top: 12px !important; padding: 0 16px !important; justify-content: flex-start !important; }
 
   /* ── CTA Banner ── */
   .cta-banner { padding: 24px 16px 20px !important; margin-bottom: 24px !important; text-align: center !important; }
@@ -119,8 +125,10 @@ img { max-width: 100% !important; height: auto !important; }
   .soc-a { width: 38px !important; height: 38px !important; }
 
   /* ── Footer ── */
-  .ft-grid { grid-template-columns: 1fr !important; gap: 20px !important; padding-bottom: 24px !important; }
-  .ft-bottom { font-size: .7rem !important; padding: 12px 16px !important; text-align: left !important; }
+  .ft-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 24px 16px !important; padding-bottom: 24px !important; }
+  .ft-brand { grid-column: span 2 !important; }
+  .ft-col:last-of-type { grid-column: span 2 !important; }
+  .ft-bottom { font-size: .7rem !important; padding: 16px !important; text-align: center !important; }
 }
 
 @media (max-width: 480px) {

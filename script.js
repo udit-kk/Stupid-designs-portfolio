@@ -143,16 +143,18 @@ window.addEventListener('scroll', syncNav, { passive: true });
 /* ── 5. Hamburger ─────────────────────────────────────────── */
 const hamburger  = document.getElementById('hamburger');
 const navLinks   = document.getElementById('nav-links');
-hamburger.addEventListener('click', () => {
-  const open = navLinks.classList.toggle('open');
-  const [s0, s1, s2] = hamburger.querySelectorAll('span');
-  s1.style.opacity   = open ? '0' : '1';
-  s2.style.transform = open ? 'translateY(-7px) rotate(-45deg)' : '';
-});
-document.querySelectorAll('.nl').forEach(a => a.addEventListener('click', () => {
-  navLinks.classList.remove('open');
-  hamburger.querySelectorAll('span').forEach(s => { s.style.transform = ''; s.style.opacity = '1'; });
-}));
+if (hamburger && navLinks) {
+  hamburger.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    const [s0, s1, s2] = hamburger.querySelectorAll('span');
+    s1.style.opacity   = open ? '0' : '1';
+    s2.style.transform = open ? 'translateY(-7px) rotate(-45deg)' : '';
+  });
+  document.querySelectorAll('.nl').forEach(a => a.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    hamburger.querySelectorAll('span').forEach(s => { s.style.transform = ''; s.style.opacity = '1'; });
+  }));
+}
 
 /* ── 6. Smooth Scroll ─────────────────────────────────────── */
 document.querySelectorAll('a[href^="#"]').forEach(a => {
@@ -215,21 +217,23 @@ if (statsEl) statsObs.observe(statsEl);
 /* ── 10. Portfolio Tab Filter ────────────────────────────── */
 const tabs  = document.querySelectorAll('.tab');
 const items = document.querySelectorAll('.pf-item');
-tabs.forEach(btn => {
-  btn.addEventListener('click', () => {
-    tabs.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    const f = btn.dataset.f;
-    items.forEach((item, i) => {
-      const match = f === 'all' || item.dataset.c === f;
-      item.classList.toggle('hidden', !match);
-      if (match) {
-        item.classList.remove('visible');
-        setTimeout(() => item.classList.add('visible'), i * 40);
-      }
+if (tabs.length > 0) {
+  tabs.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tabs.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const f = btn.dataset.f;
+      items.forEach((item, i) => {
+        const match = f === 'all' || item.dataset.c === f;
+        item.classList.toggle('hidden', !match);
+        if (match) {
+          item.classList.remove('visible');
+          setTimeout(() => item.classList.add('visible'), i * 40);
+        }
+      });
     });
   });
-});
+}
 
 /* ── 11. Contact Form Processing ─────────────────────────── */
 const form    = document.getElementById('ct-form');
@@ -239,31 +243,38 @@ if (form) {
     e.preventDefault();
     const btn  = form.querySelector('button[type="submit"]');
     const orig = btn.innerHTML;
-    btn.innerHTML = 'Sending… <i class="ph ph-circle-notch"></i>';
+    btn.innerHTML = 'Processing… <i class="ph ph-circle-notch"></i>';
     btn.disabled  = true;
     
-    // Simulate API call or fallback to mailto if needed
+    // Fallback to direct Email Draft
     setTimeout(() => {
-      btn.innerHTML = orig; btn.disabled = false;
-      success.classList.add('show');
+      btn.innerHTML = orig; 
+      btn.disabled = false;
       
-      // Mailto fallback
       const n = document.getElementById('fn').value.trim();
       const em = document.getElementById('fe').value.trim();
       const s = document.getElementById('fs').value;
       const m = document.getElementById('fm').value.trim();
       const subject = encodeURIComponent('Portfolio Inquiry from ' + n);
-      const body = encodeURIComponent('Name: ' + n + '\n' + 'Email: ' + em + '\n' + 'Requested Service: ' + s + '\n\n' + 'Message:\n' + m);
-      window.location.href = 'mailto:udit59692@gmail.com?subject=' + subject + '&body=' + body;
+      const body = encodeURIComponent('Name: ' + n + '\nEmail: ' + em + '\nRequested Service: ' + s + '\n\nMessage:\n' + m);
       
+      if (window.innerWidth > 768) {
+        // Desktop: Open Gmail in web browser
+        window.open('https://mail.google.com/mail/?view=cm&fs=1&to=udit59692@gmail.com&su=' + subject + '&body=' + body, '_blank');
+      } else {
+        // Mobile: Open native mail app
+        window.location.href = 'mailto:udit59692@gmail.com?subject=' + subject + '&body=' + body;
+      }
+      
+      success.classList.add('show');
       form.reset();
       setTimeout(() => success.classList.remove('show'), 5000);
-    }, 1500);
+    }, 800);
   });
 }
 
 /* ── 12. Card tilt micro-animation ───────────────────────── */
-document.querySelectorAll('.profile-card, .svc-card, .pr-card, .about-card, .pf-card').forEach(card => {
+document.querySelectorAll('.profile-card, .svc-card, .pr-card, .about-card, .pf-card, .related-card').forEach(card => {
   card.addEventListener('mousemove', e => {
     const rect = card.getBoundingClientRect();
     const x = (e.clientX - rect.left) / rect.width  - .5;
