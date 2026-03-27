@@ -3,12 +3,11 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Rishi Farms Branding — Udit Kumar Chauhan</title>
-  <meta name="description" content="A full brand identity project for Rishi Farms — an organic farm brand. Logo design, packaging, typography, and social media creatives by Udit Kumar Chauhan."/>
+  <title>Roamentia — Travel Brand Identity | Udit Kumar Chauhan</title>
+  <meta name="description" content="Brand identity for Roamentia — a wanderlust-driven travel brand. Logo, typography and visual language designed by Udit Kumar Chauhan."/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@700;800&display=swap" rel="stylesheet"/>
-  <!-- Phosphor Icons -->
   <script src="https://unpkg.com/@phosphor-icons/web@2.1.1/src/index.js" defer></script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -16,257 +15,77 @@
     body { font-family: 'Inter', sans-serif; background: #0a0f1e; color: #CBD5E1; line-height: 1.7; overflow-x: hidden; }
     a { text-decoration: none; color: inherit; }
     img { max-width: 100%; display: block; }
-
-    /* ── NAV ── */
-    .nav {
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(5,10,20,0.9); backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(255,255,255,.07);
-      padding: 0 24px; height: 62px;
-      display: flex; align-items: center; justify-content: space-between;
-    }
-    .nav-logo {
-      font-family: 'Sora', sans-serif; font-weight: 800; font-size: 1.2rem;
-      color: #fff; letter-spacing: -.04em;
-    }
+    .nav { position: sticky; top: 0; z-index: 100; background: rgba(5,10,20,0.9); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,255,255,.07); padding: 0 24px; height: 62px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { font-family: 'Sora', sans-serif; font-weight: 800; font-size: 1.2rem; color: #fff; letter-spacing: -.04em; }
     .nav-logo span { color: #1877f2; }
-    .back-btn {
-      display: inline-flex; align-items: center; gap: 7px;
-      padding: 8px 18px; border-radius: 100px;
-      background: rgba(24,119,242,.12); border: 1px solid rgba(24,119,242,.3);
-      color: #60a5fa; font-size: .84rem; font-weight: 600;
-      transition: all .3s ease;
-    }
-    .back-btn:hover { background: #1877f2; color: #fff; border-color: #1877f2; }
-
-    /* ── HERO ── */
-    .project-hero {
-      width: 100%; max-height: 400px; overflow: hidden;
-      position: relative;
-    }
-    .project-hero img {
-      width: 100%; height: 100%; object-fit: cover;
-    }
-    .hero-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,.2) 0%, rgba(5,10,20,.8) 100%);
-      display: flex; align-items: flex-end;
-      padding: 48px;
-    }
-    .hero-text h1 {
-      font-family: 'Sora', sans-serif; font-size: clamp(2rem, 5vw, 3.5rem);
-      font-weight: 800; color: #fff; letter-spacing: -.04em; margin-bottom: 10px;
-    }
+    .back-btn { display: inline-flex; align-items: center; gap: 7px; padding: 8px 18px; border-radius: 100px; background: rgba(24,119,242,.12); border: 1px solid rgba(24,119,242,.3); color: #60a5fa; font-size: .84rem; font-weight: 600; transition: all .3s ease; }
+    .back-btn:hover { background: #1877f2; color: #fff; }
+    .project-hero { width: 100%; max-height: 420px; overflow: hidden; position: relative; background: #0d1728; }
+    .project-hero img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,.1) 0%, rgba(5,10,20,.85) 100%); display: flex; align-items: flex-end; padding: 48px; }
+    .hero-text h1 { font-family: 'Sora', sans-serif; font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; color: #fff; letter-spacing: -.04em; margin-bottom: 10px; }
     .hero-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
-    .meta-pill {
-      display: inline-flex; align-items: center; gap: 6px;
-      background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2);
-      border-radius: 100px; padding: 4px 14px;
-      font-size: .75rem; font-weight: 600; color: rgba(255,255,255,.85);
-    }
+    .meta-pill { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2); border-radius: 100px; padding: 4px 14px; font-size: .75rem; font-weight: 600; color: rgba(255,255,255,.85); }
     .meta-pill.blue { background: rgba(24,119,242,.2); border-color: rgba(24,119,242,.4); color: #60a5fa; }
-
-    /* ── CONTAINER ── */
     .container { max-width: 1000px; margin: 0 auto; padding: 0 40px; }
     @media (max-width: 768px) { .container { padding: 0 24px; } }
-
-    /* ── SECTION DIVIDER ── */
     .project-section { padding: 60px 0; border-bottom: 1px solid rgba(255,255,255,.06); }
-    .project-section:last-child { border-bottom: none; }
-    .section-label {
-      font-size: .7rem; font-weight: 700; color: #1877f2;
-      text-transform: uppercase; letter-spacing: .12em; margin-bottom: 14px;
-    }
-    .section-title {
-      font-family: 'Sora', sans-serif; font-size: clamp(1.5rem, 3.5vw, 2.2rem);
-      font-weight: 800; color: #fff; line-height: 1.15; letter-spacing: -.03em;
-      margin-bottom: 16px;
-    }
-    .section-title em {
-      font-style: normal;
-      background: linear-gradient(135deg, #1877f2 0%, #60a5fa 100%);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-    }
+    .section-label { font-size: .7rem; font-weight: 700; color: #1877f2; text-transform: uppercase; letter-spacing: .12em; margin-bottom: 14px; }
+    .section-title { font-family: 'Sora', sans-serif; font-size: clamp(1.5rem, 3.5vw, 2.2rem); font-weight: 800; color: #fff; line-height: 1.15; letter-spacing: -.03em; margin-bottom: 16px; }
+    .section-title em { font-style: normal; background: linear-gradient(135deg, #1877f2 0%, #60a5fa 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
     .section-body { font-size: .95rem; color: #94a3b8; line-height: 1.8; max-width: 680px; }
     .section-body p { margin-bottom: 12px; }
-    .section-body p:last-child { margin-bottom: 0; }
-
-    /* ── QUOTE BLOCK ── */
-    .quote-block {
-      background: rgba(24,119,242,.07); border-left: 4px solid #1877f2;
-      border-radius: 0 12px 12px 0; padding: 24px 28px; margin: 32px 0;
-    }
-    .quote-block p {
-      font-size: 1.05rem; color: #e2e8f0; font-style: italic; line-height: 1.75;
-    }
-
-    /* ── IMAGE BLOCKS ── */
-    .full-img { width: 100%; border-radius: 16px; overflow: hidden; margin: 32px 0; }
-    .full-img img { width: 100%; height: auto; object-fit: cover; }
-
-    .project-section { padding: 60px 0; }
-    @media (max-width: 768px) { .project-section { padding: 40px 0; } }
-
-    .img-grid-2 {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 32px 0;
-    }
-    .img-grid-3 {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 32px 0;
-    }
-    .img-grid-2 .img-card, .img-grid-3 .img-card {
-      border-radius: 14px; overflow: hidden; background: #0d1728;
-    }
-    .img-card img { width: 100%; height: 100%; object-fit: cover; }
-    /* Portrait packaging cards 545×700 */
-    .img-grid-3.portrait-grid { gap: 20px; }
-    .img-grid-3.portrait-grid .img-card { aspect-ratio: 545/700; }
-    .img-grid-3.portrait-grid .img-card img { width: 100%; height: 100%; object-fit: cover; }
-    /* Logo construction single centred square */
-    .logo-construct-img { max-width: 540px; margin: 28px auto 0; border-radius: 16px; overflow: hidden; background: #f2f2e4; }
-    .logo-construct-img img { width: 100%; height: auto; }
-    .img-caption {
-      text-align: center; font-size: .75rem; color: #60748a;
-      margin-top: 6px; letter-spacing: .04em;
-    }
-
-    /* ── COLOR PALETTE ── */
-    .palette { display: flex; flex-wrap: wrap; gap: 12px; margin: 28px 0; }
-    .swatch {
-      display: flex; flex-direction: column; align-items: center; gap: 8px;
-    }
-    .swatch-circle {
-      width: 56px; height: 56px; border-radius: 50%;
-      border: 2px solid rgba(255,255,255,.1);
-    }
-    .swatch-label { font-size: .7rem; color: #60748a; font-weight: 600; text-align: center; }
-
-    /* ── TWO-COLUMN SECTION GRID ── */
-    .overview-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; margin-bottom: 16px; }
-    .overview-img img { width: 100%; height: auto; border-radius: 16px; object-fit: cover; }
-    @media (max-width: 768px) { .overview-grid { grid-template-columns: 1fr; gap: 32px; } }
-
-    /* ── TYPOGRAPHY CARDS ── */
-    .type-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 28px 0; }
-    .type-card {
-      background: #0d1728; border: 1px solid rgba(255,255,255,.07);
-      border-radius: 14px; padding: 28px 24px;
-    }
-    .type-label { font-size: .68rem; color: #1877f2; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; margin-bottom: 8px; }
-    .type-name { font-size: 1.5rem; font-weight: 700; color: #fff; margin-bottom: 4px; }
-    .type-sub { font-size: .82rem; color: #60748a; }
-    .type-preview {
-      margin-top: 16px; padding-top: 14px;
-      border-top: 1px solid rgba(255,255,255,.06);
-      font-size: 1.4rem; color: rgba(255,255,255,.5); letter-spacing: .02em;
-    }
-
-    /* ── HOVER ANIMATIONS ── */
-    .tool-pill, .stat-box, .type-card, .palette .swatch-circle, .img-card, .logo-construct-img {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .tool-pill:hover, .stat-box:hover, .type-card:hover, .img-card:hover, .logo-construct-img:hover {
-      transform: translateY(-4px);
-    }
-    .palette .swatch-circle:hover {
-      transform: scale(1.1);
-    }
-
-    /* ── TOOLS USED ── */
-    .tools-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
-    .tool-pill {
-      display: inline-flex; align-items: center; gap: 7px;
-      background: #0d1728; border: 1px solid rgba(255,255,255,.08);
-      border-radius: 100px; padding: 7px 16px;
-      font-size: .81rem; font-weight: 500; color: #94a3b8;
-    }
-    .tool-pill .ph { color: #1877f2; }
-
-    /* ── STATS ── */
+    .overview-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+    @media (max-width: 768px) { .overview-grid { grid-template-columns: 1fr; } }
     .stats-row { display: flex; flex-wrap: wrap; gap: 0; margin: 32px 0; }
-    .stat-box {
-      flex: 1; min-width: 130px;
-      background: #0d1728; border: 1px solid rgba(255,255,255,.07);
-      padding: 24px 20px; text-align: center;
-    }
+    .stat-box { flex: 1; min-width: 130px; background: #0d1728; border: 1px solid rgba(255,255,255,.07); padding: 24px 20px; text-align: center; transition: transform .3s; }
+    .stat-box:hover { transform: translateY(-4px); }
     .stat-box:first-child { border-radius: 12px 0 0 12px; }
     .stat-box:last-child { border-radius: 0 12px 12px 0; }
     .stat-val { font-family: 'Sora', sans-serif; font-size: 2rem; font-weight: 800; color: #1877f2; }
     .stat-lbl { font-size: .73rem; color: #60748a; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; margin-top: 4px; }
-
-    /* ── RELATED PROJECTS ── */
+    .palette { display: flex; flex-wrap: wrap; gap: 16px; margin: 28px 0; }
+    .swatch { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+    .swatch-circle { width: 56px; height: 56px; border-radius: 50%; border: 2px solid rgba(255,255,255,.1); transition: transform .3s; }
+    .swatch-circle:hover { transform: scale(1.1); }
+    .swatch-label { font-size: .7rem; color: #60748a; font-weight: 600; }
+    .tools-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+    .tool-pill { display: inline-flex; align-items: center; gap: 7px; background: #0d1728; border: 1px solid rgba(255,255,255,.08); border-radius: 100px; padding: 7px 16px; font-size: .81rem; font-weight: 500; color: #94a3b8; transition: transform .3s; }
+    .tool-pill:hover { transform: translateY(-3px); }
+    .tool-pill .ph { color: #1877f2; }
     .related { padding: 60px 0 80px; }
     .related h3 { font-family: 'Sora', sans-serif; font-size: 1.4rem; font-weight: 800; color: #fff; margin-bottom: 24px; }
     .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .related-card {
-      background: #0d1728; border: 1px solid rgba(255,255,255,.07);
-      border-radius: 14px; overflow: hidden; cursor: pointer;
-      transition: transform .3s ease, border-color .3s ease;
-    }
+    .related-card { background: #0d1728; border: 1px solid rgba(255,255,255,.07); border-radius: 14px; overflow: hidden; transition: transform .3s, border-color .3s; }
     .related-card:hover { transform: translateY(-4px); border-color: rgba(24,119,242,.4); }
     .related-card img { width: 100%; aspect-ratio: 1/1; object-fit: cover; }
     .related-card-body { padding: 12px 14px; }
     .related-cat { font-size: .62rem; color: #1877f2; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; }
-    .related-title { font-size: .87rem; color: #fff; font-weight: 600; margin-top: 3px; line-height: 1.3; }
-
-    /* ── FOOTER ── */
-    .project-footer {
-      border-top: 1px solid rgba(255,255,255,.07);
-      padding: 24px; text-align: center;
-      font-size: .78rem; color: #60748a;
-    }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 768px) {
-      .hero-overlay { padding: 28px 20px; }
-      .img-grid-2, .img-grid-3, .type-cards { grid-template-columns: 1fr; }
-      .related-grid { grid-template-columns: 1fr 1fr; }
-      .stat-box { min-width: 100px; }
-    }
-    @media (max-width: 480px) {
-      .related-grid { grid-template-columns: 1fr; }
-      .palette { gap: 16px; }
-    }
-    /* ── GREEN CURSOR OVERRIDES ── */
-    #cursor-dot-outer { border-color: rgba(34,197,94,.5); }
-    #cursor-dot-inner {
-      background: #4ade80;
-      box-shadow: 0 0 8px 2px #22c55e, 0 0 22px 6px rgba(34,197,94,.45);
-    }
-    body.hovering #cursor-dot-outer {
-      border-color: rgba(34,197,94,.85); background: rgba(34,197,94,.05);
-    }
-    body.hovering #cursor-dot-inner {
-      box-shadow: 0 0 14px 5px #22c55e, 0 0 40px 12px rgba(34,197,94,.5);
-    }
-    body.click-active #cursor-dot-inner {
-      box-shadow: 0 0 20px 8px #22c55e, 0 0 60px 20px rgba(34,197,94,.6);
-    }
+    .related-title { font-size: .87rem; color: #fff; font-weight: 600; margin-top: 3px; }
+    .project-footer { border-top: 1px solid rgba(255,255,255,.07); padding: 24px; text-align: center; font-size: .78rem; color: #60748a; }
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    @media (max-width: 768px) { .related-grid { grid-template-columns: 1fr 1fr; } .hero-overlay { padding: 28px 20px; } }
+    @media (max-width: 480px) { .related-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
-
-  <!-- ---------- NEON CURSOR DOT ---------------------- -->
   <div id="cursor-dot-outer" aria-hidden="true"></div>
   <div id="cursor-dot-inner" aria-hidden="true"></div>
-
-  <!-- NAV -->
   <nav class="nav">
     <a href="index.html" class="nav-logo">Udit<span>.</span></a>
-    <a href="index.html#portfolio" class="back-btn">
-      <i class="ph ph-arrow-left"></i> Back to Portfolio
-    </a>
+    <a href="index.html#portfolio" class="back-btn"><i class="ph ph-arrow-left"></i> Back to Portfolio</a>
   </nav>
 
-  <!-- HERO -->
-  <div class="project-hero" style="background:var(--dark);">
-    <img src="images/Rishi Farms Hero Banner.png" alt="Rishi Farms — Organic farm field with brand logo overlay" loading="eager"/>
+  <div class="project-hero">
+    <img src="Roamentia – Travel Brand.png" alt="Roamentia travel brand identity" loading="eager"/>
     <div class="hero-overlay">
       <div class="hero-text">
-        <div class="section-label">Branding · Packaging · Identity</div>
-        <h1>Rishi Farms Branding</h1>
+        <div class="section-label">Branding · Travel · Wanderlust</div>
+        <h1>Roamentia – Travel Brand</h1>
         <div class="hero-meta">
           <span class="meta-pill blue"><i class="ph ph-tag"></i> Brand Identity</span>
-          <span class="meta-pill blue"><i class="ph ph-package"></i> Packaging Design</span>
+          <span class="meta-pill blue"><i class="ph ph-airplane"></i> Travel</span>
           <span class="meta-pill"><i class="ph ph-calendar"></i> 2024</span>
           <span class="meta-pill"><i class="ph ph-user"></i> Udit Kumar Chauhan</span>
         </div>
@@ -274,239 +93,82 @@
     </div>
   </div>
 
-  <!-- MAIN CONTENT -->
   <main>
-
-    <!-- OVERVIEW -->
     <section class="project-section reveal">
       <div class="container">
         <div class="overview-grid">
-          <div class="overview-text">
+          <div>
             <div class="section-label">Project Overview</div>
-            <h2 class="section-title">An <em>Organic</em> Brand Rooted in Nature</h2>
+            <h2 class="section-title">For Those Who <em>Wander</em> with Purpose</h2>
             <div class="section-body">
-              <p>Rishi Farms is an organic food brand built on the philosophy of clean, natural living. The challenge was to create a brand identity that felt authentic to the farm-to-table ethos while being premium enough to compete on modern retail shelves.</p>
-              <p>This project covers the complete brand ecosystem — from the logo mark and visual language to packaging for six distinct product lines and a full social media presence.</p>
+              <p>Roamentia is a travel lifestyle brand that celebrates conscious explorers — people who travel not just to see places, but to experience cultures, stories, and transformations.</p>
+              <p>The brand identity captures the spirit of adventure through dynamic, wanderlust-inspired visuals — a logotype that feels like it's always moving, always discovering something new.</p>
             </div>
           </div>
-          <div class="overview-img">
-            <img src="images/Rishi Farms Branding.png" alt="Rishi Farms Logo with Farm Background" loading="lazy" style="aspect-ratio: 1/1; object-fit: contain; padding: 18px; border-radius: 16px; background: #0d1728; width: 100%;"/>
+          <div>
+            <img src="Roamentia – Travel Brand.png" alt="Roamentia brand identity" loading="lazy" style="border-radius:16px; width:100%;"/>
           </div>
         </div>
-
-        <div class="quote-block">
-          <p>"Our company's mission is to process and manufacture products using clean, freshly harvested, and nutrition-rich ingredients without compromising the taste and the benefits of the products."</p>
-        </div>
-
         <div class="stats-row">
-          <div class="stat-box"><div class="stat-val">6</div><div class="stat-lbl">Products Packaged</div></div>
-          <div class="stat-box"><div class="stat-val">3</div><div class="stat-lbl">Core Hero Products</div></div>
-          <div class="stat-box"><div class="stat-val">100%</div><div class="stat-lbl">Vector Artwork</div></div>
-          <div class="stat-box"><div class="stat-val">21</div><div class="stat-lbl">Social Creatives</div></div>
+          <div class="stat-box"><div class="stat-val">1</div><div class="stat-lbl">Brand System</div></div>
+          <div class="stat-box"><div class="stat-val">4</div><div class="stat-lbl">Sub-brands</div></div>
+          <div class="stat-box"><div class="stat-val">100%</div><div class="stat-lbl">Vector Work</div></div>
+          <div class="stat-box"><div class="stat-val">2024</div><div class="stat-lbl">Year</div></div>
         </div>
       </div>
     </section>
 
-    <!-- LOGO DESIGN -->
     <section class="project-section reveal">
       <div class="container">
-        <div class="overview-grid">
-          <div class="overview-text">
-            <div class="section-label">Logo Design</div>
-            <h2 class="section-title">Symbol of <em>Purity</em> & Growth</h2>
-            <div class="section-body">
-              <p>The logo mark is a circular emblem representing a <strong style="color:#e2e8f0;">sprout emerging from the earth</strong>, encapsulated in a clean ring. Every element is intentional:</p>
-            </div>
-            
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:24px;">
-              <div style="background:#0d1728;border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:20px 18px;">
-                <div style="font-size:.68rem;color:#2D7A27;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:7px;">🌱 Plant Symbol</div>
-                <p style="font-size:.85rem;color:#94a3b8;line-height:1.6;">Growth &amp; Nature</p>
-              </div>
-              <div style="background:#0d1728;border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:20px 18px;">
-                <div style="font-size:.68rem;color:#E1A919;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:7px;">🕉 Rishi</div>
-                <p style="font-size:.85rem;color:#94a3b8;line-height:1.6;">Tradition &amp; Wisdom</p>
-              </div>
-              <div style="background:#0d1728;border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:20px 18px;">
-                <div style="font-size:.68rem;color:#1877f2;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:7px;">⚛ Panch Tattva</div>
-                <p style="font-size:.85rem;color:#94a3b8;line-height:1.6;">Cosmic Elements</p>
-              </div>
-              <div style="background:#0d1728;border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:20px 18px;">
-                <div style="font-size:.68rem;color:#5C2E1B;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:7px;">⛰ Fields</div>
-                <p style="font-size:.85rem;color:#94a3b8;line-height:1.6;">Cultivation</p>
-              </div>
-            </div>
-          </div>
-          <div class="overview-img" style="background:#0d1728; border-radius:16px; padding:40px; display:flex; align-items:center;">
-            <img src="images/rishi-farms-logo-white.png.png" alt="Rishi Farms White Logo Diagram" loading="lazy" style="border-radius:0;"/>
-          </div>
+        <div class="section-label">Color Palette</div>
+        <h2 class="section-title">Wide Open <em>Skies</em> & Golden Horizons</h2>
+        <div class="section-body"><p>The palette mirrors the journey — vast oceanic blues, sunrise golds, and deep night blacks that evoke both the thrill of departure and the warmth of arrival.</p></div>
+        <div class="palette">
+          <div class="swatch"><div class="swatch-circle" style="background:#0A3563;"></div><div class="swatch-label">Ocean Blue</div></div>
+          <div class="swatch"><div class="swatch-circle" style="background:#F0A500;"></div><div class="swatch-label">Horizon Gold</div></div>
+          <div class="swatch"><div class="swatch-circle" style="background:#E8F4FD; border-color:rgba(255,255,255,.15);"></div><div class="swatch-label">Sky White</div></div>
+          <div class="swatch"><div class="swatch-circle" style="background:#1A1A2E;"></div><div class="swatch-label">Midnight</div></div>
         </div>
       </div>
     </section>
 
-    <!-- LOGO CONSTRUCTION & PALETTE -->
-    <section class="project-section reveal">
-      <div class="container">
-        <div class="overview-grid">
-          <div class="overview-text">
-            <div class="section-label">Logo Construction</div>
-            <h2 class="section-title">Geometry &amp; <em>Proportion</em></h2>
-            <div class="section-body" style="margin-bottom:24px;">
-              <p>The brand mark relies on precise geometric alignment and natural proportions to ensure scalable legibility across all mediums.</p>
-            </div>
-            
-            <h3 style="font-family:'Sora', sans-serif; font-size:1.1rem; color:#fff; margin-bottom:12px;">Color Palette</h3>
-            <div class="palette">
-              <div class="swatch"><div class="swatch-circle" style="background:#2D7A27;"></div><div class="swatch-label">Forest Green</div></div>
-              <div class="swatch"><div class="swatch-circle" style="background:#1A5C16;"></div><div class="swatch-label">Deep Green</div></div>
-              <div class="swatch"><div class="swatch-circle" style="background:#5C2E1B;"></div><div class="swatch-label">Earthy Brown</div></div>
-              <div class="swatch"><div class="swatch-circle" style="background:#E1A919;"></div><div class="swatch-label">Warm Mustard</div></div>
-              <div class="swatch"><div class="swatch-circle" style="background:#F2F2E4; border-color:rgba(255,255,255,.2);"></div><div class="swatch-label">Cream White</div></div>
-              <div class="swatch"><div class="swatch-circle" style="background:#1A1A0F;"></div><div class="swatch-label">Deep Black</div></div>
-            </div>
-          </div>
-          <div class="overview-img">
-            <div class="logo-construct-img" style="margin-top:0;">
-              <img src="images/rf-logo-construction.png" alt="Rishi Farms Logo Grid Construction Diagram" loading="lazy"/>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- TYPOGRAPHY -->
-    <section class="project-section reveal">
-      <div class="container">
-        <div class="section-label">Typography</div>
-        <h2 class="section-title">Bold, <em>Modern</em>, Readable</h2>
-        <div class="section-body">
-          <p>Two typefaces work in harmony to convey freshness and modernity while maintaining approachability for the organic food market.</p>
-        </div>
-        <div class="type-cards">
-          <div class="type-card">
-            <div class="type-label">Primary Typeface</div>
-            <div class="type-name" style="font-family:'Inter',sans-serif;font-weight:700;">Work Sans</div>
-            <div class="type-sub">Bold, modern, &amp; highly readable — designed for brand headlines and product names.</div>
-            <div class="type-preview">Aa Bb Cc 123</div>
-          </div>
-          <div class="type-card">
-            <div class="type-label">Secondary Typeface</div>
-            <div class="type-name" style="font-family:'Inter',sans-serif;font-weight:400;letter-spacing:.08em;">Montserrat</div>
-            <div class="type-sub">Geometric, clean, and versatile — ideal for descriptions, labels, and supporting text.</div>
-            <div class="type-preview" style="font-weight:400;letter-spacing:.05em;">Aa Bb Cc 123</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PACKAGING -->
-    <section class="project-section reveal">
-      <div class="container">
-        <div class="section-label">Packaging Design</div>
-        <h2 class="section-title">Six Products, One <em>Cohesive</em> Story</h2>
-        <div class="section-body">
-          <p>Each product line received a unique coloured label while sharing the same arched-frame design motif — creating instant shelf recognition while allowing individual character for each SKU.</p>
-        </div>
-        <div class="full-img" style="max-width: 650px; margin: 32px auto;">
-          <img src="images/rf-packaging-grid.png" alt="All six Rishi Farms products in arched frame mockups" loading="lazy"/>
-        </div>
-        <!-- Individual hero product cards: 545×700 portrait -->
-        <div class="img-grid-3 portrait-grid" style="margin-top: 20px;">
-          <div class="img-card">
-            <img src="images/rf-barley-coffee.png" alt="Barley Coffee — Naturally Caffeine Free product poster" loading="lazy"/>
-            <div class="img-caption">Barley Coffee</div>
-          </div>
-          <div class="img-card">
-            <img src="images/rf-turmeric-latte.png" alt="Turmeric Latte — A Magic Healer product poster" loading="lazy"/>
-            <div class="img-caption">Turmeric Latte</div>
-          </div>
-          <div class="img-card">
-            <img src="images/rf-missing-product.png.png" alt="Rishi Farms 3rd Product Packaging" loading="lazy" style="width:100%;height:100%;object-fit:cover;"/>
-            <div class="img-caption">New Product</div>
-          </div>
-        </div>
-        <div style="margin-top: 8px; padding: 14px 18px; background: rgba(24,119,242,.06); border: 1px solid rgba(24,119,242,.15); border-radius: 12px; font-size: .83rem; color: #94a3b8;">
-          <i class="ph ph-info" style="color:#1877f2;margin-right:6px;"></i>
-          Product line includes: <strong style="color:#e2e8f0;">Barley Coffee, Turmeric Latte, Barley Tisane, Himalayan Pink Salt, Bajra Namkeen,</strong> and <strong style="color:#e2e8f0;">Raw Sugar</strong>.
-        </div>
-      </div>
-    </section>
-
-
-
-    <!-- SOCIAL MEDIA -->
-    <section class="project-section reveal">
-      <div class="container">
-        <div class="section-label">Social Media Creatives</div>
-        <h2 class="section-title">A Feed That <em>Converts</em></h2>
-        <div class="section-body">
-          <p>Over 21 Instagram and Facebook posts were designed to establish Rishi Farms' online presence. The posts blend lifestyle photography, product highlighting, and informative recipe content — driving engagement across the organic food community.</p>
-        </div>
-        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-top: 32px;">
-          <!-- User will provide 1:1 images for social media here -->
-          <div class="img-card" style="aspect-ratio: 1/1; flex: 1 1 200px; max-width: 250px; border-radius: 14px; overflow: hidden;"><img src="images/rf-social-1.jpg" alt="Social Media Post 1" loading="lazy" style="width:100%;height:100%;object-fit:cover;"/></div>
-          <div class="img-card" style="aspect-ratio: 1/1; flex: 1 1 200px; max-width: 250px; border-radius: 14px; overflow: hidden;"><img src="images/rf-social-2.jpg" alt="Social Media Post 2" loading="lazy" style="width:100%;height:100%;object-fit:cover;"/></div>
-          <div class="img-card" style="aspect-ratio: 1/1; flex: 1 1 200px; max-width: 250px; border-radius: 14px; overflow: hidden;"><img src="images/rf-social-3.jpg" alt="Social Media Post 3" loading="lazy" style="width:100%;height:100%;object-fit:cover;"/></div>
-          <div class="img-card" style="aspect-ratio: 1/1; flex: 1 1 200px; max-width: 250px; border-radius: 14px; overflow: hidden;"><img src="images/rf-social-4.jpg" alt="Social Media Post 4" loading="lazy" style="width:100%;height:100%;object-fit:cover;"/></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- TOOLS -->
     <section class="project-section reveal">
       <div class="container">
         <div class="section-label">Tools &amp; Process</div>
-        <h2 class="section-title">Built with <em>Industry Standard</em> Tools</h2>
-        <div class="section-body">
-          <p>This project was built from scratch using vector-first workflows, ensuring every asset is resolution-independent and ready for print, billboard, or digital screen at any scale.</p>
-        </div>
+        <h2 class="section-title">Crafted for <em>Every Journey</em></h2>
+        <div class="section-body"><p>The entire brand system was built in vector to adapt seamlessly — from passport-sized travel tags to large-format airport signage.</p></div>
         <div class="tools-row">
           <div class="tool-pill"><i class="ph ph-pencil-simple-line"></i> Adobe Illustrator</div>
           <div class="tool-pill"><i class="ph ph-image"></i> Adobe Photoshop</div>
-          <div class="tool-pill"><i class="ph ph-figma-logo"></i> Figma</div>
-          <div class="tool-pill"><i class="ph ph-package"></i> Packaging Design</div>
           <div class="tool-pill"><i class="ph ph-palette"></i> Brand Identity</div>
         </div>
       </div>
     </section>
 
-    <!-- RELATED PROJECTS -->
     <section class="related reveal">
       <div class="container">
         <h3>More Projects</h3>
         <div class="related-grid">
-          <a href="https://www.behance.net/gallery/211167479/Rishi-Blends-Brand-identity" target="_blank" class="related-card">
-            <img src="images/Rishi Blends Brand Identity.png" alt="Rishi Blends Brand Identity" loading="lazy"/>
-            <div class="related-card-body">
-              <div class="related-cat">Branding</div>
-              <div class="related-title">Rishi Blends Brand Identity</div>
-            </div>
+          <a href="chosen-kicks.html" class="related-card">
+            <img src="Chosen Kicks – Brand Identity.png" alt="Chosen Kicks" loading="lazy"/>
+            <div class="related-card-body"><div class="related-cat">Branding</div><div class="related-title">Chosen Kicks – Brand Identity</div></div>
           </a>
-          <a href="https://www.behance.net/gallery/230222735/Nandvrinda-An-Essential-oil-brand" target="_blank" class="related-card">
-            <img src="images/Nandvrinda – Essential Oils.jpg" alt="Nandvrinda Essential Oils" loading="lazy"/>
-            <div class="related-card-body">
-              <div class="related-cat">Branding</div>
-              <div class="related-title">Nandvrinda – Essential Oils</div>
-            </div>
+          <a href="rishi-farms.html" class="related-card">
+            <img src="Rishi Farms Branding.png" alt="Rishi Farms" loading="lazy"/>
+            <div class="related-card-body"><div class="related-cat">Branding</div><div class="related-title">Rishi Farms Branding</div></div>
           </a>
-          <a href="https://www.behance.net/gallery/234006423/Chosen-Kicks-Brand-Identity-Logo-Design" target="_blank" class="related-card">
-            <img src="images/Chosen Kicks – Brand Identity.png" alt="Chosen Kicks" loading="lazy"/>
-            <div class="related-card-body">
-              <div class="related-cat">Branding</div>
-              <div class="related-title">Chosen Kicks – Brand Identity</div>
-            </div>
+          <a href="nandvrinda.html" class="related-card">
+            <img src="Nandvrinda – Essential Oils.jpg" alt="Nandvrinda" loading="lazy"/>
+            <div class="related-card-body"><div class="related-cat">Branding</div><div class="related-title">Nandvrinda – Essential Oils</div></div>
           </a>
         </div>
       </div>
     </section>
-
   </main>
 
-  <!-- FOOTER -->
   <footer class="project-footer">
     <p>© 2024 Udit Kumar Chauhan &nbsp;·&nbsp; <a href="index.html" style="color:#1877f2;">Back to Portfolio</a></p>
   </footer>
-
   <script src="script.js"></script>
 </body>
 </html>
