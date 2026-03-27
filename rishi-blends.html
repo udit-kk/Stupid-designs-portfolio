@@ -132,7 +132,7 @@
   <!-- HERO — colorful logo with bg -->
   <div class="project-hero">
     <img src="rb-hero-banner.jpg" alt="Rishi Blends — hero banner" loading="eager"
-         onerror="this.onerror=null;this.src='rb-logo-bg.png';"/>
+         onerror="this.onerror=null;this.src='rb-logo-bg.png';this.style.objectFit='contain';this.style.background='linear-gradient(135deg,#FF6B00,#E8006B,#7C00E8)';"/>
     <div class="hero-overlay">
       <div class="hero-text">
         <div class="section-label">Branding · Social Media · Visual Identity</div>
@@ -327,24 +327,24 @@
         </div>
 
         <!-- 2-col layout: 4-product grid LEFT | two products stacked RIGHT -->
-        <div style="display:grid;grid-template-columns:55fr 45fr;gap:14px;margin-top:32px;height:520px;">
+        <div style="display:grid;grid-template-columns:55fr 45fr;gap:14px;margin-top:32px;align-items:stretch;">
 
           <!-- LEFT: overview grid -->
-          <div style="border-radius:16px;overflow:hidden;height:100%;">
+          <div style="border-radius:16px;overflow:hidden;">
             <img src="rb-packaging-grid.jpg" alt="All 4 Rishi Blends flavours" loading="lazy"
-                 style="width:100%;height:100%;object-fit:cover;"/>
+                 style="width:100%;height:514px;object-fit:cover;display:block;"/>
           </div>
 
           <!-- RIGHT: two products stacked -->
-          <div style="display:flex;flex-direction:column;gap:14px;height:100%;">
-            <div style="border-radius:16px;overflow:hidden;flex:1;position:relative;">
+          <div style="display:flex;flex-direction:column;gap:14px;">
+            <div style="border-radius:16px;overflow:hidden;position:relative;height:250px;">
               <img src="rb-packaging-matcha.jpg" alt="Rose Matcha SuperLatte" loading="lazy"
                    style="width:100%;height:100%;object-fit:cover;"/>
               <div style="position:absolute;bottom:10px;left:12px;background:rgba(0,0,0,.55);backdrop-filter:blur(6px);border-radius:8px;padding:5px 12px;">
                 <div style="font-size:.7rem;color:#22c55e;font-weight:700;text-transform:uppercase;letter-spacing:.08em;">Rose Matcha</div>
               </div>
             </div>
-            <div style="border-radius:16px;overflow:hidden;flex:1;position:relative;">
+            <div style="border-radius:16px;overflow:hidden;position:relative;height:250px;">
               <img src="rb-packaging-sleeptime.jpg" alt="Sleeptime SuperLatte" loading="lazy"
                    style="width:100%;height:100%;object-fit:cover;"/>
               <div style="position:absolute;bottom:10px;left:12px;background:rgba(0,0,0,.55);backdrop-filter:blur(6px);border-radius:8px;padding:5px 12px;">
