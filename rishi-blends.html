@@ -325,106 +325,47 @@
         <div class="section-body">
           <p>Four distinct superlatte flavours — each with its own colour-coded packaging identity. Bold label design, atmospheric gradient textures, and the iconic Rishi Blends wordmark on every pouch.</p>
         </div>
-      </div>
 
-      <!-- Full-bleed card carousel (no container padding) -->
-      <div style="position:relative; margin:28px 0;">
-        <!-- Faded edges to hint scroll -->
-        <div style="position:absolute;top:0;left:0;width:60px;height:100%;background:linear-gradient(to right,#0a0f1e,transparent);z-index:2;pointer-events:none;"></div>
-        <div style="position:absolute;top:0;right:0;width:60px;height:100%;background:linear-gradient(to left,#0a0f1e,transparent);z-index:2;pointer-events:none;"></div>
+        <!-- 2-col layout: 4-product grid LEFT | two products stacked RIGHT -->
+        <div style="display:grid;grid-template-columns:55fr 45fr;gap:14px;margin-top:32px;height:520px;">
 
-        <!-- Scrollable track -->
-        <div id="rb-cards" style="display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:4px 48px 16px;scrollbar-width:none;cursor:grab;">
-          <style>#rb-cards::-webkit-scrollbar{display:none}#rb-cards.grab{cursor:grabbing}</style>
-
-          <!-- Card 1: Rose Cocoa -->
-          <div style="flex:0 0 200px;scroll-snap-align:start;border-radius:16px;overflow:hidden;background:#1a0808;border:1px solid rgba(239,68,68,.2);transition:transform .3s;" onmouseenter="this.style.transform='translateY(-6px)'" onmouseleave="this.style.transform=''">
-            <div style="height:240px;overflow:hidden;">
-              <img src="rb-packaging-grid.jpg" alt="Rose Cocoa" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:0% 0%;transform:scale(1.8) translate(-15%,0%);transition:transform .4s;" onmouseenter="this.style.transform='scale(1.95) translate(-15%,0%)'" onmouseleave="this.style.transform='scale(1.8) translate(-15%,0%)'"/>
-            </div>
-            <div style="padding:12px 14px;">
-              <div style="width:8px;height:8px;border-radius:50%;background:#ef4444;margin-bottom:6px;"></div>
-              <div style="font-size:.88rem;color:#fff;font-weight:700;">Rose Cocoa</div>
-              <div style="font-size:.72rem;color:#94a3b8;margin-top:2px;">Instant SuperLatte</div>
-            </div>
+          <!-- LEFT: overview grid -->
+          <div style="border-radius:16px;overflow:hidden;height:100%;">
+            <img src="rb-packaging-grid.jpg" alt="All 4 Rishi Blends flavours" loading="lazy"
+                 style="width:100%;height:100%;object-fit:cover;"/>
           </div>
 
-          <!-- Card 2: Rose Matcha -->
-          <div style="flex:0 0 200px;scroll-snap-align:start;border-radius:16px;overflow:hidden;background:#081a0d;border:1px solid rgba(34,197,94,.2);transition:transform .3s;" onmouseenter="this.style.transform='translateY(-6px)'" onmouseleave="this.style.transform=''">
-            <div style="height:240px;overflow:hidden;">
-              <img src="rb-packaging-matcha.jpg" alt="Rose Matcha" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform .4s;" onmouseenter="this.style.transform='scale(1.05)'" onmouseleave="this.style.transform=''"/>
-            </div>
-            <div style="padding:12px 14px;">
-              <div style="width:8px;height:8px;border-radius:50%;background:#22c55e;margin-bottom:6px;"></div>
-              <div style="font-size:.88rem;color:#fff;font-weight:700;">Rose Matcha</div>
-              <div style="font-size:.72rem;color:#94a3b8;margin-top:2px;">Instant SuperLatte</div>
-            </div>
-          </div>
-
-          <!-- Card 3: Sleeptime -->
-          <div style="flex:0 0 200px;scroll-snap-align:start;border-radius:16px;overflow:hidden;background:#080d1a;border:1px solid rgba(99,102,241,.2);transition:transform .3s;" onmouseenter="this.style.transform='translateY(-6px)'" onmouseleave="this.style.transform=''">
-            <div style="height:240px;overflow:hidden;">
-              <img src="rb-packaging-sleeptime.jpg" alt="Sleeptime" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform .4s;" onmouseenter="this.style.transform='scale(1.05)'" onmouseleave="this.style.transform=''"/>
-            </div>
-            <div style="padding:12px 14px;">
-              <div style="width:8px;height:8px;border-radius:50%;background:#6366f1;margin-bottom:6px;"></div>
-              <div style="font-size:.88rem;color:#fff;font-weight:700;">Sleeptime</div>
-              <div style="font-size:.72rem;color:#94a3b8;margin-top:2px;">Instant SuperLatte</div>
-            </div>
-          </div>
-
-          <!-- Card 4: Pumpkin Spice -->
-          <div style="flex:0 0 200px;scroll-snap-align:start;border-radius:16px;overflow:hidden;background:#1a1408;border:1px solid rgba(234,179,8,.2);transition:transform .3s;" onmouseenter="this.style.transform='translateY(-6px)'" onmouseleave="this.style.transform=''">
-            <div style="height:240px;overflow:hidden;">
-              <img src="rb-packaging-grid.jpg" alt="Pumpkin Spice" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:100% 100%;transform:scale(1.8) translate(15%,15%);transition:transform .4s;" onmouseenter="this.style.transform='scale(1.95) translate(15%,15%)'" onmouseleave="this.style.transform='scale(1.8) translate(15%,15%)'"/>
-            </div>
-            <div style="padding:12px 14px;">
-              <div style="width:8px;height:8px;border-radius:50%;background:#eab308;margin-bottom:6px;"></div>
-              <div style="font-size:.88rem;color:#fff;font-weight:700;">Pumpkin Spice</div>
-              <div style="font-size:.72rem;color:#94a3b8;margin-top:2px;">Instant SuperLatte</div>
-            </div>
-          </div>
-
-          <!-- Card 5: All flavours grid -->
-          <div style="flex:0 0 260px;scroll-snap-align:start;border-radius:16px;overflow:hidden;background:#0d1728;border:1px solid rgba(255,255,255,.08);transition:transform .3s;" onmouseenter="this.style.transform='translateY(-6px)'" onmouseleave="this.style.transform=''">
-            <div style="height:240px;overflow:hidden;">
-              <img src="rb-packaging-grid.jpg" alt="All flavours" loading="lazy" style="width:100%;height:100%;object-fit:cover;transition:transform .4s;" onmouseenter="this.style.transform='scale(1.04)'" onmouseleave="this.style.transform=''"/>
-            </div>
-            <div style="padding:12px 14px;">
-              <div style="display:flex;gap:5px;margin-bottom:6px;">
-                <div style="width:8px;height:8px;border-radius:50%;background:#ef4444;"></div>
-                <div style="width:8px;height:8px;border-radius:50%;background:#22c55e;"></div>
-                <div style="width:8px;height:8px;border-radius:50%;background:#6366f1;"></div>
-                <div style="width:8px;height:8px;border-radius:50%;background:#eab308;"></div>
+          <!-- RIGHT: two products stacked -->
+          <div style="display:flex;flex-direction:column;gap:14px;height:100%;">
+            <div style="border-radius:16px;overflow:hidden;flex:1;position:relative;">
+              <img src="rb-packaging-matcha.jpg" alt="Rose Matcha SuperLatte" loading="lazy"
+                   style="width:100%;height:100%;object-fit:cover;"/>
+              <div style="position:absolute;bottom:10px;left:12px;background:rgba(0,0,0,.55);backdrop-filter:blur(6px);border-radius:8px;padding:5px 12px;">
+                <div style="font-size:.7rem;color:#22c55e;font-weight:700;text-transform:uppercase;letter-spacing:.08em;">Rose Matcha</div>
               </div>
-              <div style="font-size:.88rem;color:#fff;font-weight:700;">All Flavours</div>
-              <div style="font-size:.72rem;color:#94a3b8;margin-top:2px;">Packaging Overview</div>
+            </div>
+            <div style="border-radius:16px;overflow:hidden;flex:1;position:relative;">
+              <img src="rb-packaging-sleeptime.jpg" alt="Sleeptime SuperLatte" loading="lazy"
+                   style="width:100%;height:100%;object-fit:cover;"/>
+              <div style="position:absolute;bottom:10px;left:12px;background:rgba(0,0,0,.55);backdrop-filter:blur(6px);border-radius:8px;padding:5px 12px;">
+                <div style="font-size:.7rem;color:#6366f1;font-weight:700;text-transform:uppercase;letter-spacing:.08em;">Sleeptime</div>
+              </div>
             </div>
           </div>
+
         </div>
 
-        <!-- Scroll indicator dots -->
-        <div style="display:flex;justify-content:center;gap:6px;margin-top:4px;">
-          <div style="width:24px;height:4px;border-radius:4px;background:#f59e0b;"></div>
-          <div style="width:8px;height:4px;border-radius:4px;background:rgba(255,255,255,.2);"></div>
-          <div style="width:8px;height:4px;border-radius:4px;background:rgba(255,255,255,.2);"></div>
-          <div style="width:8px;height:4px;border-radius:4px;background:rgba(255,255,255,.2);"></div>
-          <div style="width:8px;height:4px;border-radius:4px;background:rgba(255,255,255,.2);"></div>
+        <!-- Flavour legend -->
+        <div style="display:flex;gap:20px;margin-top:16px;flex-wrap:wrap;">
+          <div style="display:flex;align-items:center;gap:7px;"><div style="width:9px;height:9px;border-radius:50%;background:#ef4444;"></div><span style="font-size:.78rem;color:#94a3b8;">Rose Cocoa</span></div>
+          <div style="display:flex;align-items:center;gap:7px;"><div style="width:9px;height:9px;border-radius:50%;background:#22c55e;"></div><span style="font-size:.78rem;color:#94a3b8;">Rose Matcha</span></div>
+          <div style="display:flex;align-items:center;gap:7px;"><div style="width:9px;height:9px;border-radius:50%;background:#6366f1;"></div><span style="font-size:.78rem;color:#94a3b8;">Sleeptime</span></div>
+          <div style="display:flex;align-items:center;gap:7px;"><div style="width:9px;height:9px;border-radius:50%;background:#eab308;"></div><span style="font-size:.78rem;color:#94a3b8;">Pumpkin Spice</span></div>
         </div>
+
       </div>
-
-      <!-- Drag-to-scroll JS -->
-      <script>
-        (function(){
-          var t=document.getElementById('rb-cards');
-          if(!t)return;
-          var d=false,sx,ss;
-          t.addEventListener('mousedown',function(e){d=true;sx=e.pageX-t.getBoundingClientRect().left;ss=t.scrollLeft;t.classList.add('grab');});
-          document.addEventListener('mouseup',function(){d=false;t.classList.remove('grab');});
-          t.addEventListener('mousemove',function(e){if(!d)return;e.preventDefault();t.scrollLeft=ss-(e.pageX-t.getBoundingClientRect().left-sx);});
-        })();
-      </script>
     </section>
+
 
     <!-- TOOLS -->
     <section class="project-section reveal">
