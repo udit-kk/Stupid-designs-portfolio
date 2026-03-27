@@ -115,7 +115,13 @@
     .reveal { opacity: 0; transform: translateY(28px); transition: opacity .6s ease, transform .6s ease; }
     .reveal.visible { opacity: 1; transform: none; }
 
-    @media (max-width: 768px) { .related-grid { grid-template-columns: 1fr 1fr; } .hero-overlay { padding: 28px 20px; } }
+    @media (max-width: 768px) { 
+      .related-grid { grid-template-columns: 1fr 1fr; } 
+      .hero-overlay { padding: 24px; }
+      .hero-text h1 { font-size: clamp(1.8rem, 8vw, 2.4rem); }
+      .overview-grid, .type-cards, .packaging-grid { grid-template-columns: 1fr !important; gap: 24px; }
+      .container { padding: 0 20px; }
+    }
     @media (max-width: 480px) { .related-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
@@ -327,7 +333,15 @@
         </div>
 
         <!-- 2-col layout: 4-product grid LEFT | two products stacked RIGHT -->
-        <div style="display:grid;grid-template-columns:55fr 45fr;gap:14px;margin-top:32px;align-items:stretch;">
+        <!-- 2-col layout: 4-product grid LEFT | two products stacked RIGHT -->
+        <!-- 2-col layout: 4-product grid LEFT | two products stacked RIGHT -->
+        <div class="packaging-grid" style="display:grid;grid-template-columns:55fr 45fr;gap:14px;margin-top:32px;align-items:stretch;">
+          <style>
+            @media (max-width: 768px) {
+              .packaging-grid { grid-template-columns: 1fr !important; }
+              .packaging-grid > div { width: 100% !important; }
+            }
+          </style>
 
           <!-- LEFT: overview grid + details -->
           <div style="display:flex; flex-direction:column; gap:14px; flex:1;">
