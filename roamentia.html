@@ -65,8 +65,23 @@
     .project-footer { border-top: 1px solid rgba(255,255,255,.07); padding: 24px; text-align: center; font-size: .78rem; color: #60748a; }
     .reveal { opacity: 0; transform: translateY(28px); transition: opacity .6s ease, transform .6s ease; }
     .reveal.visible { opacity: 1; transform: none; }
-    @media (max-width: 768px) { .related-grid { grid-template-columns: 1fr 1fr; } .hero-overlay { padding: 28px 20px; } }
-    @media (max-width: 480px) { .related-grid { grid-template-columns: 1fr; } }
+    /* ── RESPONSIVE MOBILE FIXES ── */
+    @media (max-width: 768px) {
+      .project-section { padding: 32px 0; }
+      .section-title { font-size: 1.6rem !important; margin-bottom: 10px; line-height: 1.1; }
+      .section-body { font-size: .88rem !important; line-height: 1.4; }
+      .hero-overlay { padding: 24px 20px; }
+      .hero-text h1 { font-size: 2.1rem !important; line-height: 1; }
+      .overview-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
+      .container { padding: 0 16px; }
+      .back-btn { padding: 6px 14px; font-size: .75rem; }
+      .meta-pill { padding: 3px 10px; font-size: .65rem; }
+      .hide-mobile { display: none !important; }
+      .project-hero, .project-hero img { height: 320px; max-height: none; }
+      .related-grid { grid-template-columns: repeat(3, 1fr) !important; gap: 8px !important; }
+      .related-card-body { padding: 8px !important; }
+      .related-title { font-size: .62rem !important; }
+    }
   </style>
 </head>
 <body>
@@ -146,20 +161,20 @@
     </section>
 
     <section class="related reveal">
-      <div class="container">
-        <h3>More Projects</h3>
-        <div class="related-grid">
-          <a href="chosen-kicks.html" class="related-card">
-            <img src="Chosen Kicks – Brand Identity.png" alt="Chosen Kicks" loading="lazy"/>
-            <div class="related-card-body"><div class="related-cat">Branding</div><div class="related-title">Chosen Kicks – Brand Identity</div></div>
+      <div class="container" style="padding-top: 0; padding-bottom: 40px;">
+        <h3 style="font-family:'Sora',sans-serif;font-size:1.1rem;margin-bottom:16px;color:#fff;">More Projects</h3>
+        <div class="related-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;">
+          <a href="rishi-farms.html" class="related-card" style="border-radius:12px;overflow:hidden;background:#0d1728;border:1px solid rgba(255,255,255,.05);display:block;">
+            <img src="Rishi Farms Branding.png" alt="Rishi Farms" style="width:100%;aspect-ratio:1/1;object-fit:cover;"/>
+            <div style="padding:12px;"><div style="font-size:.6rem;color:#1877f2;font-weight:700;text-transform:uppercase;">Branding</div><div style="font-size:.78rem;color:#fff;font-weight:600;margin-top:2px;">Rishi Farms</div></div>
           </a>
-          <a href="rishi-farms.html" class="related-card">
-            <img src="Rishi Farms Branding.png" alt="Rishi Farms" loading="lazy"/>
-            <div class="related-card-body"><div class="related-cat">Branding</div><div class="related-title">Rishi Farms Branding</div></div>
+          <a href="rishi-blends.html" class="related-card" style="border-radius:12px;overflow:hidden;background:#0d1728;border:1px solid rgba(255,255,255,.05);display:block;">
+            <img src="rb-logo-bg.png" alt="Rishi Blends" style="width:100%;aspect-ratio:1/1;object-fit:cover;"/>
+            <div style="padding:12px;"><div style="font-size:.6rem;color:#1877f2;font-weight:700;text-transform:uppercase;">Branding</div><div style="font-size:.78rem;color:#fff;font-weight:600;margin-top:2px;">Rishi Blends</div></div>
           </a>
-          <a href="nandvrinda.html" class="related-card">
-            <img src="Nandvrinda – Essential Oils.jpg" alt="Nandvrinda" loading="lazy"/>
-            <div class="related-card-body"><div class="related-cat">Branding</div><div class="related-title">Nandvrinda – Essential Oils</div></div>
+          <a href="chosen-kicks.html" class="related-card" style="border-radius:12px;overflow:hidden;background:#0d1728;border:1px solid rgba(255,255,255,.05);display:block;">
+            <img src="Chosen Kicks – Brand Identity.png" alt="Chosen Kicks" style="width:100%;aspect-ratio:1/1;object-fit:cover;"/>
+            <div style="padding:12px;"><div style="font-size:.6rem;color:#1877f2;font-weight:700;text-transform:uppercase;">Branding</div><div style="font-size:.78rem;color:#fff;font-weight:600;margin-top:2px;">Chosen Kicks</div></div>
           </a>
         </div>
       </div>

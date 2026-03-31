@@ -115,14 +115,66 @@
     .reveal { opacity: 0; transform: translateY(28px); transition: opacity .6s ease, transform .6s ease; }
     .reveal.visible { opacity: 1; transform: none; }
 
+    /* ── RESPONSIVE MOBILE FIXES ── */
     @media (max-width: 768px) { 
-      .related-grid { grid-template-columns: 1fr 1fr; } 
-      .hero-overlay { padding: 24px; }
-      .hero-text h1 { font-size: clamp(1.8rem, 8vw, 2.4rem); }
-      .overview-grid, .type-cards, .packaging-grid { grid-template-columns: 1fr !important; gap: 24px; }
-      .container { padding: 0 20px; }
+      .project-section { padding: 32px 0; }
+      .section-title { font-size: 1.6rem !important; margin-bottom: 10px; line-height: 1.1; }
+      .section-body { font-size: .88rem !important; line-height: 1.4; }
+      .hero-overlay { padding: 24px 20px; }
+      .hero-text h1 { font-size: 2.1rem !important; line-height: 1; }
+      .overview-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
+      .container { padding: 0 16px; }
+      .back-btn { padding: 6px 14px; font-size: .75rem; }
+      .meta-pill { padding: 3px 10px; font-size: .65rem; }
+      .hide-mobile { display: none !important; }
+      .project-hero, .project-hero img { height: 320px; max-height: none; }
+      .social-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 8px !important; }
+      
+      .logo-showcase { grid-template-columns: 1fr !important; gap: 12px !important; }
+      .logo-card img { height: auto !important; aspect-ratio: 16/9; }
+      .logo-card.dark-bg { padding: 24px !important; height: auto !important; }
+
+      .packaging-grid { grid-template-columns: 1fr !important; gap: 20px !important; }
+      .packaging-grid > div { gap: 20px !important; }
+      .packaging-subgrid { grid-template-columns: 1fr !important; gap: 12px !important; }
+      .flavor-grid { grid-template-columns: 1fr !important; gap: 8px !important; }
+
+      .related-grid { 
+        display: flex !important; 
+        overflow-x: auto !important; 
+        gap: 12px !important; 
+        padding-bottom: 12px;
+        scrollbar-width: none;
+      }
+      .related-grid::-webkit-scrollbar { display: none; }
+      .related-card { flex: 0 0 140px !important; }
+      .related-card-body { padding: 8px !important; }
+      .related-title { font-size: .75rem !important; }
     }
-    @media (max-width: 480px) { .related-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 480px) { 
+      .hero-text h1 { font-size: 1.6rem !important; }
+      .related-grid { grid-template-columns: 1fr !important; } 
+    }
+    /* ── LIGHTBOX ── */
+    .lightbox {
+      position: fixed; inset: 0; z-index: 1000;
+      background: rgba(5, 10, 20, 0.95);
+      display: none; align-items: center; justify-content: center;
+      padding: 40px; opacity: 0; transition: opacity 0.3s ease;
+    }
+    .lightbox.active { display: flex; opacity: 1; }
+    .lightbox-content {
+      max-width: 90%; max-height: 85vh; border-radius: 12px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+      transform: scale(0.95); transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .lightbox.active .lightbox-content { transform: scale(1); }
+    .lightbox-close {
+      position: absolute; top: 30px; right: 40px;
+      font-size: 40px; color: #fff; cursor: pointer;
+      line-height: 1; transition: color 0.2s;
+    }
+    .lightbox-close:hover { color: #f59e0b; }
   </style>
 </head>
 <body>
@@ -142,12 +194,11 @@
     <div class="hero-overlay">
       <div class="hero-text">
         <div class="section-label">Branding · Social Media · Visual Identity</div>
-        <h1>Rishi Blends Brand Identity</h1>
+        <h1>Rishi Blends Identity</h1>
         <div class="hero-meta">
-          <span class="meta-pill blue"><i class="ph ph-tag"></i> Brand Identity</span>
-          <span class="meta-pill blue"><i class="ph ph-coffee"></i> Barley Coffee</span>
+          <span class="meta-pill blue"><i class="ph ph-tag"></i> Branding</span>
+          <span class="meta-pill blue"><i class="ph ph-coffee"></i> Identity</span>
           <span class="meta-pill"><i class="ph ph-calendar"></i> 2024</span>
-          <span class="meta-pill"><i class="ph ph-user"></i> Udit Kumar Chauhan</span>
         </div>
       </div>
     </div>
@@ -163,15 +214,12 @@
             <div class="section-label">Project Overview</div>
             <h2 class="section-title">Where <em>Bold Meets Brew</em></h2>
             <div class="section-body">
-              <p>Rishi Blends is a bold, youth-forward barley coffee brand built on a simple but powerful idea — you don't need beans to have a great brew. The brand speaks to a new generation of wellness-conscious consumers who want flavour, energy, and attitude without the caffeine crash.</p>
-              <p>This project covers the complete brand identity — from the distinctive wordmark and logo system to a vibrant social media creative series that brings the brand to life on Instagram and beyond.</p>
+              <p>Rishi Blends is a bold, youth-forward wellness brand built on a simple but powerful idea — you don't need beans for a great brew. The brand speaks to a new generation of coffee lovers who want flavour, energy, and attitude without the caffeine crash.</p>
+              <p>This project covers the complete brand identity — from the distinctive wordmark to a vibrant social media creative series that brings the brand to life.</p>
             </div>
           </div>
-          <div>
-            <!-- Logo on colourful bg as overview card -->
-            <div style="border-radius:18px; overflow:hidden;">
-              <img src="rb-logo-bg.png" alt="Rishi Blends logo with vibrant gradient background" loading="lazy" style="width:100%; height:320px; object-fit:cover;"/>
-            </div>
+          <div style="border-radius:18px; overflow:hidden;">
+             <img src="rb-logo-bg.png" alt="Rishi Blends logo" loading="lazy" style="width:100%; height:320px; object-fit:cover;"/>
           </div>
         </div>
 
@@ -198,13 +246,13 @@
         </div>
 
         <!-- Two-up: coloured logo + circular badge on dark — equal heights -->
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; margin:32px 0;">
-          <div style="border-radius:18px; overflow:hidden; height:280px;">
+        <div class="logo-showcase" style="margin:32px 0;">
+          <a href="rb-logo-bg.png" class="logo-card lightbox-trigger" style="border-radius:18px; overflow:hidden; height:280px; display:block;">
             <img src="rb-logo-bg.png" alt="Rishi Blends logo on vibrant gradient background" loading="lazy" style="width:100%; height:100%; object-fit:cover;"/>
-          </div>
-          <div style="border-radius:18px; background:#0d1728; height:280px; display:flex; align-items:center; justify-content:center; padding:32px; border:1px solid rgba(255,255,255,.08);">
+          </a>
+          <a href="rb-logo-white.png" class="logo-card lightbox-trigger" style="border-radius:18px; background:#0d1728; height:280px; display:flex; align-items:center; justify-content:center; padding:32px; border:1px solid rgba(255,255,255,.08);">
             <img src="rb-logo-white.png" alt="Rishi Blends circular badge logo" loading="lazy" style="width:100%; max-width:220px; height:auto; object-fit:contain;"/>
-          </div>
+          </a>
         </div>
       </div>
     </section>
@@ -220,7 +268,7 @@
           </div>
           <div class="section-label" style="color:rgba(255,255,255,.7);">About the Brand</div>
           <h2 style="font-family:'Sora',sans-serif; font-size:clamp(2rem,5vw,3rem); font-weight:800; color:#fff; letter-spacing:-.04em; margin-bottom:20px;">About<span style="color:rgba(255,255,255,.6);">...</span></h2>
-          <p style="font-size:1rem; color:rgba(255,255,255,.9); line-height:1.8; max-width:520px; font-style:italic; margin-bottom:28px;">"Rishi Blends" offers delicious powdered drinks, specializing in chai superlattes. With a variety of unique, mostly caffeine-free flavors, each blend combines natural ingredients for a soothing and flavorful experience, perfect for any time of day.</p>
+          <p style="font-size:1.05rem; color:rgba(255,255,255,.9); line-height:2; max-width:520px; font-style:italic; margin-bottom:28px; letter-spacing: 0.015em;">"Rishi Blends" offers delicious powdered drinks, specializing in chai superlattes. With a variety of unique, mostly caffeine-free flavors, each blend combines natural ingredients for a soothing and flavorful experience, perfect for any time of day.</p>
           <!-- Brand pillars -->
           <div style="display:flex; flex-direction:column; gap:10px;">
             <div style="display:flex;align-items:center;gap:12px;"><div style="width:12px;height:12px;border-radius:50%;background:#fff;flex-shrink:0;"></div><span style="color:rgba(255,255,255,.9);font-size:.95rem;font-style:italic;font-weight:500;">Gen-Z</span></div>
@@ -294,31 +342,14 @@
         </div>
 
         <div class="social-grid">
-          <div class="social-card">
-            <img src="rb-social-1.jpg" alt="Rishi Blends — Brew Your Vibe social creative" loading="lazy"/>
-          </div>
-          <div class="social-card">
-            <img src="rb-social-2.jpg" alt="Rishi Blends — No Beans No Drama social creative" loading="lazy"/>
-          </div>
-          <div class="social-card">
-            <img src="rb-social-3.jpg" alt="Rishi Blends — Brewed Bold Blended Better social creative" loading="lazy"/>
-          </div>
+          <a href="rb-social-1.jpg" class="social-card lightbox-trigger"><img src="rb-social-1.jpg" alt="Post 1" loading="lazy"/></a>
+          <a href="rb-social-2.jpg" class="social-card lightbox-trigger"><img src="rb-social-2.jpg" alt="Post 2" loading="lazy"/></a>
+          <a href="rb-social-3.jpg" class="social-card lightbox-trigger"><img src="rb-social-3.jpg" alt="Post 3" loading="lazy"/></a>
         </div>
 
-        <!-- Creative headlines callout -->
-        <div style="display:grid; grid-template-columns: repeat(3,1fr); gap:12px; margin-top: 8px;">
-          <div style="background:#0d1728; border:1px solid rgba(245,158,11,.2); border-radius:12px; padding:14px 16px; text-align:center;">
-            <div style="font-size:.65rem; color:#f59e0b; font-weight:700; text-transform:uppercase; letter-spacing:.1em; margin-bottom:5px;">Creative 01</div>
-            <div style="font-size:.88rem; color:#fff; font-weight:600; line-height:1.3;">Brew Your Vibe</div>
-          </div>
-          <div style="background:#0d1728; border:1px solid rgba(245,158,11,.2); border-radius:12px; padding:14px 16px; text-align:center;">
-            <div style="font-size:.65rem; color:#f59e0b; font-weight:700; text-transform:uppercase; letter-spacing:.1em; margin-bottom:5px;">Creative 02</div>
-            <div style="font-size:.88rem; color:#fff; font-weight:600; line-height:1.3;">No Beans. No Drama.</div>
-          </div>
-          <div style="background:#0d1728; border:1px solid rgba(245,158,11,.2); border-radius:12px; padding:14px 16px; text-align:center;">
-            <div style="font-size:.65rem; color:#f59e0b; font-weight:700; text-transform:uppercase; letter-spacing:.1em; margin-bottom:5px;">Creative 03</div>
-            <div style="font-size:.88rem; color:#fff; font-weight:600; line-height:1.3;">Brewed Bold. Blended Better.</div>
-          </div>
+
+        <div style="display:grid; grid-template-columns: repeat(2,1fr); gap:10px; margin-top: 12px; display: none !important;">
+          <!-- Hidden on mobile if redundant -->
         </div>
       </div>
     </section>
@@ -332,59 +363,52 @@
           <p>Four distinct superlatte flavours — each with its own colour-coded packaging identity. Bold label design, atmospheric gradient textures, and the iconic Rishi Blends wordmark on every pouch.</p>
         </div>
 
-        <!-- 2-col layout: 4-product grid LEFT | two products stacked RIGHT -->
-        <!-- 2-col layout: 4-product grid LEFT | two products stacked RIGHT -->
-        <!-- 2-col layout: 4-product grid LEFT | two products stacked RIGHT -->
-        <div class="packaging-grid" style="display:grid;grid-template-columns:55fr 45fr;gap:14px;margin-top:32px;align-items:stretch;">
-          <style>
-            @media (max-width: 768px) {
-              .packaging-grid { grid-template-columns: 1fr !important; }
-              .packaging-grid > div { width: 100% !important; }
-            }
-          </style>
-
-          <!-- LEFT: overview grid + details -->
-          <div style="display:flex; flex-direction:column; gap:14px; flex:1;">
-            <div style="border-radius:16px;overflow:hidden;">
-              <img src="rb-packaging-grid.jpg" alt="All 4 Rishi Blends flavours" loading="lazy"
-                   style="width:100%;height:auto;display:block;"/>
-            </div>
-
-            <!-- Detail image inside the left column to fill the gap -->
-            <div style="border-radius:16px;overflow:hidden;background:#0d1728;border:1px solid rgba(255,255,255,.05);">
-              <img src="rb-details-1.jpg" alt="Rishi Blends Detail 1" loading="lazy"
-                   style="width:100%;height:auto;display:block;"/>
-            </div>
-          </div>
-
-          <!-- RIGHT: two products stacked -->
-          <div style="display:flex;flex-direction:column;gap:14px;">
-            <div style="border-radius:16px;overflow:hidden;position:relative;background:#97da89;">
-              <img src="rb-packaging-matcha.jpg" alt="Rose Matcha SuperLatte" loading="lazy"
-                   style="width:100%;height:auto;display:block;"/>
-              <div style="position:absolute;bottom:10px;left:12px;background:rgba(0,0,0,.55);backdrop-filter:blur(6px);border-radius:8px;padding:5px 12px;">
-                <div style="font-size:.7rem;color:#22c55e;font-weight:700;text-transform:uppercase;letter-spacing:.08em;">Rose Matcha</div>
-              </div>
-            </div>
-            <div style="border-radius:16px;overflow:hidden;position:relative;background:#8bbbe4;">
-              <img src="rb-packaging-sleeptime.jpg" alt="Sleeptime SuperLatte" loading="lazy"
-                   style="width:100%;height:auto;display:block;"/>
-              <div style="position:absolute;bottom:10px;left:12px;background:rgba(0,0,0,.55);backdrop-filter:blur(6px);border-radius:8px;padding:5px 12px;">
-                <div style="font-size:.7rem;color:#6366f1;font-weight:700;text-transform:uppercase;letter-spacing:.08em;">Sleeptime</div>
+        <!-- Balanced Final Composition (Ratios 50fr 50fr) -->
+        <div class="packaging-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:32px;align-items:stretch;">
+          
+          <!-- LEFT COLUMN (4-Grid Hero + Legend) -->
+          <div style="display:flex; flex-direction:column; gap:20px;">
+            <a href="rb-packaging-grid.jpg" class="lightbox-trigger" style="border-radius:18px;overflow:hidden;display:block;">
+              <img src="rb-packaging-grid.jpg" alt="All 4 Rishi Blends flavours" loading="lazy" style="width:100%;height:auto;display:block;"/>
+            </a>
+            
+            <!-- Redesigned Flavour Legend (Pill Shapes) - Filling the Space -->
+            <div style="padding: 10px 0;">
+              <div class="section-label" style="font-size: .6rem; margin-bottom: 12px; opacity: 0.8;">Available Flavours</div>
+              <style>
+                .flavor-pill {
+                  display: flex; align-items: center; gap: 8px; padding: 8px 16px;
+                  border-radius: 100px; font-size: .75rem; font-weight: 600;
+                  background: transparent; border: 1.5px solid;
+                  margin-bottom: 8px; justify-content: center;
+                }
+              </style>
+              <div class="flavor-grid" style="display:grid; grid-template-columns: 1fr 1fr; gap:10px;">
+                <div class="flavor-pill" style="color:#ef4444; border-color: rgba(239,68,68,0.4);">Rose Cocoa</div>
+                <div class="flavor-pill" style="color:#22c55e; border-color: rgba(34,197,94,0.4);">Rose Matcha</div>
+                <div class="flavor-pill" style="color:#6366f1; border-color: rgba(99,102,241,0.4);">Sleeptime</div>
+                <div class="flavor-pill" style="color:#eab308; border-color: rgba(234,179,8,0.4);">Pumpkin Spice</div>
               </div>
             </div>
           </div>
 
-        </div>
+          <!-- RIGHT COLUMN (Individual Products 2-Up + Ingredients) -->
+          <div style="display:flex; flex-direction:column; gap:20px;">
+            <!-- Individual Highlights Side-by-Side (Stacked on Mobile) -->
+            <div class="packaging-subgrid" style="display:grid; grid-template-columns: 1fr 1fr; gap:20px;">
+              <a href="rb-packaging-matcha.jpg" class="lightbox-trigger" style="border-radius:18px;overflow:hidden;position:relative;background:#97da89;display:block;">
+                <img src="rb-packaging-matcha.jpg" alt="Rose Matcha" loading="lazy" style="width:100%;height:auto;display:block;"/>
+              </a>
+              <a href="rb-packaging-sleeptime.jpg" class="lightbox-trigger" style="border-radius:18px;overflow:hidden;position:relative;background:#8bbbe4;display:block;">
+                <img src="rb-packaging-sleeptime.jpg" alt="Sleeptime" loading="lazy" style="width:100%;height:auto;display:block;"/>
+              </a>
+            </div>
 
-
-
-        <!-- Flavour legend -->
-        <div style="display:flex;gap:20px;margin-top:16px;flex-wrap:wrap;">
-          <div style="display:flex;align-items:center;gap:7px;"><div style="width:9px;height:9px;border-radius:50%;background:#ef4444;"></div><span style="font-size:.78rem;color:#94a3b8;">Rose Cocoa</span></div>
-          <div style="display:flex;align-items:center;gap:7px;"><div style="width:9px;height:9px;border-radius:50%;background:#22c55e;"></div><span style="font-size:.78rem;color:#94a3b8;">Rose Matcha</span></div>
-          <div style="display:flex;align-items:center;gap:7px;"><div style="width:9px;height:9px;border-radius:50%;background:#6366f1;"></div><span style="font-size:.78rem;color:#94a3b8;">Sleeptime</span></div>
-          <div style="display:flex;align-items:center;gap:7px;"><div style="width:9px;height:9px;border-radius:50%;background:#eab308;"></div><span style="font-size:.78rem;color:#94a3b8;">Pumpkin Spice</span></div>
+            <!-- Ingredients Detail Move to Bottom-Right -->
+            <a href="rb-details-1.jpg" class="lightbox-trigger" style="border-radius:18px;overflow:hidden;background:#0d1728;border:1px solid rgba(255,255,255,.05);display:block; flex: 1;">
+              <img src="rb-details-1.jpg" alt="Rishi Blends Ingredient Detail" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+            </a>
+          </div>
         </div>
 
       </div>
@@ -408,22 +432,21 @@
       </div>
     </section>
 
-    <!-- RELATED PROJECTS -->
     <section class="related reveal">
-      <div class="container">
-        <h3>More Projects</h3>
-        <div class="related-grid">
-          <a href="rishi-farms.html" class="related-card">
-            <img src="Rishi Farms Branding.png" alt="Rishi Farms Branding" loading="lazy"/>
-            <div class="related-card-body"><div class="related-cat">Branding</div><div class="related-title">Rishi Farms Branding</div></div>
+      <div class="container" style="padding-top: 0; padding-bottom: 40px;">
+        <h3 style="font-family:'Sora',sans-serif;font-size:1.1rem;margin-bottom:16px;color:#fff;">More Projects</h3>
+        <div class="related-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;">
+          <a href="rishi-farms.html" class="related-card" style="border-radius:12px;overflow:hidden;background:#0d1728;border:1px solid rgba(255,255,255,.05);display:block;">
+            <img src="Rishi Farms Branding.png" alt="Rishi Farms" style="width:100%;aspect-ratio:1/1;object-fit:cover;"/>
+            <div style="padding:12px;"><div style="font-size:.6rem;color:#f59e0b;font-weight:700;text-transform:uppercase;">Branding</div><div style="font-size:.78rem;color:#fff;font-weight:600;margin-top:2px;">Rishi Farms</div></div>
           </a>
-          <a href="nandvrinda.html" class="related-card">
-            <img src="Nandvrinda – Essential Oils.jpg" alt="Nandvrinda Essential Oils" loading="lazy"/>
-            <div class="related-card-body"><div class="related-cat">Branding</div><div class="related-title">Nandvrinda – Essential Oils</div></div>
+          <a href="nandvrinda.html" class="related-card" style="border-radius:12px;overflow:hidden;background:#0d1728;border:1px solid rgba(255,255,255,.05);display:block;">
+            <img src="Nandvrinda – Essential Oils.jpg" alt="Nandvrinda" style="width:100%;aspect-ratio:1/1;object-fit:cover;"/>
+            <div style="padding:12px;"><div style="font-size:.6rem;color:#f59e0b;font-weight:700;text-transform:uppercase;">Branding</div><div style="font-size:.78rem;color:#fff;font-weight:600;margin-top:2px;">Nandvrinda</div></div>
           </a>
-          <a href="chosen-kicks.html" class="related-card">
-            <img src="Chosen Kicks – Brand Identity.png" alt="Chosen Kicks" loading="lazy"/>
-            <div class="related-card-body"><div class="related-cat">Branding</div><div class="related-title">Chosen Kicks – Brand Identity</div></div>
+          <a href="chosen-kicks.html" class="related-card" style="border-radius:12px;overflow:hidden;background:#0d1728;border:1px solid rgba(255,255,255,.05);display:block;">
+            <img src="Chosen Kicks – Brand Identity.png" alt="Chosen Kicks" style="width:100%;aspect-ratio:1/1;object-fit:cover;"/>
+            <div style="padding:12px;"><div style="font-size:.6rem;color:#f59e0b;font-weight:700;text-transform:uppercase;">Branding</div><div style="font-size:.78rem;color:#fff;font-weight:600;margin-top:2px;">Chosen Kicks</div></div>
           </a>
         </div>
       </div>
@@ -435,6 +458,44 @@
     <p>© 2024 Udit Kumar Chauhan &nbsp;·&nbsp; <a href="index.html" style="color:#f59e0b;">Back to Portfolio</a></p>
   </footer>
 
+  <!-- LIGHTBOX MODAL -->
+  <div id="lightbox" class="lightbox">
+    <span class="lightbox-close">&times;</span>
+    <img src="" alt="Zoomed View" class="lightbox-content" id="lightbox-img">
+  </div>
+
   <script src="script.js"></script>
+  <script>
+    // LIGHTBOX LOGIC
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxClose = document.querySelector('.lightbox-close');
+    const triggers = document.querySelectorAll('.lightbox-trigger');
+
+    triggers.forEach(trigger => {
+      trigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        const imgSrc = trigger.getAttribute('href');
+        lightboxImg.setAttribute('src', imgSrc);
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden'; 
+      });
+    });
+
+    const closeLightbox = () => {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = 'auto';
+      setTimeout(() => { lightboxImg.setAttribute('src', ''); }, 300);
+    };
+
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+    
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.classList.contains('active')) closeLightbox();
+    });
+  </script>
 </body>
 </html>

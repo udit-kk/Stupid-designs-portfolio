@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
@@ -31,19 +31,19 @@
       font-family: 'Sora', sans-serif; font-weight: 800; font-size: 1.2rem;
       color: #fff; letter-spacing: -.04em;
     }
-    .nav-logo span { color: #1877f2; }
+    .nav-logo span { color: #2D7A27; }
     .back-btn {
       display: inline-flex; align-items: center; gap: 7px;
       padding: 8px 18px; border-radius: 100px;
-      background: rgba(24,119,242,.12); border: 1px solid rgba(24,119,242,.3);
-      color: #60a5fa; font-size: .84rem; font-weight: 600;
+      background: rgba(45,122,39,.1); border: 1px solid rgba(45,122,39,.4);
+      color: #74f29a; font-size: .84rem; font-weight: 600;
       transition: all .3s ease;
     }
-    .back-btn:hover { background: #1877f2; color: #fff; border-color: #1877f2; }
+    .back-btn:hover { background: #2D7A27; color: #fff; border-color: #2D7A27; }
 
     /* ── HERO ── */
     .project-hero {
-      width: 100%; max-height: 400px; overflow: hidden;
+      width: 100%; max-height: 480px; overflow: hidden;
       position: relative;
     }
     .project-hero img {
@@ -51,55 +51,160 @@
     }
     .hero-overlay {
       position: absolute; inset: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,.2) 0%, rgba(5,10,20,.8) 100%);
+      background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(10,15,30,.9) 100%);
       display: flex; align-items: flex-end;
       padding: 48px;
     }
     .hero-text h1 {
-      font-family: 'Sora', sans-serif; font-size: clamp(2rem, 5vw, 3.5rem);
-      font-weight: 800; color: #fff; letter-spacing: -.04em; margin-bottom: 10px;
+      font-family: 'Sora', sans-serif; font-size: clamp(2.2rem, 5vw, 4rem);
+      font-weight: 800; color: #fff; letter-spacing: -.04em; margin-bottom: 12px;
+      line-height: 1.05;
     }
-    .hero-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
     .meta-pill {
       display: inline-flex; align-items: center; gap: 6px;
-      background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2);
-      border-radius: 100px; padding: 4px 14px;
-      font-size: .75rem; font-weight: 600; color: rgba(255,255,255,.85);
+      background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15);
+      border-radius: 100px; padding: 6px 16px;
+      font-size: .78rem; font-weight: 700; color: #fff;
     }
-    .meta-pill.blue { background: rgba(24,119,242,.2); border-color: rgba(24,119,242,.4); color: #60a5fa; }
+    .meta-pill.green { background: #2D7A27; border-color: #4ade80; color: #fff; }
+    .meta-pill.blue { background: #2D7A27; border-color: #4ade80; color: #fff; }
 
-    /* ── CONTAINER ── */
-    .container { max-width: 1000px; margin: 0 auto; padding: 0 40px; }
-    @media (max-width: 768px) { .container { padding: 0 24px; } }
+    /* ── MOBILE OVERRIDES ── */
+    @media (max-width: 768px) {
+      .project-hero { height: auto !important; aspect-ratio: 16/9 !important; max-height: none !important; }
+      .project-hero img { height: 100% !important; object-fit: cover; }
+      .hero-overlay { padding: 24px 20px; }
+      .hero-text h1 { font-size: 2.2rem !important; line-height: 1; margin-bottom: 8px; }
+      .hero-meta { gap: 6px; }
+      .meta-pill { padding: 4px 12px; font-size: .7rem; }
+      
+      .overview-grid { 
+        display: flex !important; 
+        flex-direction: row-reverse !important; 
+        align-items: center !important; 
+        gap: 16px !important; 
+      }
+      .overview-text { flex: 1.2; }
+      .overview-img { flex: 0.8; max-width: 120px; }
+      .overview-img img { border-radius: 12px; }
+      .section-title { font-size: 1.6rem !important; line-height: 1.1; margin-bottom: 8px; }
+      .section-body { font-size: .85rem !important; line-height: 1.4; }
+      .section-body p { margin-bottom: 8px !important; }
+      
+    /* Stats Grid */
+    .stats-row { 
+      display: grid; 
+      grid-template-columns: repeat(2, 1fr); 
+      gap: 24px; 
+      max-width: 600px;
+      margin-top: 48px;
+    }
+    .stat-box { 
+      padding: 40px 24px; 
+      border-radius: 18px; 
+      border: 1px solid rgba(74, 222, 128, 0.4); 
+      background: rgba(74, 222, 128, 0.03); 
+      text-align: center; 
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+    .stat-box:hover {
+      transform: translateY(-5px);
+      border-color: #4ade80;
+      background: rgba(74, 222, 128, 0.06);
+    }
+    .stat-val { 
+      font-size: 3.5rem; 
+      line-height: 1.1; 
+      font-weight: 800; 
+      margin-bottom: 8px;
+      background: linear-gradient(135deg, #4ade80 0%, #ffffff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-family: 'Sora', sans-serif;
+    }
+    .stat-lbl { 
+      font-size: .85rem; 
+      color: #94a3b8; 
+      font-weight: 600; 
+      text-transform: uppercase; 
+      letter-spacing: 0.1em; 
+    }
 
+    @media (max-width: 768px) {
+      .stats-row { gap: 16px; margin-top: 32px; }
+      .stat-box { padding: 30px 16px; }
+      .stat-val { font-size: 2.8rem; }
+      .stat-lbl { font-size: 0.75rem; }
+    }
+      
+      /* Social Grid Mobile (Scrollable) */
+      .social-grid { 
+        display: flex !important;
+        overflow-x: auto !important; 
+        gap: 12px !important; 
+        padding-bottom: 20px !important;
+        scrollbar-width: none;
+        max-width: none !important;
+        margin: 0 -20px !important; 
+        padding: 0 40px !important;
+        justify-content: flex-start !important;
+      }
+      .social-grid::-webkit-scrollbar { display: none; }
+      .social-card { 
+        flex: 0 0 260px !important; 
+        border-radius: 18px !important; 
+        overflow: hidden; 
+      }
+      
+      .related-grid { 
+        display: flex !important; 
+        overflow-x: auto !important; 
+        gap: 12px !important; 
+        padding-bottom: 12px;
+        scrollbar-width: none;
+      }
+      .related-grid::-webkit-scrollbar { display: none; }
+      .related-card { flex: 0 0 140px !important; }
+      .related-card-body { padding: 8px !important; }
+      .related-title { font-size: .75rem !important; }
+    }
+
+    .container { max-width: 1050px; margin: 0 auto; padding: 0 40px; }
+    
     /* ── SECTION DIVIDER ── */
     .project-section { padding: 60px 0; border-bottom: 1px solid rgba(255,255,255,.06); }
     .project-section:last-child { border-bottom: none; }
     .section-label {
-      font-size: .7rem; font-weight: 700; color: #1877f2;
-      text-transform: uppercase; letter-spacing: .12em; margin-bottom: 14px;
+      font-size: .72rem; font-weight: 800; color: #4ade80;
+      text-transform: uppercase; letter-spacing: .15em; margin-bottom: 14px;
     }
     .section-title {
-      font-family: 'Sora', sans-serif; font-size: clamp(1.5rem, 3.5vw, 2.2rem);
-      font-weight: 800; color: #fff; line-height: 1.15; letter-spacing: -.03em;
+      font-family: 'Sora', sans-serif; font-size: clamp(1.6rem, 3.8vw, 2.5rem);
+      font-weight: 800; color: #fff; line-height: 1.1; letter-spacing: -.03em;
       margin-bottom: 16px;
     }
     .section-title em {
       font-style: normal;
-      background: linear-gradient(135deg, #1877f2 0%, #60a5fa 100%);
+      background: linear-gradient(135deg, #4ade80 0%, #2D7A27 100%);
       -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
     }
-    .section-body { font-size: .95rem; color: #94a3b8; line-height: 1.8; max-width: 680px; }
+    .section-body { font-size: .98rem; color: #cbd5e1; line-height: 1.7; max-width: 720px; }
     .section-body p { margin-bottom: 12px; }
     .section-body p:last-child { margin-bottom: 0; }
 
     /* ── QUOTE BLOCK ── */
     .quote-block {
-      background: rgba(24,119,242,.07); border-left: 4px solid #1877f2;
+      background: rgba(45,122,39,.08); border-left: 4px solid #2D7A27;
       border-radius: 0 12px 12px 0; padding: 24px 28px; margin: 32px 0;
     }
     .quote-block p {
-      font-size: 1.05rem; color: #e2e8f0; font-style: italic; line-height: 1.75;
+      font-size: 1.05rem; color: #e2e8f0; font-style: italic; line-height: 1.7;
     }
 
     /* ── IMAGE BLOCKS ── */
@@ -145,7 +250,6 @@
     /* ── TWO-COLUMN SECTION GRID ── */
     .overview-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; margin-bottom: 16px; }
     .overview-img img { width: 100%; height: auto; border-radius: 16px; object-fit: cover; }
-    @media (max-width: 768px) { .overview-grid { grid-template-columns: 1fr; gap: 32px; } }
 
     /* ── TYPOGRAPHY CARDS ── */
     .type-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 28px 0; }
@@ -183,66 +287,62 @@
     }
     .tool-pill .ph { color: #1877f2; }
 
-    /* ── STATS ── */
-    .stats-row { display: flex; flex-wrap: wrap; gap: 0; margin: 32px 0; }
-    .stat-box {
-      flex: 1; min-width: 130px;
-      background: #0d1728; border: 1px solid rgba(255,255,255,.07);
-      padding: 24px 20px; text-align: center;
-    }
-    .stat-box:first-child { border-radius: 12px 0 0 12px; }
-    .stat-box:last-child { border-radius: 0 12px 12px 0; }
-    .stat-val { font-family: 'Sora', sans-serif; font-size: 2rem; font-weight: 800; color: #1877f2; }
-    .stat-lbl { font-size: .73rem; color: #60748a; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; margin-top: 4px; }
-
-    /* ── RELATED PROJECTS ── */
-    .related { padding: 60px 0 80px; }
-    .related h3 { font-family: 'Sora', sans-serif; font-size: 1.4rem; font-weight: 800; color: #fff; margin-bottom: 24px; }
-    .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .related-card {
-      background: #0d1728; border: 1px solid rgba(255,255,255,.07);
-      border-radius: 14px; overflow: hidden; cursor: pointer;
-      transition: transform .3s ease, border-color .3s ease;
-    }
-    .related-card:hover { transform: translateY(-4px); border-color: rgba(24,119,242,.4); }
-    .related-card img { width: 100%; aspect-ratio: 1/1; object-fit: cover; }
-    .related-card-body { padding: 12px 14px; }
-    .related-cat { font-size: .62rem; color: #1877f2; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; }
-    .related-title { font-size: .87rem; color: #fff; font-weight: 600; margin-top: 3px; line-height: 1.3; }
-
-    /* ── FOOTER ── */
-    .project-footer {
-      border-top: 1px solid rgba(255,255,255,.07);
-      padding: 24px; text-align: center;
-      font-size: .78rem; color: #60748a;
-    }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 768px) {
-      .hero-overlay { padding: 28px 20px; }
-      .img-grid-2, .img-grid-3, .type-cards { grid-template-columns: 1fr; }
-      .related-grid { grid-template-columns: 1fr 1fr; }
-      .stat-box { min-width: 100px; }
+    /* ── RESPONSIVE MOBILE FIXES ── */
+    /* (Legacy media query removed in favor of modernized version above) */
+    @media (max-width: 600px) {
+      .stats-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+      .stat-box { border-radius: 10px !important; margin-bottom: 0; border: 1px solid rgba(255,255,255,.07) !important; padding: 12px; }
     }
     @media (max-width: 480px) {
-      .related-grid { grid-template-columns: 1fr; }
-      .palette { gap: 16px; }
+      .palette { justify-content: center; gap: 12px; }
+      .swatch-circle { width: 44px; height: 44px; }
     }
     /* ── GREEN CURSOR OVERRIDES ── */
-    #cursor-dot-outer { border-color: rgba(34,197,94,.5); }
+    #cursor-dot-outer { border-color: rgba(74,222,128,.5); }
     #cursor-dot-inner {
       background: #4ade80;
-      box-shadow: 0 0 8px 2px #22c55e, 0 0 22px 6px rgba(34,197,94,.45);
+      box-shadow: 0 0 8px 2px #2D7A27, 0 0 22px 6px rgba(74,222,128,.45);
     }
     body.hovering #cursor-dot-outer {
-      border-color: rgba(34,197,94,.85); background: rgba(34,197,94,.05);
+      border-color: rgba(74,222,128,.85); background: rgba(74,222,128,.05);
     }
     body.hovering #cursor-dot-inner {
-      box-shadow: 0 0 14px 5px #22c55e, 0 0 40px 12px rgba(34,197,94,.5);
+      box-shadow: 0 0 14px 5px #2D7A27, 0 0 40px 12px rgba(74,222,128,.5);
     }
     body.click-active #cursor-dot-inner {
-      box-shadow: 0 0 20px 8px #22c55e, 0 0 60px 20px rgba(34,197,94,.6);
+      box-shadow: 0 0 20px 8px #2D7A27, 0 0 60px 20px rgba(74,222,128,.6);
     }
+    /* ── BASE GRID DEFAULTS (Desktop 4-Col) ── */
+    .social-grid { 
+      display: grid !important; 
+      grid-template-columns: repeat(4, 1fr) !important; 
+      gap: 20px !important; 
+      max-width: 1050px; 
+      margin: 32px auto !important; 
+    }
+    .social-card { border-radius: 18px !important; overflow: hidden; transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+    .social-card:hover { transform: scale(1.03); }
+
+    /* ── LIGHTBOX ── */
+    .lightbox {
+      position: fixed; inset: 0; z-index: 1000;
+      background: rgba(5, 10, 20, 0.95);
+      display: none; align-items: center; justify-content: center;
+      padding: 40px; opacity: 0; transition: opacity 0.3s ease;
+    }
+    .lightbox.active { display: flex; opacity: 1; }
+    .lightbox-content {
+      max-width: 90%; max-height: 85vh; border-radius: 12px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+      transform: scale(0.95); transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .lightbox.active .lightbox-content { transform: scale(1); }
+    .lightbox-close {
+      position: absolute; top: 30px; right: 40px;
+      font-size: 40px; color: #fff; cursor: pointer;
+      line-height: 1; transition: color 0.2s;
+    }
+    .lightbox-close:hover { color: #4ade80; }
   </style>
 </head>
 <body>
@@ -267,10 +367,9 @@
         <div class="section-label">Branding · Packaging · Identity</div>
         <h1>Rishi Farms Branding</h1>
         <div class="hero-meta">
-          <span class="meta-pill blue"><i class="ph ph-tag"></i> Brand Identity</span>
-          <span class="meta-pill blue"><i class="ph ph-package"></i> Packaging Design</span>
+          <span class="meta-pill green"><i class="ph ph-tag"></i> Branding</span>
+          <span class="meta-pill green"><i class="ph ph-package"></i> Packaging</span>
           <span class="meta-pill"><i class="ph ph-calendar"></i> 2024</span>
-          <span class="meta-pill"><i class="ph ph-user"></i> Udit Kumar Chauhan</span>
         </div>
       </div>
     </div>
@@ -291,9 +390,9 @@
               <p>This project covers the complete brand ecosystem — from the logo mark and visual language to packaging for six distinct product lines and a full social media presence.</p>
             </div>
           </div>
-          <div class="overview-img">
-            <img src="Rishi Farms Branding.png" alt="Rishi Farms Logo with Farm Background" loading="lazy" style="aspect-ratio: 1/1; object-fit: contain; padding: 18px; border-radius: 16px; background: #0d1728; width: 100%;"/>
-          </div>
+          <a href="Rishi Farms Branding.png" class="overview-img lightbox-trigger" style="border-radius: 18px; overflow: hidden; display: flex; align-items: center; justify-content: center; background: #0d1728; padding: 30px;">
+            <img src="Rishi Farms Branding.png" alt="Rishi Farms Logo" loading="lazy" style="max-width: 100%; height: auto; display: block;"/>
+          </a>
         </div>
 
         <div class="quote-block">
@@ -301,10 +400,10 @@
         </div>
 
         <div class="stats-row">
-          <div class="stat-box"><div class="stat-val">6</div><div class="stat-lbl">Products Packaged</div></div>
-          <div class="stat-box"><div class="stat-val">3</div><div class="stat-lbl">Core Hero Products</div></div>
-          <div class="stat-box"><div class="stat-val">100%</div><div class="stat-lbl">Vector Artwork</div></div>
-          <div class="stat-box"><div class="stat-val">21</div><div class="stat-lbl">Social Creatives</div></div>
+          <div class="stat-box"><div class="stat-val">6</div><div class="stat-lbl">Products designed</div></div>
+          <div class="stat-box"><div class="stat-val">21+</div><div class="stat-lbl">Creatives</div></div>
+          <div class="stat-box"><div class="stat-val">3</div><div class="stat-lbl">Signature blends</div></div>
+          <div class="stat-box"><div class="stat-val">100%</div><div class="stat-lbl">Premium quality</div></div>
         </div>
       </div>
     </section>
@@ -320,28 +419,32 @@
               <p>The logo mark is a circular emblem representing a <strong style="color:#e2e8f0;">sprout emerging from the earth</strong>, encapsulated in a clean ring. Every element is intentional:</p>
             </div>
             
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:24px;">
-              <div style="background:#0d1728;border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:20px 18px;">
-                <div style="font-size:.68rem;color:#2D7A27;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:7px;">🌱 Plant Symbol</div>
-                <p style="font-size:.85rem;color:#94a3b8;line-height:1.6;">Growth &amp; Nature</p>
+            <div class="icon-grid" style="display:grid;grid-template-columns:repeat(4, 1fr);gap:14px;margin-top:28px;">
+              <div class="icon-box" style="background:#0d1728;border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:24px 12px;text-align:center;">
+                <i class="ph ph-leaf" style="font-size:1.8rem;color:#4ade80;margin-bottom:10px;display:block;"></i>
+                <div class="icon-box-title" style="font-size:.65rem;color:#4ade80;font-weight:800;text-transform:uppercase;letter-spacing:.12em;margin-bottom:6px;">Symbol</div>
+                <p class="icon-box-desc" style="font-size:.8rem;color:#94a3b8;line-height:1.4;">Plant Symbol</p>
               </div>
-              <div style="background:#0d1728;border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:20px 18px;">
-                <div style="font-size:.68rem;color:#E1A919;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:7px;">🕉 Rishi</div>
-                <p style="font-size:.85rem;color:#94a3b8;line-height:1.6;">Tradition &amp; Wisdom</p>
+              <div class="icon-box" style="background:#0d1728;border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:24px 12px;text-align:center;">
+                <i class="ph ph-sun" style="font-size:1.8rem;color:#E1A919;margin-bottom:10px;display:block;"></i>
+                <div class="icon-box-title" style="font-size:.65rem;color:#E1A919;font-weight:800;text-transform:uppercase;letter-spacing:.12em;margin-bottom:6px;">Rishi</div>
+                <p class="icon-box-desc" style="font-size:.8rem;color:#94a3b8;line-height:1.4;">Ancient Wisdom</p>
               </div>
-              <div style="background:#0d1728;border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:20px 18px;">
-                <div style="font-size:.68rem;color:#1877f2;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:7px;">⚛ Panch Tattva</div>
-                <p style="font-size:.85rem;color:#94a3b8;line-height:1.6;">Cosmic Elements</p>
+              <div class="icon-box" style="background:#0d1728;border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:24px 12px;text-align:center;">
+                <i class="ph ph-sphere" style="font-size:1.8rem;color:#F2F2E4;margin-bottom:10px;display:block;"></i>
+                <div class="icon-box-title" style="font-size:.65rem;color:#F2F2E4;font-weight:800;text-transform:uppercase;letter-spacing:.12em;margin-bottom:6px;">Tattva</div>
+                <p class="icon-box-desc" style="font-size:.8rem;color:#94a3b8;line-height:1.4;">Panch Tatva</p>
               </div>
-              <div style="background:#0d1728;border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:20px 18px;">
-                <div style="font-size:.68rem;color:#5C2E1B;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:7px;">⛰ Fields</div>
-                <p style="font-size:.85rem;color:#94a3b8;line-height:1.6;">Cultivation</p>
+              <div class="icon-box" style="background:#0d1728;border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:24px 12px;text-align:center;">
+                <i class="ph ph-rows" style="font-size:1.8rem;color:#4ade80;margin-bottom:10px;display:block;"></i>
+                <div class="icon-box-title" style="font-size:.65rem;color:#4ade80;font-weight:800;text-transform:uppercase;letter-spacing:.12em;margin-bottom:6px;">Fields</div>
+                <p class="icon-box-desc" style="font-size:.8rem;color:#94a3b8;line-height:1.4;">Organic Fields</p>
               </div>
             </div>
           </div>
-          <div class="overview-img" style="background:#0d1728; border-radius:16px; padding:40px; display:flex; align-items:center;">
-            <img src="rishi-farms-logo-white.png.png" alt="Rishi Farms White Logo Diagram" loading="lazy" style="border-radius:0;"/>
-          </div>
+          <a href="rishi-farms-logo-white.png.png" class="overview-img lightbox-trigger" style="border-radius: 18px; overflow: hidden; background: #0d1728; display: flex; align-items: center; justify-content: center; padding: 50px 20px;">
+            <img src="rishi-farms-logo-white.png.png" alt="Rishi Farms White Logo" loading="lazy" style="width: 80%; height: auto; display: block;"/>
+          </a>
         </div>
       </div>
     </section>
@@ -367,11 +470,11 @@
               <div class="swatch"><div class="swatch-circle" style="background:#1A1A0F;"></div><div class="swatch-label">Deep Black</div></div>
             </div>
           </div>
-          <div class="overview-img">
+          <a href="rf-logo-construction.png" class="overview-img lightbox-trigger" style="display: block; border-radius: 18px; overflow: hidden;">
             <div class="logo-construct-img" style="margin-top:0;">
               <img src="rf-logo-construction.png" alt="Rishi Farms Logo Grid Construction Diagram" loading="lazy"/>
             </div>
-          </div>
+          </a>
         </div>
       </div>
     </section>
@@ -410,26 +513,28 @@
           <p>Each product line received a unique coloured label while sharing the same arched-frame design motif — creating instant shelf recognition while allowing individual character for each SKU.</p>
         </div>
         <div class="full-img" style="max-width: 650px; margin: 32px auto;">
-          <img src="rf-packaging-grid.png" alt="All six Rishi Farms products in arched frame mockups" loading="lazy"/>
+          <a href="rf-packaging-grid.png" class="lightbox-trigger" style="display: block; border-radius: 16px; overflow: hidden;">
+            <img src="rf-packaging-grid.png" alt="All six Rishi Farms products in arched frame mockups" loading="lazy"/>
+          </a>
         </div>
         <!-- Individual hero product cards: 545×700 portrait -->
         <div class="img-grid-3 portrait-grid" style="margin-top: 20px;">
-          <div class="img-card">
+          <a href="rf-barley-coffee.png" class="img-card lightbox-trigger" style="display: block;">
             <img src="rf-barley-coffee.png" alt="Barley Coffee — Naturally Caffeine Free product poster" loading="lazy"/>
             <div class="img-caption">Barley Coffee</div>
-          </div>
-          <div class="img-card">
+          </a>
+          <a href="rf-turmeric-latte.png" class="img-card lightbox-trigger" style="display: block;">
             <img src="rf-turmeric-latte.png" alt="Turmeric Latte — A Magic Healer product poster" loading="lazy"/>
             <div class="img-caption">Turmeric Latte</div>
-          </div>
-          <div class="img-card">
+          </a>
+          <a href="rf-missing-product.png.png" class="img-card lightbox-trigger" style="display: block;">
             <img src="rf-missing-product.png.png" alt="Rishi Farms 3rd Product Packaging" loading="lazy" style="width:100%;height:100%;object-fit:cover;"/>
             <div class="img-caption">New Product</div>
-          </div>
+          </a>
         </div>
-        <div style="margin-top: 8px; padding: 14px 18px; background: rgba(24,119,242,.06); border: 1px solid rgba(24,119,242,.15); border-radius: 12px; font-size: .83rem; color: #94a3b8;">
-          <i class="ph ph-info" style="color:#1877f2;margin-right:6px;"></i>
-          Product line includes: <strong style="color:#e2e8f0;">Barley Coffee, Turmeric Latte, Barley Tisane, Himalayan Pink Salt, Bajra Namkeen,</strong> and <strong style="color:#e2e8f0;">Raw Sugar</strong>.
+        <div class="packaging-info" style="margin-top: 16px; padding: 18px 20px; background: rgba(45,122,39,.1); border: 1px solid rgba(45,122,39,.2); border-radius: 12px; font-size: .88rem; color: #94a3b8; line-height: 1.6;">
+          <i class="ph ph-info" style="color:#4ade80;margin-right:6px;"></i>
+          Product line includes: <strong style="color: #fff;">Barley Coffee, Turmeric Latte, Barley Tisane, Himalayan Pink Salt, Bajra Namkeen,</strong> and <strong style="color: #fff;">Raw Sugar</strong>.
         </div>
       </div>
     </section>
@@ -439,17 +544,19 @@
     <!-- SOCIAL MEDIA -->
     <section class="project-section reveal">
       <div class="container">
-        <div class="section-label">Social Media Creatives</div>
+        <div class="section-label" style="display: flex; align-items: center; gap: 10px;">
+          Social Media Creatives
+          <a href="https://www.instagram.com/rishifoods.in/" target="_blank" style="color: #bc1888; font-size: 1.1rem; display: flex; align-items: center;"><i class="ph ph-instagram-logo"></i></a>
+        </div>
         <h2 class="section-title">A Feed That <em>Converts</em></h2>
         <div class="section-body">
           <p>Over 21 Instagram and Facebook posts were designed to establish Rishi Farms' online presence. The posts blend lifestyle photography, product highlighting, and informative recipe content — driving engagement across the organic food community.</p>
         </div>
-        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-top: 32px;">
-          <!-- User will provide 1:1 images for social media here -->
-          <div class="img-card" style="aspect-ratio: 1/1; flex: 1 1 200px; max-width: 250px; border-radius: 14px; overflow: hidden;"><img src="rf-social-1.jpg" alt="Social Media Post 1" loading="lazy" style="width:100%;height:100%;object-fit:cover;"/></div>
-          <div class="img-card" style="aspect-ratio: 1/1; flex: 1 1 200px; max-width: 250px; border-radius: 14px; overflow: hidden;"><img src="rf-social-2.jpg" alt="Social Media Post 2" loading="lazy" style="width:100%;height:100%;object-fit:cover;"/></div>
-          <div class="img-card" style="aspect-ratio: 1/1; flex: 1 1 200px; max-width: 250px; border-radius: 14px; overflow: hidden;"><img src="rf-social-3.jpg" alt="Social Media Post 3" loading="lazy" style="width:100%;height:100%;object-fit:cover;"/></div>
-          <div class="img-card" style="aspect-ratio: 1/1; flex: 1 1 200px; max-width: 250px; border-radius: 14px; overflow: hidden;"><img src="rf-social-4.jpg" alt="Social Media Post 4" loading="lazy" style="width:100%;height:100%;object-fit:cover;"/></div>
+        <div class="social-grid">
+          <a href="rf-social-1.jpg" class="social-card lightbox-trigger"><img src="rf-social-1.jpg" alt="Social Post 1" loading="lazy" style="width:100%;height:100%;object-fit:cover;"/></a>
+          <a href="rf-social-2.jpg" class="social-card lightbox-trigger"><img src="rf-social-2.jpg" alt="Social Post 2" loading="lazy" style="width:100%;height:100%;object-fit:cover;"/></a>
+          <a href="rf-social-3.jpg" class="social-card lightbox-trigger"><img src="rf-social-3.jpg" alt="Social Post 3" loading="lazy" style="width:100%;height:100%;object-fit:cover;"/></a>
+          <a href="rf-social-4.jpg" class="social-card lightbox-trigger"><img src="rf-social-4.jpg" alt="Social Post 4" loading="lazy" style="width:100%;height:100%;object-fit:cover;"/></a>
         </div>
       </div>
     </section>
@@ -465,7 +572,6 @@
         <div class="tools-row">
           <div class="tool-pill"><i class="ph ph-pencil-simple-line"></i> Adobe Illustrator</div>
           <div class="tool-pill"><i class="ph ph-image"></i> Adobe Photoshop</div>
-          <div class="tool-pill"><i class="ph ph-figma-logo"></i> Figma</div>
           <div class="tool-pill"><i class="ph ph-package"></i> Packaging Design</div>
           <div class="tool-pill"><i class="ph ph-palette"></i> Brand Identity</div>
         </div>
@@ -475,28 +581,19 @@
     <!-- RELATED PROJECTS -->
     <section class="related reveal">
       <div class="container">
-        <h3>More Projects</h3>
-        <div class="related-grid">
-          <a href="rishi-blends.html" class="related-card">
-            <img src="Rishi Blends Brand Identity.png" alt="Rishi Blends Brand Identity" loading="lazy"/>
-            <div class="related-card-body">
-              <div class="related-cat">Branding</div>
-              <div class="related-title">Rishi Blends Brand Identity</div>
-            </div>
+        <h3 style="font-family:'Sora',sans-serif;font-size:1.2rem;margin-bottom:20px;">More Projects</h3>
+        <div class="related-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
+          <a href="rishi-blends.html" class="related-card" style="border-radius:14px;overflow:hidden;background:#0d1728;border:1px solid rgba(255,255,255,.05);display:block;">
+            <img src="rb-packaging-grid.jpg" alt="Rishi Blends" style="width:100%;aspect-ratio:1/1;object-fit:cover;"/>
+            <div class="related-card-body" style="padding:14px;"><div style="font-size:.65rem;color:#4ade80;font-weight:700;text-transform:uppercase;">Branding</div><div class="related-title" style="font-size:.85rem;color:#fff;font-weight:600;margin-top:2px;">Rishi Blends</div></div>
           </a>
-          <a href="nandvrinda.html" class="related-card">
-            <img src="Nandvrinda – Essential Oils.jpg" alt="Nandvrinda Essential Oils" loading="lazy"/>
-            <div class="related-card-body">
-              <div class="related-cat">Branding</div>
-              <div class="related-title">Nandvrinda – Essential Oils</div>
-            </div>
+          <a href="nandvrinda.html" class="related-card" style="border-radius:14px;overflow:hidden;background:#0d1728;border:1px solid rgba(255,255,255,.05);display:block;">
+            <img src="Nandvrinda – Essential Oils.jpg" alt="Nandvrinda" style="width:100%;aspect-ratio:1/1;object-fit:cover;"/>
+            <div class="related-card-body" style="padding:14px;"><div style="font-size:.65rem;color:#4ade80;font-weight:700;text-transform:uppercase;">Branding</div><div class="related-title" style="font-size:.85rem;color:#fff;font-weight:600;margin-top:2px;">Nandvrinda</div></div>
           </a>
-          <a href="chosen-kicks.html" class="related-card">
-            <img src="Chosen Kicks – Brand Identity.png" alt="Chosen Kicks" loading="lazy"/>
-            <div class="related-card-body">
-              <div class="related-cat">Branding</div>
-              <div class="related-title">Chosen Kicks – Brand Identity</div>
-            </div>
+          <a href="creative-memories.html" class="related-card" style="border-radius:14px;overflow:hidden;background:#0d1728;border:1px solid rgba(255,255,255,.05);display:block;">
+            <img src="Creative Memories.png" alt="Creative Memories" style="width:100%;aspect-ratio:1/1;object-fit:cover;"/>
+            <div class="related-card-body" style="padding:14px;"><div style="font-size:.65rem;color:#4ade80;font-weight:700;text-transform:uppercase;">Branding</div><div class="related-title" style="font-size:.85rem;color:#fff;font-weight:600;margin-top:2px;">Creative Memories</div></div>
           </a>
         </div>
       </div>
@@ -506,9 +603,47 @@
 
   <!-- FOOTER -->
   <footer class="project-footer">
-    <p>© 2024 Udit Kumar Chauhan &nbsp;·&nbsp; <a href="index.html" style="color:#1877f2;">Back to Portfolio</a></p>
+    <p>© 2024 Udit Kumar Chauhan &nbsp;·&nbsp; <a href="index.html" style="color:#2D7A27;">Back to Portfolio</a></p>
   </footer>
 
+  <!-- LIGHTBOX MODAL -->
+  <div id="lightbox" class="lightbox">
+    <span class="lightbox-close">&times;</span>
+    <img src="" alt="Zoomed View" class="lightbox-content" id="lightbox-img">
+  </div>
+
   <script src="script.js"></script>
+  <script>
+    // LIGHTBOX LOGIC
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxClose = document.querySelector('.lightbox-close');
+    const triggers = document.querySelectorAll('.lightbox-trigger');
+
+    triggers.forEach(trigger => {
+      trigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        const imgSrc = trigger.getAttribute('href');
+        lightboxImg.setAttribute('src', imgSrc);
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent scroll
+      });
+    });
+
+    const closeLightbox = () => {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = 'auto';
+      setTimeout(() => { lightboxImg.setAttribute('src', ''); }, 300);
+    };
+
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+    
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.classList.contains('active')) closeLightbox();
+    });
+  </script>
 </body>
 </html>

@@ -129,6 +129,20 @@ img { max-width: 100% !important; height: auto !important; }
   .ft-brand { grid-column: span 2 !important; }
   .ft-col:last-of-type { grid-column: span 2 !important; }
   .ft-bottom { font-size: .7rem !important; padding: 16px !important; text-align: center !important; }
+
+  /* ── Related Projects (Horizontal Flex) ── */
+  .related { padding: 40px 0 !important; }
+  .related h3 { font-size: 1.1rem !important; margin-bottom: 16px !important; }
+  .related-grid { 
+    display: flex !important; flex-wrap: nowrap !important; 
+    gap: 12px !important; overflow-x: auto !important; 
+    -webkit-overflow-scrolling: touch !important; padding-bottom: 15px !important;
+    scrollbar-width: none !important;
+  }
+  .related-grid::-webkit-scrollbar { display: none !important; }
+  .related-card { flex: 0 0 140px !important; min-width: 140px !important; }
+  .related-card-body { padding: 8px !important; }
+  .related-title { font-size: .75rem !important; line-height: 1.2 !important; }
 }
 
 @media (max-width: 480px) {
