@@ -14,95 +14,303 @@
     /* TAN NIMBUS local font */
     @font-face {
       font-family: 'TanNimbus';
-      src: url('rb-font-tannimbus.otf') format('opentype'),
-           url('rb-font-tannimbus.ttf') format('truetype'),
-           url('rb-font-tannimbus.woff2') format('woff2');
-      font-weight: normal;
-      font-style: normal;
+      src: url('rb-font-tannimbus.ttf') format('truetype');
+      font-weight: normal; font-style: normal;
     }
 
-    /* Project-Specific Variations (Purple theme) */
-    :root { --blue: #7C00E8; } /* Overriding master blue with herbal purple */
-    
-    /*  RESTORED ORIGINAL HERO  */
+    /* ── Rishi Blends Brand Theme ─────────────────── */
+    :root {
+      --blue: #7C00E8;
+      --rb-orange: #FF6B00;
+      --rb-magenta: #E8006B;
+      --rb-violet: #7C00E8;
+      --rb-yellow: #FFCC00;
+    }
+
+    .nav-logo span { color: #7C00E8; }
+    .back-btn { background: rgba(124,0,232,.1); border: 1px solid rgba(124,0,232,.4); color: #a855f7; }
+    .back-btn:hover { background: #7C00E8; border-color: #7C00E8; color: #fff; }
+
+    /* ── Hero (fixed – no stretch) ─────────────────── */
     .project-hero {
-      width: 100%; max-height: 480px; overflow: hidden;
-      position: relative; background: #0d1728;
+      width: 100%; overflow: hidden; position: relative;
+      max-height: 520px; background: #0d0818;
+      border-bottom: none;
     }
     .project-hero img {
-      width: 100%; height: 100%; object-fit: cover;
+      width: 100%; height: 520px; object-fit: cover; object-position: center center;
+      display: block;
     }
     .hero-overlay {
       position: absolute; inset: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,.1) 0%, rgba(5,10,20,.85) 100%);
-      display: flex; align-items: flex-end;
-      padding: 60px 40px;
+      background: linear-gradient(to bottom, rgba(0,0,0,.05) 0%, rgba(5,2,20,.88) 100%);
+      display: flex; align-items: flex-end; padding: 60px 48px;
     }
     .hero-text h1 {
-      font-family: 'Sora', sans-serif; font-size: clamp(2.2rem, 6vw, 3.8rem);
-      font-weight: 800; color: #fff; letter-spacing: -.04em; margin-bottom: 10px;
-      line-height: 1.1;
+      font-family: 'Sora', sans-serif; font-size: clamp(2.4rem, 6vw, 4.2rem);
+      font-weight: 800; color: #fff; letter-spacing: -.04em; line-height: 1.05;
     }
-    .hero-meta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 14px; }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 16px; }
     .meta-pill {
       display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(124, 0, 232, 0.15); border: 1px solid rgba(124, 0, 232, 0.4);
-      border-radius: 100px; padding: 6px 16px;
-      font-size: .8rem; font-weight: 700; color: #a855f7;
+      background: rgba(124,0,232,.2); border: 1px solid rgba(124,0,232,.45);
+      border-radius: 100px; padding: 7px 18px;
+      font-size: .82rem; font-weight: 700; color: #a855f7;
+      transition: background .25s;
     }
-    .meta-pill.gray { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.15); color: rgba(255,255,255,.8); }
-
+    .meta-pill:hover { background: rgba(124,0,232,.35); }
+    .meta-pill.gray { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.18); color: rgba(255,255,255,.85); }
     @media (max-width: 768px) {
-      .project-hero { max-height: 400px; }
+      .project-hero { max-height: 380px; }
+      .project-hero img { height: 380px; }
       .hero-overlay { padding: 32px 24px; }
       .hero-text h1 { font-size: 2.2rem; }
     }
-    
-    .nav-logo span { color: #5B00AB; }
 
-    .section-title em { 
-      background: linear-gradient(135deg, #f59e0b 0%, #ef4444 60%, #a855f7 100%); 
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; 
+    /* ── Remove section borders ─────────────────── */
+    .project-section { border-bottom: none !important; }
+
+    /* ── Section title em gradient ──────────────── */
+    .section-title em {
+      font-style: normal;
+      background: linear-gradient(135deg, #f59e0b 0%, #ef4444 60%, #a855f7 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
     }
-    .stat-val { 
-      background: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%); 
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; 
+    .stat-val {
+      background: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
     }
-    
-    /* Packaging Specifics */
-    .packaging-grid { align-items: stretch; }
-    .flavor-pill {
-      display: flex; align-items: center; gap: 8px; padding: 8px 16px;
-      border-radius: 100px; font-size: .75rem; font-weight: 600;
-      background: transparent; border: 1.5px solid;
-      margin-bottom: 8px; justify-content: center;
+
+    /* ── Overview image card ────────────────────── */
+    .rb-overview-img {
+      border-radius: 20px; overflow: hidden;
+      display: block; cursor: zoom-in;
+      transition: transform .4s cubic-bezier(0.22,1,.36,1), box-shadow .4s;
+      box-shadow: 0 8px 40px rgba(0,0,0,.3);
     }
+    .rb-overview-img:hover { transform: scale(1.02); box-shadow: 0 18px 56px rgba(124,0,232,.2); }
+    .rb-overview-img img { width: 100%; height: 320px; object-fit: cover; display: block; }
+
+    /* ── Logo showcase – proper side-by-side cards ── */
+    .rb-logo-showcase {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 20px; margin: 36px 0;
+    }
+    .rb-logo-card {
+      border-radius: 20px; overflow: hidden;
+      display: block; cursor: zoom-in;
+      transition: transform .35s cubic-bezier(0.22,1,.36,1), box-shadow .35s;
+    }
+    .rb-logo-card:hover { transform: scale(1.02); box-shadow: 0 16px 48px rgba(0,0,0,.4); }
+    .rb-logo-card-img { height: 280px; }
+    .rb-logo-card-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    /* White logo card – bigger logo, lighter bg to show it clearly */
+    .rb-logo-badge-card {
+      border-radius: 20px;
+      background: rgba(124,0,232,.08);
+      border: 1px solid rgba(124,0,232,.2);
+      height: 280px;
+      display: flex; align-items: center; justify-content: center;
+      padding: 32px;
+      cursor: zoom-in;
+      transition: transform .35s cubic-bezier(0.22,1,.36,1), box-shadow .35s;
+    }
+    .rb-logo-badge-card:hover { transform: scale(1.02); box-shadow: 0 16px 48px rgba(124,0,232,.2); }
+    .rb-logo-badge-card img {
+      width: 80%; max-width: 240px; height: auto; display: block;
+      opacity: .9; filter: brightness(1.15);
+    }
+    @media (max-width: 640px) {
+      .rb-logo-showcase { grid-template-columns: 1fr; }
+      .rb-logo-card-img { height: 220px; }
+      .rb-logo-badge-card { height: 220px; }
+    }
+
+    /* ── Typography card – bigger logo watermark ─── */
+    .rb-typo-card {
+      border-radius: 20px; overflow: hidden;
+      background: linear-gradient(160deg, #FF6B00 0%, #E8006B 35%, #7C00E8 80%, #2D0094 100%);
+      padding: 48px; position: relative;
+    }
+    .rb-typo-watermark {
+      position: absolute; bottom: -10px; right: 16px;
+      pointer-events: none; line-height: 1;
+    }
+    .rb-typo-watermark img {
+      width: 220px; height: auto; opacity: .18; object-fit: contain;
+      filter: brightness(2);
+    }
+    .rb-typo-title {
+      font-family: 'Sora', sans-serif; font-size: clamp(2rem,5vw,3rem);
+      font-weight: 800; color: #fff; margin-bottom: 44px; letter-spacing: -.04em;
+    }
+    .rb-typo-entry { margin-bottom: 40px; }
+    .rb-typo-divider { border-top: 1px solid rgba(255,255,255,.18); margin-bottom: 36px; }
+    .rb-typo-face-label {
+      display: inline-block; background: rgba(255,165,0,.4); border: 2px solid rgba(255,200,0,.5);
+      border-radius: 6px; padding: 7px 20px; margin-bottom: 16px;
+    }
+    .rb-typo-face-name { font-size: 1.5rem; font-weight: 400; color: #fff; letter-spacing: .04em; font-family: 'TanNimbus','Sora',sans-serif; }
+    .rb-typo-role { color: rgba(255,255,255,.95); font-size: .97rem; font-weight: 700; font-style: italic; margin-bottom: 4px; }
+    .rb-typo-desc { color: rgba(255,255,255,.65); font-size: .88rem; font-style: italic; line-height: 1.6; }
+    .rb-typo-sans-name { font-size: clamp(1.8rem,4vw,2.8rem); font-weight: 800; color: #fff; letter-spacing: .04em; margin-bottom: 12px; }
+
+    /* ── Color Palette – cards ──────────────────── */
+    .rb-palette-cards {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 14px; margin-top: 36px;
+    }
+    .rb-palette-card {
+      border-radius: 16px; overflow: hidden;
+      background: rgba(13,8,30,.9);
+      border: 1px solid rgba(255,255,255,.07);
+      transition: transform .35s cubic-bezier(0.22,1,.36,1), box-shadow .35s;
+      cursor: pointer;
+    }
+    .rb-palette-card:hover { transform: translateY(-6px); box-shadow: 0 14px 40px rgba(0,0,0,.4); }
+    .rb-palette-swatch { height: 80px; width: 100%; }
+    .rb-palette-info { padding: 10px 10px 12px; }
+    .rb-palette-name { font-size: .65rem; font-weight: 700; color: #fff; margin-bottom: 3px; }
+    .rb-palette-hex { font-size: .6rem; color: #64748b; font-family: monospace; }
+    @media (max-width: 900px) { .rb-palette-cards { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 480px) { .rb-palette-cards { grid-template-columns: repeat(2, 1fr); } }
+
+    /* ── Social grid – full image no crop, h-scroll mobile ── */
+    .rb-social-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px; margin-top: 32px;
+    }
+    .rb-social-card {
+      border-radius: 16px; overflow: hidden;
+      aspect-ratio: 4/5;
+      cursor: zoom-in;
+      transition: transform .35s cubic-bezier(0.22,1,.36,1), box-shadow .35s;
+      box-shadow: 0 4px 20px rgba(0,0,0,.3);
+    }
+    .rb-social-card img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+    }
+    .rb-social-card:hover { transform: scale(1.03); box-shadow: 0 14px 40px rgba(124,0,232,.25); }
     @media (max-width: 768px) {
-      .packaging-grid { grid-template-columns: 1fr !important; gap: 20px !important; }
-      .packaging-subgrid { grid-template-columns: 1fr !important; gap: 16px !important; }
-      .flavor-grid { grid-template-columns: 1fr 1fr !important; gap: 10px !important; }
+      .rb-social-grid {
+        display: flex; overflow-x: auto; scrollbar-width: none;
+        gap: 12px; margin: 28px -24px 0; padding: 4px 24px 24px;
+      }
+      .rb-social-grid::-webkit-scrollbar { display: none; }
+      .rb-social-card { flex: 0 0 240px; aspect-ratio: 4/5; border-radius: 14px; }
     }
-    
-    /* ── LIGHTBOX ── */
+
+    /* ── Packaging layout ───────────────────────── */
+    .rb-packaging-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 20px; margin-top: 36px; align-items: start;
+    }
+    .rb-packaging-main {
+      border-radius: 18px; overflow: hidden;
+      display: block; cursor: zoom-in;
+      transition: transform .35s cubic-bezier(0.22,1,.36,1), box-shadow .35s;
+    }
+    .rb-packaging-main:hover { transform: scale(1.01); box-shadow: 0 14px 40px rgba(0,0,0,.35); }
+    .rb-packaging-main img { width: 100%; height: auto; display: block; }
+
+    .rb-packaging-right { display: flex; flex-direction: column; gap: 16px; }
+    .rb-pack-sub { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .rb-pack-sub-card {
+      border-radius: 16px; overflow: hidden;
+      display: block; cursor: zoom-in;
+      transition: transform .35s cubic-bezier(0.22,1,.36,1);
+    }
+    .rb-pack-sub-card:hover { transform: scale(1.02); }
+    .rb-pack-sub-card img { width: 100%; height: auto; display: block; }
+
+    .rb-pack-detail {
+      border-radius: 16px; overflow: hidden;
+      display: block; cursor: zoom-in;
+      transition: transform .35s cubic-bezier(0.22,1,.36,1);
+      flex: 1;
+    }
+    .rb-pack-detail:hover { transform: scale(1.01); }
+    .rb-pack-detail img { width: 100%; height: 200px; object-fit: cover; display: block; }
+
+    /* Flavor tags – improved, filling space nicely */
+    .rb-flavor-tags {
+      display: flex; flex-wrap: wrap; gap: 10px;
+      margin-top: 20px;
+    }
+    .rb-flavor-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      border-radius: 100px; padding: 8px 18px;
+      font-size: .82rem; font-weight: 700;
+      border: 1.5px solid; transition: background .25s, transform .2s;
+    }
+    .rb-flavor-tag:hover { transform: translateY(-2px); }
+    @media (max-width: 768px) {
+      .rb-packaging-grid { grid-template-columns: 1fr; }
+      .rb-pack-detail img { height: 160px; }
+    }
+
+    /* ── Tools cards ────────────────────────────── */
+    .rb-tools-cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px; margin-top: 36px;
+    }
+    .rb-tool-card {
+      background: linear-gradient(135deg, rgba(124,0,232,.1) 0%, rgba(13,8,30,.9) 100%);
+      border: 1px solid rgba(124,0,232,.18);
+      border-radius: 18px; padding: 28px 20px;
+      text-align: center;
+      transition: transform .35s cubic-bezier(0.22,1,.36,1), box-shadow .35s, border-color .25s;
+    }
+    .rb-tool-card:hover { transform: translateY(-6px); box-shadow: 0 14px 40px rgba(0,0,0,.35); border-color: rgba(124,0,232,.4); }
+    .rb-tool-card .ph { font-size: 2.2rem; color: #a855f7; display: block; margin-bottom: 14px; }
+    .rb-tool-name { font-size: .92rem; font-weight: 700; color: #fff; margin-bottom: 4px; }
+    .rb-tool-desc { font-size: .75rem; color: #64748b; line-height: 1.4; }
+    @media (max-width: 900px) { .rb-tools-cards { grid-template-columns: repeat(2, 1fr); } }
+
+    /* ── Related projects ───────────────────────── */
+    .rb-related-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+    .rb-related-card {
+      border-radius: 16px; overflow: hidden;
+      background: #0d0818; border: 1px solid rgba(255,255,255,.06);
+      display: block; transition: transform .35s cubic-bezier(0.22,1,.36,1), border-color .25s;
+    }
+    .rb-related-card:hover { transform: translateY(-5px); border-color: rgba(124,0,232,.4); }
+    .rb-related-card img { width: 100%; aspect-ratio: 1/1; object-fit: cover; }
+    .rb-related-body { padding: 14px 16px; }
+    .rb-related-cat { font-size: .65rem; color: #a855f7; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; }
+    .rb-related-title { font-size: .88rem; color: #fff; font-weight: 600; margin-top: 4px; }
+    @media (max-width: 640px) { .rb-related-grid { grid-template-columns: 1fr 1fr; } }
+
+    /* ── Quote block ────────────────────────────── */
+    .rb-quote {
+      background: rgba(124,0,232,.07); border-left: 4px solid #7C00E8;
+      border-radius: 0 14px 14px 0; padding: 24px 28px; margin: 36px 0 0;
+    }
+    .rb-quote p { font-size: 1rem; color: #e2e8f0; font-style: italic; line-height: 1.75; }
+
+    /* ── Lightbox ───────────────────────────────── */
     .lightbox {
-      position: fixed; inset: 0; z-index: 1000;
-      background: rgba(5, 10, 20, 0.95);
+      position: fixed; inset: 0; z-index: 2000;
+      background: rgba(5,2,20,.96);
       display: none; align-items: center; justify-content: center;
-      padding: 40px; opacity: 0; transition: opacity 0.3s ease;
+      padding: 40px; opacity: 0; transition: opacity .3s ease;
     }
     .lightbox.active { display: flex; opacity: 1; }
     .lightbox-content {
-      max-width: 90%; max-height: 85vh; border-radius: 12px;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-      transform: scale(0.95); transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      max-width: 90%; max-height: 88vh; border-radius: 14px;
+      box-shadow: 0 24px 60px rgba(0,0,0,.6);
+      transform: scale(.94); transition: transform .4s cubic-bezier(0.175,.885,.32,1.275);
     }
     .lightbox.active .lightbox-content { transform: scale(1); }
     .lightbox-close {
-      position: absolute; top: 30px; right: 40px;
-      font-size: 40px; color: #fff; cursor: pointer;
-      line-height: 1; transition: color 0.2s;
+      position: absolute; top: 28px; right: 36px;
+      font-size: 44px; color: #fff; cursor: pointer; line-height: 1; transition: color .2s;
     }
-    .lightbox-close:hover { color: #f59e0b; }
+    .lightbox-close:hover { color: #a855f7; }
   </style>
 </head>
 <body>
@@ -115,9 +323,9 @@
     <a href="index.html#portfolio" class="back-btn"><i class="ph ph-arrow-left"></i> Back to Portfolio</a>
   </nav>
 
-  <!-- HERO (RESTORED) -->
+  <!-- HERO (fixed – no stretch) -->
   <div class="project-hero">
-    <img src="Rishi Blends Brand Identity.png" alt="Rishi Blends — Premium herbal blend brand identity" loading="eager"/>
+    <img src="Rishi Blends Brand Identity.png" alt="Rishi Blends — Bold herbal brew brand identity" loading="eager"/>
     <div class="hero-overlay">
       <div class="hero-text">
         <h1>Rishi Blends Brand Identity</h1>
@@ -132,7 +340,7 @@
 
   <main>
 
-    <!-- OVERVIEW -->
+    <!-- ── OVERVIEW ─────────────────────────────── -->
     <section class="project-section reveal">
       <div class="container">
         <div class="overview-grid">
@@ -144,12 +352,12 @@
               <p>This project covers the complete brand identity — from the distinctive wordmark to a vibrant social media creative series that brings the brand to life.</p>
             </div>
           </div>
-          <div style="border-radius:18px; overflow:hidden;">
-             <img src="rb-logo-bg.png" alt="Rishi Blends logo" loading="lazy" style="width:100%; height:320px; object-fit:cover;"/>
-          </div>
+          <a href="rb-logo-bg.png" class="rb-overview-img lightbox-trigger">
+            <img src="rb-logo-bg.png" alt="Rishi Blends logo on vibrant gradient" loading="lazy"/>
+          </a>
         </div>
 
-        <div class="quote-block">
+        <div class="rb-quote">
           <p>"No beans. No drama. Just bold, barley-brewed goodness crafted for the ones who want it all — minus the jitters."</p>
         </div>
 
@@ -162,7 +370,7 @@
       </div>
     </section>
 
-    <!-- LOGO DESIGN -->
+    <!-- ── LOGO DESIGN – proper side-by-side cards ─ -->
     <section class="project-section reveal">
       <div class="container">
         <div class="section-label">Logo Design</div>
@@ -171,94 +379,93 @@
           <p>The Rishi Blends wordmark is a custom-crafted logotype with distinctive letterforms that feel modern, confident, and unforgettable. The typeface blends retro-Indian influences with bold, groovy curves — creating a mark that's immediately recognisable at any scale.</p>
         </div>
 
-        <!-- Two-up: coloured logo + circular badge on dark — equal heights -->
-        <div class="logo-showcase" style="margin:32px 0;">
-          <a href="rb-logo-bg.png" class="logo-card lightbox-trigger" style="border-radius:18px; overflow:hidden; height:280px; display:block;">
-            <img src="rb-logo-bg.png" alt="Rishi Blends logo on vibrant gradient background" loading="lazy" style="width:100%; height:100%; object-fit:cover;"/>
+        <!-- Two equal-height cards side by side, not cropped -->
+        <div class="rb-logo-showcase">
+          <a href="rb-logo-bg.png" class="rb-logo-card lightbox-trigger">
+            <div class="rb-logo-card-img">
+              <img src="rb-logo-bg.png" alt="Rishi Blends wordmark on vibrant gradient" loading="lazy"/>
+            </div>
           </a>
-          <a href="rb-logo-white.png" class="logo-card lightbox-trigger" style="border-radius:18px; background:#0d1728; height:280px; display:flex; align-items:center; justify-content:center; padding:32px; border:1px solid rgba(255,255,255,.08);">
-            <img src="rb-logo-white.png" alt="Rishi Blends circular badge logo" loading="lazy" style="width:100%; max-width:220px; height:auto; object-fit:contain;"/>
+          <a href="rb-logo-white.png" class="rb-logo-badge-card lightbox-trigger">
+            <img src="rb-logo-white.png" alt="Rishi Blends circular badge logo on dark" loading="lazy"/>
           </a>
         </div>
       </div>
     </section>
 
-    <!-- ABOUT THE BRAND -->
+    <!-- ── ABOUT ──────────────────────────────────── -->
     <section class="project-section reveal">
       <div class="container">
-        <!-- Gradient "About" card matching the brand -->
-        <div style="border-radius:20px; overflow:hidden; background:linear-gradient(135deg,#FF6B00 0%,#E8006B 40%,#7C00E8 100%); padding:40px; margin-bottom:32px; position:relative;">
-          <!-- White logo as faded watermark in background -->
-          <div style="position:absolute;inset:0; display:flex; align-items:center; justify-content:flex-end; overflow:hidden; pointer-events:none; padding-right:24px;">
-            <img src="rb-logo-white.png" alt="" aria-hidden="true" style="width:260px; height:auto; opacity:.12; object-fit:contain;"/>
+        <div style="border-radius:20px; overflow:hidden; background:linear-gradient(135deg,#FF6B00 0%,#E8006B 40%,#7C00E8 100%); padding:44px; position:relative;">
+          <div style="position:absolute;inset:0; display:flex; align-items:center; justify-content:flex-end; overflow:hidden; pointer-events:none; padding-right:28px;">
+            <img src="rb-logo-white.png" alt="" aria-hidden="true" style="width:280px; height:auto; opacity:.12; object-fit:contain; filter:brightness(2);"/>
           </div>
           <div class="section-label" style="color:rgba(255,255,255,.7);">About the Brand</div>
-          <h2 style="font-family:'Sora',sans-serif; font-size:clamp(2rem,5vw,3rem); font-weight:800; color:#fff; letter-spacing:-.04em; margin-bottom:20px;">About<span style="color:rgba(255,255,255,.6);">...</span></h2>
-          <p style="font-size:1.05rem; color:rgba(255,255,255,.9); line-height:2; max-width:520px; font-style:italic; margin-bottom:28px; letter-spacing: 0.015em;">"Rishi Blends" offers delicious powdered drinks, specializing in chai superlattes. With a variety of unique, mostly caffeine-free flavors, each blend combines natural ingredients for a soothing and flavorful experience, perfect for any time of day.</p>
-          <!-- Brand pillars -->
-          <div style="display:flex; flex-direction:column; gap:10px;">
-            <div style="display:flex;align-items:center;gap:12px;"><div style="width:12px;height:12px;border-radius:50%;background:#fff;flex-shrink:0;"></div><span style="color:rgba(255,255,255,.9);font-size:.95rem;font-style:italic;font-weight:500;">Gen-Z</span></div>
-            <div style="display:flex;align-items:center;gap:12px;"><div style="width:12px;height:12px;border-radius:50%;background:#fff;flex-shrink:0;"></div><span style="color:rgba(255,255,255,.9);font-size:.95rem;font-style:italic;font-weight:500;">Healthy</span></div>
-            <div style="display:flex;align-items:center;gap:12px;"><div style="width:12px;height:12px;border-radius:50%;background:#fff;flex-shrink:0;"></div><span style="color:rgba(255,255,255,.9);font-size:.95rem;font-style:italic;font-weight:500;">Tasty</span></div>
-            <div style="display:flex;align-items:center;gap:12px;"><div style="width:12px;height:12px;border-radius:50%;background:#fff;flex-shrink:0;"></div><span style="color:rgba(255,255,255,.9);font-size:.95rem;font-style:italic;font-weight:500;">Instant</span></div>
+          <h2 style="font-family:'Sora',sans-serif; font-size:clamp(2rem,5vw,3rem); font-weight:800; color:#fff; letter-spacing:-.04em; margin-bottom:20px;">About<span style="color:rgba(255,255,255,.5);">...</span></h2>
+          <p style="font-size:1.05rem; color:rgba(255,255,255,.9); line-height:2; max-width:520px; font-style:italic; margin-bottom:28px; letter-spacing:.015em;">"Rishi Blends" offers delicious powdered drinks, specializing in chai superlattes. With a variety of unique, mostly caffeine-free flavors, each blend combines natural ingredients for a soothing and flavorful experience, perfect for any time of day.</p>
+          <div style="display:flex; flex-wrap:wrap; gap:14px;">
+            <div style="display:flex;align-items:center;gap:10px;"><div style="width:10px;height:10px;border-radius:50%;background:#fff;flex-shrink:0;"></div><span style="color:rgba(255,255,255,.9);font-size:.95rem;font-style:italic;font-weight:600;">Gen-Z</span></div>
+            <div style="display:flex;align-items:center;gap:10px;"><div style="width:10px;height:10px;border-radius:50%;background:#fff;flex-shrink:0;"></div><span style="color:rgba(255,255,255,.9);font-size:.95rem;font-style:italic;font-weight:600;">Healthy</span></div>
+            <div style="display:flex;align-items:center;gap:10px;"><div style="width:10px;height:10px;border-radius:50%;background:#fff;flex-shrink:0;"></div><span style="color:rgba(255,255,255,.9);font-size:.95rem;font-style:italic;font-weight:600;">Tasty</span></div>
+            <div style="display:flex;align-items:center;gap:10px;"><div style="width:10px;height:10px;border-radius:50%;background:#fff;flex-shrink:0;"></div><span style="color:rgba(255,255,255,.9);font-size:.95rem;font-style:italic;font-weight:600;">Instant</span></div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- TYPOGRAPHY -->
+    <!-- ── TYPOGRAPHY – bigger watermark logo ────── -->
     <section class="project-section reveal">
       <div class="container">
-        <!-- Gradient Typography card matching brand -->
-        <div style="border-radius:20px; overflow:hidden; background:linear-gradient(160deg,#FF6B00 0%,#E8006B 35%,#7C00E8 80%,#2D0094 100%); padding:44px; position:relative;">
-          <!-- White logo watermark bottom-right instead of Omega -->
-          <div style="position:absolute;bottom:0;right:16px; pointer-events:none; line-height:1;">
-            <img src="rb-logo-white.png" alt="" aria-hidden="true" style="width:160px; height:auto; opacity:.1; object-fit:contain;"/>
+        <div class="rb-typo-card">
+          <!-- Bigger, lighter watermark logo -->
+          <div class="rb-typo-watermark">
+            <img src="rb-logo-white.png" alt="" aria-hidden="true"/>
           </div>
-          <h2 style="font-family:'Sora',sans-serif; font-size:clamp(2.2rem,5vw,3.2rem); font-weight:800; color:#fff; letter-spacing:-.04em; margin-bottom:40px;">Typography</h2>
+
+          <h2 class="rb-typo-title">Typography</h2>
 
           <!-- TAN NIMBUS -->
-          <div style="margin-bottom:40px;">
-            <div style="display:inline-block; background:rgba(255,165,0,.4); border:2px solid rgba(255,200,0,.5); border-radius:4px; padding:6px 18px; margin-bottom:14px;">
-              <span style="font-size:1.4rem; font-weight:400; color:#fff; letter-spacing:.04em; font-family:'TanNimbus', 'Sora', sans-serif;">TAN NIMBUS</span>
+          <div class="rb-typo-entry">
+            <div class="rb-typo-face-label">
+              <span class="rb-typo-face-name">TAN NIMBUS</span>
             </div>
-            <div style="color:rgba(255,255,255,.95); font-size:.97rem; font-weight:700; margin-bottom:4px; font-style:italic;">Logo typeface &amp; Primary typeface</div>
-            <div style="color:rgba(255,255,255,.65); font-size:.88rem; font-style:italic; line-height:1.6;">Stylish, Blending feel,<br>Friendly, Juicy</div>
+            <div class="rb-typo-role">Logo typeface &amp; Primary typeface</div>
+            <div class="rb-typo-desc">Stylish, Blending feel,<br>Friendly, Juicy</div>
           </div>
 
-          <!-- divider -->
-          <div style="border-top:1px solid rgba(255,255,255,.15); margin-bottom:36px;"></div>
+          <div class="rb-typo-divider"></div>
 
           <!-- POPPINS -->
           <div>
-            <div style="font-size:clamp(1.6rem,4vw,2.4rem); font-weight:800; color:#fff; letter-spacing:.04em; margin-bottom:12px; font-family:'Inter',sans-serif;">POPPINS</div>
-            <div style="color:rgba(255,255,255,.95); font-size:.97rem; font-weight:700; margin-bottom:4px; font-style:italic;">Sub Heading &amp; Primary Typeface</div>
-            <div style="color:rgba(255,255,255,.65); font-size:.88rem; font-style:italic; line-height:1.6;">Readable, Simple,<br>Clean, Versatile, Cool</div>
+            <div class="rb-typo-sans-name">POPPINS</div>
+            <div class="rb-typo-role">Sub Heading &amp; Supporting Typeface</div>
+            <div class="rb-typo-desc">Readable, Simple,<br>Clean, Versatile, Cool</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- COLOR PALETTE -->
+    <!-- ── COLOR PALETTE – cards ─────────────────── -->
     <section class="project-section reveal">
       <div class="container">
         <div class="section-label">Color Palette</div>
-        <h2 class="section-title">Alive, <em>Vibrant</em> & Unmissable</h2>
+        <h2 class="section-title">Alive, <em>Vibrant</em> &amp; Unmissable</h2>
         <div class="section-body">
           <p>Inspired by the energy of barley blends themselves — warm, bold, and joyful. The palette blends fiery oranges, electric magentas, deep violets, and golden yellows into a gradient-forward visual identity that demands attention.</p>
         </div>
-        <div class="palette">
-          <div class="swatch"><div class="swatch-circle" style="background:#FF6B00;"></div><div class="swatch-label">Fire Orange</div></div>
-          <div class="swatch"><div class="swatch-circle" style="background:#E8006B;"></div><div class="swatch-label">Bold Magenta</div></div>
-          <div class="swatch"><div class="swatch-circle" style="background:#7C00E8;"></div><div class="swatch-label">Electric Violet</div></div>
-          <div class="swatch"><div class="swatch-circle" style="background:#FFCC00;"></div><div class="swatch-label">Golden Yellow</div></div>
-          <div class="swatch"><div class="swatch-circle" style="background:#4A1480;"></div><div class="swatch-label">Deep Purple</div></div>
-          <div class="swatch"><div class="swatch-circle" style="background:#FFFFFF; border-color:rgba(255,255,255,.3);"></div><div class="swatch-label">Pure White</div></div>
+
+        <div class="rb-palette-cards">
+          <div class="rb-palette-card"><div class="rb-palette-swatch" style="background:#FF6B00;"></div><div class="rb-palette-info"><div class="rb-palette-name">Fire Orange</div><div class="rb-palette-hex">#FF6B00</div></div></div>
+          <div class="rb-palette-card"><div class="rb-palette-swatch" style="background:#E8006B;"></div><div class="rb-palette-info"><div class="rb-palette-name">Bold Magenta</div><div class="rb-palette-hex">#E8006B</div></div></div>
+          <div class="rb-palette-card"><div class="rb-palette-swatch" style="background:#7C00E8;"></div><div class="rb-palette-info"><div class="rb-palette-name">Electric Violet</div><div class="rb-palette-hex">#7C00E8</div></div></div>
+          <div class="rb-palette-card"><div class="rb-palette-swatch" style="background:#FFCC00;"></div><div class="rb-palette-info"><div class="rb-palette-name">Golden Yellow</div><div class="rb-palette-hex">#FFCC00</div></div></div>
+          <div class="rb-palette-card"><div class="rb-palette-swatch" style="background:#4A1480;"></div><div class="rb-palette-info"><div class="rb-palette-name">Deep Purple</div><div class="rb-palette-hex">#4A1480</div></div></div>
+          <div class="rb-palette-card"><div class="rb-palette-swatch" style="background:#fff; border:1px solid rgba(255,255,255,.1);"></div><div class="rb-palette-info"><div class="rb-palette-name">Pure White</div><div class="rb-palette-hex">#FFFFFF</div></div></div>
         </div>
       </div>
     </section>
 
-    <!-- SOCIAL MEDIA CREATIVES -->
+    <!-- ── SOCIAL MEDIA – full images, no crop ───── -->
     <section class="project-section reveal">
       <div class="container">
         <div class="section-label">Social Media Creatives</div>
@@ -267,24 +474,21 @@
           <p>Three high-energy social media creatives were designed to launch Rishi Blends' online presence — each with its own punchy headline and personality, while sharing the same vibrant, youthful visual DNA. From "Brew Your Vibe" to "No Beans. No Drama." — every post drives brand recall and engagement.</p>
         </div>
 
-        <div class="social-grid">
-          <a href="rb-social-1.jpg" class="social-card lightbox-trigger"><img src="rb-social-1.jpg" alt="Social Post 1" loading="lazy"/></a>
-          <a href="rb-social-2.jpg" class="social-card lightbox-trigger"><img src="rb-social-2.jpg" alt="Social Post 2" loading="lazy"/></a>
-          <a href="rb-social-3.jpg" class="social-card lightbox-trigger"><img src="rb-social-3.jpg" alt="Social Post 3" loading="lazy"/></a>
-        </div>
-
-        </div>
-
-      </div>
-
-
-        <div style="display:grid; grid-template-columns: repeat(2,1fr); gap:10px; margin-top: 12px; display: none !important;">
-          <!-- Hidden on mobile if redundant -->
+        <div class="rb-social-grid">
+          <a href="rb-social-1.jpg" class="rb-social-card lightbox-trigger">
+            <img src="rb-social-1.jpg" alt="Social Post 1 — Brew Your Vibe" loading="lazy"/>
+          </a>
+          <a href="rb-social-2.jpg" class="rb-social-card lightbox-trigger">
+            <img src="rb-social-2.jpg" alt="Social Post 2 — No Beans No Drama" loading="lazy"/>
+          </a>
+          <a href="rb-social-3.jpg" class="rb-social-card lightbox-trigger">
+            <img src="rb-social-3.jpg" alt="Social Post 3 — Feel the Blend" loading="lazy"/>
+          </a>
         </div>
       </div>
     </section>
 
-    <!-- PACKAGING DESIGNS -->
+    <!-- ── PACKAGING – flavor tags improved ──────── -->
     <section class="project-section reveal">
       <div class="container">
         <div class="section-label">Packaging Design</div>
@@ -293,59 +497,39 @@
           <p>Four distinct superlatte flavours — each with its own colour-coded packaging identity. Bold label design, atmospheric gradient textures, and the iconic Rishi Blends wordmark on every pouch.</p>
         </div>
 
-        <!-- Balanced Final Composition (Ratios 50fr 50fr) -->
-        <div class="packaging-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:32px;align-items:stretch;">
-          
-          <!-- LEFT COLUMN (4-Grid Hero + Legend) -->
+        <div class="rb-packaging-grid">
+          <!-- Left: big grid + flavor tags -->
           <div style="display:flex; flex-direction:column; gap:20px;">
-            <a href="rb-packaging-grid.jpg" class="lightbox-trigger" style="border-radius:18px;overflow:hidden;display:block;">
-              <img src="rb-packaging-grid.jpg" alt="All 4 Rishi Blends flavours" loading="lazy" style="width:100%;height:auto;display:block;"/>
+            <a href="rb-packaging-grid.jpg" class="rb-packaging-main lightbox-trigger">
+              <img src="rb-packaging-grid.jpg" alt="All 4 Rishi Blends flavours" loading="lazy"/>
             </a>
-            
-            <!-- Redesigned Flavour Legend (Pill Shapes) - Filling the Space -->
-            <div style="padding: 10px 0;">
-              <div class="section-label" style="font-size: .6rem; margin-bottom: 12px; opacity: 0.8;">Available Flavours</div>
-              <style>
-                .flavor-pill {
-                  display: flex; align-items: center; gap: 8px; padding: 8px 16px;
-                  border-radius: 100px; font-size: .75rem; font-weight: 600;
-                  background: transparent; border: 1.5px solid;
-                  margin-bottom: 8px; justify-content: center;
-                }
-              </style>
-              <div class="flavor-grid" style="display:grid; grid-template-columns: 1fr 1fr; gap:10px;">
-                <div class="flavor-pill" style="color:#ef4444; border-color: rgba(239,68,68,0.4);">Rose Cocoa</div>
-                <div class="flavor-pill" style="color:#22c55e; border-color: rgba(34,197,94,0.4);">Rose Matcha</div>
-                <div class="flavor-pill" style="color:#6366f1; border-color: rgba(99,102,241,0.4);">Sleeptime</div>
-                <div class="flavor-pill" style="color:#eab308; border-color: rgba(234,179,8,0.4);">Pumpkin Spice</div>
+            <!-- Improved flavor tags filling space -->
+            <div>
+              <div class="section-label" style="font-size:.65rem; margin-bottom:14px; opacity:.8;">Available Flavours</div>
+              <div class="rb-flavor-tags">
+                <span class="rb-flavor-tag" style="color:#ef4444; border-color:rgba(239,68,68,.4); background:rgba(239,68,68,.05);"><i class="ph ph-heart"></i> Rose Cocoa</span>
+                <span class="rb-flavor-tag" style="color:#22c55e; border-color:rgba(34,197,94,.4); background:rgba(34,197,94,.05);"><i class="ph ph-leaf"></i> Rose Matcha</span>
+                <span class="rb-flavor-tag" style="color:#818cf8; border-color:rgba(129,140,248,.4); background:rgba(129,140,248,.05);"><i class="ph ph-moon"></i> Sleeptime</span>
+                <span class="rb-flavor-tag" style="color:#eab308; border-color:rgba(234,179,8,.4); background:rgba(234,179,8,.05);"><i class="ph ph-sun"></i> Pumpkin Spice</span>
               </div>
             </div>
           </div>
 
-          <!-- RIGHT COLUMN (Individual Products 2-Up + Ingredients) -->
-          <div style="display:flex; flex-direction:column; gap:20px;">
-            <!-- Individual Highlights Side-by-Side (Stacked on Mobile) -->
-            <div class="packaging-subgrid" style="display:grid; grid-template-columns: 1fr 1fr; gap:20px;">
-              <a href="rb-packaging-matcha.jpg" class="lightbox-trigger" style="border-radius:18px;overflow:hidden;position:relative;background:#97da89;display:block;">
-                <img src="rb-packaging-matcha.jpg" alt="Rose Matcha" loading="lazy" style="width:100%;height:auto;display:block;"/>
-              </a>
-              <a href="rb-packaging-sleeptime.jpg" class="lightbox-trigger" style="border-radius:18px;overflow:hidden;position:relative;background:#8bbbe4;display:block;">
-                <img src="rb-packaging-sleeptime.jpg" alt="Sleeptime" loading="lazy" style="width:100%;height:auto;display:block;"/>
-              </a>
+          <!-- Right: 2 individual packs + detail -->
+          <div class="rb-packaging-right">
+            <div class="rb-pack-sub">
+              <a href="rb-packaging-matcha.jpg" class="rb-pack-sub-card lightbox-trigger"><img src="rb-packaging-matcha.jpg" alt="Rose Matcha packaging" loading="lazy"/></a>
+              <a href="rb-packaging-sleeptime.jpg" class="rb-pack-sub-card lightbox-trigger"><img src="rb-packaging-sleeptime.jpg" alt="Sleeptime packaging" loading="lazy"/></a>
             </div>
-
-            <!-- Ingredients Detail Move to Bottom-Right -->
-            <a href="rb-details-1.jpg" class="lightbox-trigger" style="border-radius:18px;overflow:hidden;background:#0d1728;border:1px solid rgba(255,255,255,.05);display:block; flex: 1;">
-              <img src="rb-details-1.jpg" alt="Rishi Blends Ingredient Detail" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+            <a href="rb-details-1.jpg" class="rb-pack-detail lightbox-trigger">
+              <img src="rb-details-1.jpg" alt="Rishi Blends ingredient detail" loading="lazy"/>
             </a>
           </div>
         </div>
-
       </div>
     </section>
 
-
-    <!-- TOOLS -->
+    <!-- ── TOOLS – card layout ───────────────────── -->
     <section class="project-section reveal">
       <div class="container">
         <div class="section-label">Tools &amp; Process</div>
@@ -353,30 +537,47 @@
         <div class="section-body">
           <p>Every asset — from the wordmark to the social creatives — was built from scratch. The logo uses custom vector letterforms, and each creative was composed in Photoshop using real lifestyle photography and bold typographic design.</p>
         </div>
-        <div class="tools-row">
-          <div class="tool-pill"><i class="ph ph-pencil-simple-line"></i> Adobe Illustrator</div>
-          <div class="tool-pill"><i class="ph ph-image"></i> Adobe Photoshop</div>
-          <div class="tool-pill"><i class="ph ph-share-network"></i> Social Media Design</div>
-          <div class="tool-pill"><i class="ph ph-palette"></i> Brand Identity</div>
+        <div class="rb-tools-cards">
+          <div class="rb-tool-card">
+            <i class="ph ph-pencil-simple-line"></i>
+            <div class="rb-tool-name">Adobe Illustrator</div>
+            <div class="rb-tool-desc">Logo &amp; vector artwork</div>
+          </div>
+          <div class="rb-tool-card">
+            <i class="ph ph-image"></i>
+            <div class="rb-tool-name">Adobe Photoshop</div>
+            <div class="rb-tool-desc">Creatives &amp; compositing</div>
+          </div>
+          <div class="rb-tool-card">
+            <i class="ph ph-share-network"></i>
+            <div class="rb-tool-name">Social Media Design</div>
+            <div class="rb-tool-desc">3 launch creatives</div>
+          </div>
+          <div class="rb-tool-card">
+            <i class="ph ph-palette"></i>
+            <div class="rb-tool-name">Brand Identity</div>
+            <div class="rb-tool-desc">Visual guidelines &amp; system</div>
+          </div>
         </div>
       </div>
     </section>
 
+    <!-- ── RELATED PROJECTS ──────────────────────── -->
     <section class="related reveal">
-      <div class="container" style="padding-top: 0; padding-bottom: 40px;">
-        <h3 style="font-family:'Sora',sans-serif;font-size:1.1rem;margin-bottom:16px;color:#fff;">More Projects</h3>
-        <div class="related-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;">
-          <a href="rishi-farms.html" class="related-card" style="border-radius:12px;overflow:hidden;background:#0d1728;border:1px solid rgba(255,255,255,.05);display:block;">
-            <img src="Rishi Farms Branding.png" alt="Rishi Farms" style="width:100%;aspect-ratio:1/1;object-fit:cover;"/>
-            <div style="padding:12px;"><div style="font-size:.6rem;color:#f59e0b;font-weight:700;text-transform:uppercase;">Branding</div><div style="font-size:.78rem;color:#fff;font-weight:600;margin-top:2px;">Rishi Farms</div></div>
+      <div class="container">
+        <h3 style="font-family:'Sora',sans-serif;font-size:1.3rem;font-weight:800;color:#fff;margin-bottom:24px;">More Projects</h3>
+        <div class="rb-related-grid">
+          <a href="rishi-farms.html" class="rb-related-card">
+            <img src="Rishi Farms Branding.png" alt="Rishi Farms"/>
+            <div class="rb-related-body"><div class="rb-related-cat">Branding</div><div class="rb-related-title">Rishi Farms</div></div>
           </a>
-          <a href="nandvrinda.html" class="related-card" style="border-radius:12px;overflow:hidden;background:#0d1728;border:1px solid rgba(255,255,255,.05);display:block;">
-            <img src="Nandvrinda – Essential Oils.jpg" alt="Nandvrinda" style="width:100%;aspect-ratio:1/1;object-fit:cover;"/>
-            <div style="padding:12px;"><div style="font-size:.6rem;color:#f59e0b;font-weight:700;text-transform:uppercase;">Branding</div><div style="font-size:.78rem;color:#fff;font-weight:600;margin-top:2px;">Nandvrinda</div></div>
+          <a href="nandvrinda.html" class="rb-related-card">
+            <img src="Nandvrinda – Essential Oils.jpg" alt="Nandvrinda"/>
+            <div class="rb-related-body"><div class="rb-related-cat">Branding</div><div class="rb-related-title">Nandvrinda</div></div>
           </a>
-          <a href="chosen-kicks.html" class="related-card" style="border-radius:12px;overflow:hidden;background:#0d1728;border:1px solid rgba(255,255,255,.05);display:block;">
-            <img src="Chosen Kicks – Brand Identity.png" alt="Chosen Kicks" style="width:100%;aspect-ratio:1/1;object-fit:cover;"/>
-            <div style="padding:12px;"><div style="font-size:.6rem;color:#f59e0b;font-weight:700;text-transform:uppercase;">Branding</div><div style="font-size:.78rem;color:#fff;font-weight:600;margin-top:2px;">Chosen Kicks</div></div>
+          <a href="chosen-kicks.html" class="rb-related-card">
+            <img src="Chosen Kicks – Brand Identity.png" alt="Chosen Kicks"/>
+            <div class="rb-related-body"><div class="rb-related-cat">Branding</div><div class="rb-related-title">Chosen Kicks</div></div>
           </a>
         </div>
       </div>
@@ -385,11 +586,11 @@
   </main>
 
   <footer class="project-footer">
-    <p style="margin-bottom: 12px;"><a href="https://www.behance.net/uditkumar31" target="_blank" style="color:#fff; font-weight:700; text-decoration: underline;"><i class="ph ph-behance-logo"></i> View Full Profile on Behance</a></p>
-    <p>© 2026 Udit Kumar Chauhan &nbsp;·&nbsp; <a href="index.html" style="color:#f59e0b;">Back to Portfolio</a></p>
+    <p style="margin-bottom:12px;"><a href="https://www.behance.net/gallery/211167479/Rishi-Blends-Brand-identity" target="_blank" style="color:#fff;font-weight:700;text-decoration:underline;"><i class="ph ph-behance-logo"></i> View Full Project on Behance</a></p>
+    <p>© 2026 Udit Kumar Chauhan &nbsp;·&nbsp; <a href="index.html" style="color:#a855f7;">Back to Portfolio</a></p>
   </footer>
 
-  <!-- LIGHTBOX MODAL -->
+  <!-- LIGHTBOX -->
   <div id="lightbox" class="lightbox">
     <span class="lightbox-close">&times;</span>
     <img src="" alt="Zoomed View" class="lightbox-content" id="lightbox-img">
