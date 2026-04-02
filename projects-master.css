@@ -6,13 +6,13 @@
 
 :root {
   --blue: #1877f2;
-  --bg: #050A14;
+  --bg: #0B1428;
   --card: #0d1728;
   --border: rgba(255,255,255,.07);
   --text: #94a3b8;
   --heading: #ffffff;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
-  --dark: #050A14; /* To fix project page hero overlaps */
+  --dark: #0B1428; /* Restored from pure black */
 }
 
 /* ── Feature Grids ─────────────────────────────── */
@@ -42,9 +42,9 @@
 
 /* ── Reset & Base ─────────────────────────────── */
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html { background: var(--bg) !important; }
+html { background: var(--bg); }
 body { 
-  background: var(--bg) !important; 
+  background: var(--bg); 
   color: var(--text); 
   font-family: 'Inter', sans-serif; 
   line-height: 1.7; 
@@ -89,8 +89,8 @@ a { text-decoration: none; color: inherit; }
 }
 
 /* ── Sections ──────────────────────────────────── */
-main { background: var(--bg) !important; }
-.project-section { padding: 80px 0; border-bottom: 1px solid var(--border); background: var(--bg) !important; }
+main { background: var(--bg); }
+.project-section { padding: 80px 0; border-bottom: 1px solid var(--border); background: var(--bg); }
 .project-section:last-child { border-bottom: none; }
 @media (max-width: 768px) { .project-section { padding: 48px 0; } }
 
