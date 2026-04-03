@@ -31,16 +31,17 @@
     .back-btn { background: rgba(124,0,232,.1); border: 1px solid rgba(124,0,232,.4); color: #a855f7; }
     .back-btn:hover { background: #7C00E8; border-color: #7C00E8; color: #fff; }
 
-    /* ── Hero (fixed – no stretch) ─────────────────── */
+    /* Hero: auto height = full banner, no right-side crop */
     .project-hero {
       width: 100%; overflow: hidden; position: relative;
-      max-height: 520px; background: #0d0818;
+      background: #0d0818;
       border-bottom: none;
     }
     .project-hero img {
-      width: 100%; height: 480px;
+      width: 100%; height: auto;
+      max-height: 580px;
       object-fit: cover;
-      object-position: left center; /* shows left side where the full abstract gradient is, avoids right-crop */
+      object-position: center center;
       display: block;
     }
     .hero-overlay {

@@ -114,9 +114,10 @@ a { text-decoration: none; color: inherit; }
 
 /* ── Sections ──────────────────────────────────── */
 main { background: var(--bg); }
-.project-section { padding: 100px 0; border-bottom: 1px solid var(--border); background: var(--bg); }
+.project-section { padding: 72px 0; border-bottom: none; background: var(--bg); }
 .project-section:last-child { border-bottom: none; }
-@media (max-width: 768px) { .project-section { padding: 60px 0; } }
+.related { padding: 72px 0 60px; background: var(--bg); }
+@media (max-width: 768px) { .project-section { padding: 48px 0; } .related { padding: 48px 0 40px; } }
 
 .section-label {
   font-size: .75rem; font-weight: 800; color: var(--blue);
