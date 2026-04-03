@@ -38,7 +38,9 @@
       border-bottom: none;
     }
     .project-hero img {
-      width: 100%; height: 520px; object-fit: cover; object-position: center center;
+      width: 100%; height: 480px;
+      object-fit: cover;
+      object-position: left center; /* shows left side where the full abstract gradient is, avoids right-crop */
       display: block;
     }
     .hero-overlay {
@@ -266,7 +268,8 @@
       transition: transform .35s cubic-bezier(0.22,1,.36,1), box-shadow .35s, border-color .25s;
     }
     .rb-tool-card:hover { transform: translateY(-6px); box-shadow: 0 14px 40px rgba(0,0,0,.35); border-color: rgba(124,0,232,.4); }
-    .rb-tool-card .ph { font-size: 2.2rem; color: #a855f7; display: block; margin-bottom: 14px; }
+    .rb-tool-card .ph { font-size: 2.2rem; display: block; margin-bottom: 14px;
+      background: linear-gradient(135deg,#FF6B00,#E8006B); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
     .rb-tool-name { font-size: .92rem; font-weight: 700; color: #fff; margin-bottom: 4px; }
     .rb-tool-desc { font-size: .75rem; color: #64748b; line-height: 1.4; }
     @media (max-width: 900px) { .rb-tools-cards { grid-template-columns: repeat(2, 1fr); } }
@@ -323,9 +326,10 @@
     <a href="index.html#portfolio" class="back-btn"><i class="ph ph-arrow-left"></i> Back to Portfolio</a>
   </nav>
 
-  <!-- HERO (fixed – no stretch) -->
+  <!-- HERO - uses proper wide landscape banner -->
   <div class="project-hero">
-    <img src="Rishi Blends Brand Identity.png" alt="Rishi Blends — Bold herbal brew brand identity" loading="eager"/>
+    <img src="rb-hero-banner.jpg" alt="Rishi Blends — Bold herbal brew brand identity" loading="eager"
+         onerror="this.onerror=null;this.src='rb-logo-bg.png';"/>
     <div class="hero-overlay">
       <div class="hero-text">
         <h1>Rishi Blends Brand Identity</h1>
@@ -515,15 +519,31 @@
             </div>
           </div>
 
-          <!-- Right: 2 individual packs + detail -->
+          <!-- Right: 2 individual packs + 4 Flavor Cards Grid replacing ingredient image -->
           <div class="rb-packaging-right">
             <div class="rb-pack-sub">
               <a href="rb-packaging-matcha.jpg" class="rb-pack-sub-card lightbox-trigger"><img src="rb-packaging-matcha.jpg" alt="Rose Matcha packaging" loading="lazy"/></a>
               <a href="rb-packaging-sleeptime.jpg" class="rb-pack-sub-card lightbox-trigger"><img src="rb-packaging-sleeptime.jpg" alt="Sleeptime packaging" loading="lazy"/></a>
             </div>
-            <a href="rb-details-1.jpg" class="rb-pack-detail lightbox-trigger">
-              <img src="rb-details-1.jpg" alt="Rishi Blends ingredient detail" loading="lazy"/>
-            </a>
+            <!-- 4 Flavor cards replacing the ingredient image -->
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+              <div style="background:rgba(239,68,68,.12); border:1px solid rgba(239,68,68,.3); border-radius:14px; padding:16px 14px; display:flex; align-items:center; gap:10px;">
+                <div style="width:12px;height:12px;border-radius:50%;background:#ef4444;flex-shrink:0;"></div>
+                <div><div style="font-size:.75rem;font-weight:800;color:#ef4444;">Rose Cocoa</div><div style="font-size:.65rem;color:#64748b;margin-top:2px;">Rich &amp; Indulgent</div></div>
+              </div>
+              <div style="background:rgba(34,197,94,.12); border:1px solid rgba(34,197,94,.3); border-radius:14px; padding:16px 14px; display:flex; align-items:center; gap:10px;">
+                <div style="width:12px;height:12px;border-radius:50%;background:#22c55e;flex-shrink:0;"></div>
+                <div><div style="font-size:.75rem;font-weight:800;color:#22c55e;">Rose Matcha</div><div style="font-size:.65rem;color:#64748b;margin-top:2px;">Fresh &amp; Earthy</div></div>
+              </div>
+              <div style="background:rgba(129,140,248,.12); border:1px solid rgba(129,140,248,.3); border-radius:14px; padding:16px 14px; display:flex; align-items:center; gap:10px;">
+                <div style="width:12px;height:12px;border-radius:50%;background:#818cf8;flex-shrink:0;"></div>
+                <div><div style="font-size:.75rem;font-weight:800;color:#818cf8;">Sleeptime</div><div style="font-size:.65rem;color:#64748b;margin-top:2px;">Calm &amp; Soothing</div></div>
+              </div>
+              <div style="background:rgba(234,179,8,.12); border:1px solid rgba(234,179,8,.3); border-radius:14px; padding:16px 14px; display:flex; align-items:center; gap:10px;">
+                <div style="width:12px;height:12px;border-radius:50%;background:#eab308;flex-shrink:0;"></div>
+                <div><div style="font-size:.75rem;font-weight:800;color:#eab308;">Pumpkin Spice</div><div style="font-size:.65rem;color:#64748b;margin-top:2px;">Warm &amp; Cosy</div></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -585,9 +605,20 @@
 
   </main>
 
-  <footer class="project-footer">
-    <p style="margin-bottom:12px;"><a href="https://www.behance.net/gallery/211167479/Rishi-Blends-Brand-identity" target="_blank" style="color:#fff;font-weight:700;text-decoration:underline;"><i class="ph ph-behance-logo"></i> View Full Project on Behance</a></p>
-    <p>© 2026 Udit Kumar Chauhan &nbsp;·&nbsp; <a href="index.html" style="color:#a855f7;">Back to Portfolio</a></p>
+  <!-- FOOTER -->
+  <footer class="project-footer" style="padding: 80px 24px; text-align:center; background: rgba(0,0,0,.2);">
+    <p style="font-size:.8rem; text-transform:uppercase; letter-spacing:.14em; color:#FF6B00; font-weight:700; margin-bottom:20px;">Like what you see?</p>
+    <h3 style="font-family:'Sora',sans-serif; font-size:clamp(1.6rem,4vw,2.4rem); font-weight:800; color:#fff; margin-bottom:36px; line-height:1.2;">See the full case study<br>on Behance</h3>
+    <a href="https://www.behance.net/gallery/211167479/Rishi-Blends-Brand-identity" target="_blank"
+       style="display:inline-flex; align-items:center; gap:12px; background:linear-gradient(135deg,#FF6B00,#E8006B 50%,#7C00E8); color:#fff; padding:18px 44px; border-radius:100px; font-family:'Sora',sans-serif; font-weight:800; font-size:1.05rem; text-decoration:none; box-shadow:0 6px 32px rgba(232,0,107,.3); transition: transform .3s, box-shadow .3s;"
+       onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 14px 44px rgba(232,0,107,.5)';"
+       onmouseout="this.style.transform=''; this.style.boxShadow='0 6px 32px rgba(232,0,107,.3)';"
+    >
+      <i class="ph ph-behance-logo" style="font-size:1.4rem;"></i> View Full Project
+    </a>
+    <div style="margin-top:60px; padding-top:32px; border-top:1px solid rgba(255,255,255,.07); color:#64748b; font-size:.85rem;">
+      © 2026 Udit Kumar Chauhan &nbsp;·&nbsp; <a href="index.html" style="color:#a855f7;">Back to Portfolio</a>
+    </div>
   </footer>
 
   <!-- LIGHTBOX -->

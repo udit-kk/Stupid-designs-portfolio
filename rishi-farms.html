@@ -26,12 +26,15 @@
       border-bottom: none;
     }
     .project-hero img {
-      width: 100%; height: 520px; object-fit: cover; object-position: center 30%;
+      width: 100%; height: 520px; object-fit: cover; object-position: 20% 30%;
       display: block;
     }
+    /* Right-side fade hides the circular brand mark in the banner corner */
     .hero-overlay {
       position: absolute; inset: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,.05) 0%, rgba(5,13,28,.88) 100%);
+      background:
+        linear-gradient(to right, transparent 55%, rgba(5,13,28,.85) 100%),
+        linear-gradient(to bottom, rgba(0,0,0,.05) 0%, rgba(5,13,28,.9) 100%);
       display: flex; align-items: flex-end;
       padding: 60px 48px;
     }
@@ -148,7 +151,7 @@
       cursor: pointer;
     }
     .palette-card:hover { transform: translateY(-6px); box-shadow: 0 14px 36px rgba(0,0,0,.4); }
-    .palette-swatch { height: 80px; width: 100%; }
+    .palette-swatch { height: 110px; width: 100%; }
     .palette-info { padding: 12px 10px; }
     .palette-name { font-size: .65rem; font-weight: 700; color: #fff; margin-bottom: 3px; }
     .palette-hex { font-size: .6rem; color: #64748b; font-family: monospace; }
@@ -272,7 +275,8 @@
       transition: transform .35s cubic-bezier(0.22,1,.36,1), box-shadow .35s, border-color .25s;
     }
     .tool-card:hover { transform: translateY(-6px); box-shadow: 0 14px 40px rgba(0,0,0,.35); border-color: rgba(45,122,39,.4); }
-    .tool-card .ph { font-size: 2.2rem; color: #4ade80; display: block; margin-bottom: 14px; }
+    .tool-card .ph { font-size: 2.2rem; display: block; margin-bottom: 14px;
+      background: linear-gradient(135deg,#4ade80,#2D7A27); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
     .tool-card-name { font-size: .92rem; font-weight: 700; color: #fff; margin-bottom: 4px; }
     .tool-card-desc { font-size: .75rem; color: #64748b; line-height: 1.4; }
     @media (max-width: 900px) {
@@ -621,9 +625,19 @@
   </main>
 
   <!-- FOOTER -->
-  <footer class="project-footer">
-    <p style="margin-bottom:12px;"><a href="https://www.behance.net/gallery/234079805/Rishi-Farms-Branding-Brand-Identity" target="_blank" style="color:#fff;font-weight:700;text-decoration:underline;"><i class="ph ph-behance-logo"></i> View Full Project on Behance</a></p>
-    <p>© 2026 Udit Kumar Chauhan &nbsp;·&nbsp; <a href="index.html" style="color:#2D7A27;">Back to Portfolio</a></p>
+  <footer class="project-footer" style="padding: 80px 24px; text-align:center; background: rgba(0,0,0,.2);">
+    <p style="font-size:.8rem; text-transform:uppercase; letter-spacing:.14em; color:#4ade80; font-weight:700; margin-bottom:20px;">Like what you see?</p>
+    <h3 style="font-family:'Sora',sans-serif; font-size:clamp(1.6rem,4vw,2.4rem); font-weight:800; color:#fff; margin-bottom:36px; line-height:1.2;">See the full case study<br>on Behance</h3>
+    <a href="https://www.behance.net/gallery/234079805/Rishi-Farms-Branding-Brand-Identity" target="_blank"
+       style="display:inline-flex; align-items:center; gap:12px; background:linear-gradient(135deg,#4ade80,#2D7A27); color:#fff; padding:18px 44px; border-radius:100px; font-family:'Sora',sans-serif; font-weight:800; font-size:1.05rem; text-decoration:none; transition: transform .3s, box-shadow .3s; box-shadow: 0 6px 32px rgba(45,122,39,.35);"
+       onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 14px 44px rgba(45,122,39,.5)';"
+       onmouseout="this.style.transform=''; this.style.boxShadow='0 6px 32px rgba(45,122,39,.35)';"
+    >
+      <i class="ph ph-behance-logo" style="font-size:1.4rem;"></i> View Full Project
+    </a>
+    <div style="margin-top:60px; padding-top:32px; border-top:1px solid rgba(255,255,255,.07); color:#64748b; font-size:.85rem;">
+      © 2026 Udit Kumar Chauhan &nbsp;·&nbsp; <a href="index.html" style="color:#4ade80;">Back to Portfolio</a>
+    </div>
   </footer>
 
   <!-- LIGHTBOX MODAL -->
