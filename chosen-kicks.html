@@ -59,16 +59,16 @@
     <a href="index.html#portfolio" class="back-btn"><i class="ph ph-arrow-left"></i> Back to Portfolio</a>
   </nav>
 
-  <div class="project-hero" style="background:#E8E8E8; display:flex; justify-content:center; align-items:center;">
-    <img src="ck-hero.png" alt="Chosen Kicks – streetwear brand identity" loading="eager" style="object-fit:contain; max-width:80%;"/>
-    <div class="hero-overlay">
-      <div class="hero-text">
+  <div class="project-hero" style="background:#E8E8E8; display:flex; justify-content:flex-end; align-items:center;">
+    <img src="ck-hero.png" alt="Chosen Kicks – streetwear brand identity" loading="eager" style="object-fit:contain; max-width:60%; margin-right:5%;"/>
+    <div class="hero-overlay" style="align-items:flex-end; justify-content:flex-start;">
+      <div class="hero-text" style="max-width:50%;">
         <div class="section-label" style="color:var(--blue);">Branding · Logo · Streetwear</div>
         <h1>Chosen Kicks – Brand Identity</h1>
         <div class="hero-meta">
           <span class="meta-pill blue"><i class="ph ph-tag"></i> Brand Identity</span>
           <span class="meta-pill blue"><i class="ph ph-sneaker"></i> Streetwear</span>
-          <span class="meta-pill"><i class="ph ph-calendar"></i> 2024</span>
+          <span class="meta-pill"><i class="ph ph-calendar"></i> 2025</span>
           <span class="meta-pill"><i class="ph ph-user"></i> Udit Kumar Chauhan</span>
         </div>
       </div>
@@ -95,6 +95,7 @@
           <div class="stat-box"><div class="stat-val">1</div><div class="stat-lbl">Brand System</div></div>
           <div class="stat-box"><div class="stat-val">4</div><div class="stat-lbl">Products Introduced</div></div>
           <div class="stat-box"><div class="stat-val">2025</div><div class="stat-lbl">Release Year</div></div>
+          <div class="stat-box"><div class="stat-val">✓</div><div class="stat-lbl">E-Commerce Ready</div></div>
         </div>
       </div>
     </section>
@@ -142,30 +143,33 @@
         <h2 class="section-title">Crafted for <em>Culture</em></h2>
         <div class="section-body"><p>Built entirely in vector for infinite scalability — from embossed leather patches to large-format display prints. Sneaker culture requires microscopic attention to material detail.</p></div>
         
-        <div style="display:flex; flex-wrap:wrap; gap:32px; margin-top:36px; align-items:center;">
-          <div style="flex:1; min-width:300px;">
-            <div class="tools-cards" style="grid-template-columns:1fr; gap:16px;">
-              <div class="tool-card">
-                <i class="ph ph-pencil-simple-line"></i>
-                <div class="tool-card-name">Adobe Illustrator</div>
-                <div class="tool-card-desc">Vector paths &amp; scalability</div>
-              </div>
-              <div class="tool-card">
-                <i class="ph ph-image"></i>
-                <div class="tool-card-name">Adobe Photoshop</div>
-                <div class="tool-card-desc">Streetwear Mockups</div>
-              </div>
-              <div class="tool-card">
-                <i class="ph ph-palette"></i>
-                <div class="tool-card-name">Brand Identity</div>
-                <div class="tool-card-desc">Visual design language</div>
-              </div>
-            </div>
+        <!-- Tool Cards Row -->
+        <div class="tools-cards" style="margin-top:36px;">
+          <div class="tool-card">
+            <i class="ph ph-pencil-simple-line"></i>
+            <div class="tool-card-name">Adobe Illustrator</div>
+            <div class="tool-card-desc">Vector paths &amp; scalability</div>
           </div>
-          <div style="flex:1; min-width:300px; display:flex; gap:16px;">
-            <img src="ck-bts-1.jpg" alt="BTS Shot 1" style="width:50%; border-radius:12px; object-fit:cover; aspect-ratio:3/4; border:1px solid rgba(255,255,255,.05);" class="lightbox-trigger" loading="lazy">
-            <img src="ck-bts-2.jpg" alt="BTS Shot 2" style="width:50%; border-radius:12px; object-fit:cover; aspect-ratio:3/4; border:1px solid rgba(255,255,255,.05);" class="lightbox-trigger" loading="lazy">
+          <div class="tool-card">
+            <i class="ph ph-image"></i>
+            <div class="tool-card-name">Adobe Photoshop</div>
+            <div class="tool-card-desc">Streetwear Mockups</div>
           </div>
+          <div class="tool-card">
+            <i class="ph ph-palette"></i>
+            <div class="tool-card-name">Brand Identity</div>
+            <div class="tool-card-desc">Visual design language</div>
+          </div>
+        </div>
+
+        <!-- BTS Images -->
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:24px;">
+          <a href="ck-bts-1.jpg" class="lightbox-trigger">
+            <img src="ck-bts-1.jpg" alt="Behind the Scenes – Moodboard" class="ck-image" loading="lazy" style="width:100%; aspect-ratio:4/3; object-fit:cover;"/>
+          </a>
+          <a href="ck-bts-2.jpg" class="lightbox-trigger">
+            <img src="ck-bts-2.jpg" alt="Behind the Scenes – Sketch" class="ck-image" loading="lazy" style="width:100%; aspect-ratio:4/3; object-fit:cover;"/>
+          </a>
         </div>
       </div>
     </section>
@@ -221,6 +225,20 @@
           </a>
           <a href="ck-ecom-keychain-single.png" class="lightbox-trigger">
             <img src="ck-ecom-keychain-single.png" alt="Single Car Keychain" class="ck-image" loading="lazy" style="width:100%; aspect-ratio:1/1; object-fit:cover;"/>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── BANNER DESIGN ──────────────────────── -->
+    <section class="project-section reveal">
+      <div class="container">
+        <div class="section-label">Outdoor Advertising</div>
+        <h2 class="section-title">Banner <em>Design</em></h2>
+        <div class="section-body"><p>Bus shelter billboard mockup showcasing the Chosen Kicks campaign across three high-impact panels — product shots, lifestyle photography, and feature call-outs working together to stop traffic.</p></div>
+        <div style="margin-top:36px;">
+          <a href="ck-banner-design.jpg" class="lightbox-trigger">
+            <img src="ck-banner-design.jpg" alt="Bus Shelter Billboard Banner Design" class="ck-image" loading="lazy" style="width:100%; border-radius:20px; object-fit:cover;"/>
           </a>
         </div>
       </div>
