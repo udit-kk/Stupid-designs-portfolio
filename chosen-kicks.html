@@ -59,10 +59,10 @@
     <a href="index.html#portfolio" class="back-btn"><i class="ph ph-arrow-left"></i> Back to Portfolio</a>
   </nav>
 
-  <div class="project-hero" style="background:#E8E8E8; display:flex; justify-content:flex-end; align-items:center;">
-    <img src="ck-hero.png" alt="Chosen Kicks – streetwear brand identity" loading="eager" style="object-fit:contain; max-width:60%; margin-right:5%;"/>
-    <div class="hero-overlay" style="align-items:flex-end; justify-content:flex-start;">
-      <div class="hero-text" style="max-width:50%;">
+  <div class="project-hero">
+    <img src="ck-hero.png" alt="Chosen Kicks – streetwear brand identity" loading="eager"/>
+    <div class="hero-overlay">
+      <div class="hero-text">
         <div class="section-label" style="color:var(--blue);">Branding · Logo · Streetwear</div>
         <h1>Chosen Kicks – Brand Identity</h1>
         <div class="hero-meta">
@@ -143,33 +143,34 @@
         <h2 class="section-title">Crafted for <em>Culture</em></h2>
         <div class="section-body"><p>Built entirely in vector for infinite scalability — from embossed leather patches to large-format display prints. Sneaker culture requires microscopic attention to material detail.</p></div>
         
-        <!-- Tool Cards Row -->
-        <div class="tools-cards" style="margin-top:36px;">
-          <div class="tool-card">
-            <i class="ph ph-pencil-simple-line"></i>
-            <div class="tool-card-name">Adobe Illustrator</div>
-            <div class="tool-card-desc">Vector paths &amp; scalability</div>
+        <div style="display:flex; flex-wrap:wrap; gap:32px; margin-top:36px; align-items:stretch;">
+          <!-- Tool Cards on left -->
+          <div style="flex:1; min-width:280px; display:flex; flex-direction:column; gap:14px;">
+            <div class="tool-card">
+              <i class="ph ph-pencil-simple-line"></i>
+              <div class="tool-card-name">Adobe Illustrator</div>
+              <div class="tool-card-desc">Vector paths &amp; scalability</div>
+            </div>
+            <div class="tool-card">
+              <i class="ph ph-image"></i>
+              <div class="tool-card-name">Adobe Photoshop</div>
+              <div class="tool-card-desc">Streetwear Mockups</div>
+            </div>
+            <div class="tool-card">
+              <i class="ph ph-palette"></i>
+              <div class="tool-card-name">Brand Identity</div>
+              <div class="tool-card-desc">Visual design language</div>
+            </div>
           </div>
-          <div class="tool-card">
-            <i class="ph ph-image"></i>
-            <div class="tool-card-name">Adobe Photoshop</div>
-            <div class="tool-card-desc">Streetwear Mockups</div>
+          <!-- BTS Images on right -->
+          <div style="flex:1; min-width:280px; display:flex; gap:16px;">
+            <a href="ck-bts-1.jpg" class="lightbox-trigger" style="flex:1;">
+              <img src="ck-bts-1.jpg" alt="Behind the Scenes – Moodboard" class="ck-image" loading="lazy" style="width:100%; height:100%; object-fit:cover; aspect-ratio:3/4;"/>
+            </a>
+            <a href="ck-bts-2.jpg" class="lightbox-trigger" style="flex:1;">
+              <img src="ck-bts-2.jpg" alt="Behind the Scenes – Sketch" class="ck-image" loading="lazy" style="width:100%; height:100%; object-fit:cover; aspect-ratio:3/4;"/>
+            </a>
           </div>
-          <div class="tool-card">
-            <i class="ph ph-palette"></i>
-            <div class="tool-card-name">Brand Identity</div>
-            <div class="tool-card-desc">Visual design language</div>
-          </div>
-        </div>
-
-        <!-- BTS Images -->
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:24px;">
-          <a href="ck-bts-1.jpg" class="lightbox-trigger">
-            <img src="ck-bts-1.jpg" alt="Behind the Scenes – Moodboard" class="ck-image" loading="lazy" style="width:100%; aspect-ratio:4/3; object-fit:cover;"/>
-          </a>
-          <a href="ck-bts-2.jpg" class="lightbox-trigger">
-            <img src="ck-bts-2.jpg" alt="Behind the Scenes – Sketch" class="ck-image" loading="lazy" style="width:100%; aspect-ratio:4/3; object-fit:cover;"/>
-          </a>
         </div>
       </div>
     </section>
