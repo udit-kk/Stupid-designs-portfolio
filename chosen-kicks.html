@@ -22,6 +22,60 @@
 
     .nav-logo span { color: var(--blue); }
 
+    /* ── Hero — natural image height, no crop ─────── */
+    .project-hero {
+      width: 100%; overflow: hidden; position: relative;
+      border-bottom: none;
+    }
+    .project-hero img {
+      width: 100%;
+      height: auto;      /* full banner at natural ratio — zero cropping */
+      display: block;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,.05) 0%, rgba(10,10,10,.9) 100%);
+      display: flex; align-items: flex-end;
+      padding: 60px 48px;
+    }
+    .hero-text h1 {
+      font-family: 'Sora', sans-serif; font-size: clamp(2.4rem, 6vw, 4.5rem);
+      font-weight: 800; color: #fff; letter-spacing: -.04em;
+      line-height: 1.05; margin-bottom: 0;
+    }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 16px; }
+    .meta-pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(212,43,43,.15); border: 1px solid rgba(212,43,43,.3);
+      border-radius: 100px; padding: 7px 18px;
+      font-size: .82rem; font-weight: 700; color: #D42B2B;
+      transition: background .25s;
+    }
+    .meta-pill:hover { background: rgba(212,43,43,.3); }
+    .meta-pill.gray { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.18); color: rgba(255,255,255,.85); }
+    
+    @media (max-width: 768px) {
+      .hero-overlay { padding: 32px 24px; }
+      .hero-text h1 { font-size: 2.3rem; }
+    }
+
+    /* ── Tools Card Styling ─────────────────────── */
+    .tool-cards-col { display: flex; flex-direction: column; gap: 16px; flex: 1; min-width: 300px; }
+    .tool-card { 
+      background: var(--card); 
+      border: 1px solid rgba(255,255,255,.05); 
+      border-radius: 16px; 
+      padding: 24px; 
+      display: flex; 
+      align-items: center; 
+      gap: 20px; 
+      transition: all 0.3s var(--ease);
+    }
+    .tool-card:hover { transform: translateY(-4px); border-color: var(--blue); background: rgba(212,43,43,.05); }
+    .tool-card-icon { font-size: 2rem; color: var(--blue); }
+    .tool-card-info h4 { font-size: 1.1rem; color: #fff; margin-bottom: 4px; font-weight: 800; }
+    .tool-card-info p { font-size: .85rem; color: var(--muted); line-height: 1.4; }
+
     /* Fix image corners for this specific project layout */
     .creative-grid {
       display: grid;
@@ -38,9 +92,9 @@
     .ck-image {
       width: 100%;
       height: 100%;
-      object-fit: contain; /* Prevent cropping as requested */
-      border-radius: 20px; /* Curved corners */
-      background: rgba(255,255,255,0.03); /* subtle bg if image has transparency or letterboxing */
+      object-fit: cover;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.03); 
       border: 1px solid rgba(255,255,255,0.05);
     }
     
@@ -60,16 +114,16 @@
   </nav>
 
   <div class="project-hero">
-    <img src="ck-hero.png" alt="Chosen Kicks – streetwear brand identity" loading="eager"/>
+    <img src="ck-hero.png" alt="Chosen Kicks Banner" loading="eager"/>
     <div class="hero-overlay">
       <div class="hero-text">
-        <div class="section-label" style="color:var(--blue);">Branding · Logo · Streetwear</div>
+        <div class="section-label" style="color:var(--blue); margin-bottom: 12px;">Branding · Logo · Streetwear</div>
         <h1>Chosen Kicks – Brand Identity</h1>
         <div class="hero-meta">
-          <span class="meta-pill blue"><i class="ph ph-tag"></i> Brand Identity</span>
-          <span class="meta-pill blue"><i class="ph ph-sneaker"></i> Streetwear</span>
-          <span class="meta-pill"><i class="ph ph-calendar"></i> 2025</span>
-          <span class="meta-pill"><i class="ph ph-user"></i> Udit Kumar Chauhan</span>
+          <span class="meta-pill"><i class="ph ph-tag"></i> Brand Identity</span>
+          <span class="meta-pill"><i class="ph ph-sneaker"></i> Streetwear</span>
+          <span class="meta-pill gray"><i class="ph ph-calendar"></i> 2025</span>
+          <span class="meta-pill gray"><i class="ph ph-user"></i> Udit Kumar Chauhan</span>
         </div>
       </div>
     </div>
@@ -144,31 +198,38 @@
         <div class="section-body"><p>Built entirely in vector for infinite scalability — from embossed leather patches to large-format display prints. Sneaker culture requires microscopic attention to material detail.</p></div>
         
         <div style="display:flex; flex-wrap:wrap; gap:32px; margin-top:36px; align-items:stretch;">
-          <!-- Tool Cards on left -->
-          <div style="flex:1; min-width:280px; display:flex; flex-direction:column; gap:14px;">
+          <!-- Tools side (Left Column) -->
+          <div class="tool-cards-col">
             <div class="tool-card">
-              <i class="ph ph-pencil-simple-line"></i>
-              <div class="tool-card-name">Adobe Illustrator</div>
-              <div class="tool-card-desc">Vector paths &amp; scalability</div>
+              <i class="ph ph-pencil-simple-line tool-card-icon"></i>
+              <div class="tool-card-info">
+                <h4>Adobe Illustrator</h4>
+                <p>Vector paths &amp; scalability</p>
+              </div>
             </div>
             <div class="tool-card">
-              <i class="ph ph-image"></i>
-              <div class="tool-card-name">Adobe Photoshop</div>
-              <div class="tool-card-desc">Streetwear Mockups</div>
+              <i class="ph ph-image tool-card-icon"></i>
+              <div class="tool-card-info">
+                <h4>Adobe Photoshop</h4>
+                <p>Streetwear Mockups</p>
+              </div>
             </div>
             <div class="tool-card">
-              <i class="ph ph-palette"></i>
-              <div class="tool-card-name">Brand Identity</div>
-              <div class="tool-card-desc">Visual design language</div>
+              <i class="ph ph-palette tool-card-icon"></i>
+              <div class="tool-card-info">
+                <h4>Brand Identity</h4>
+                <p>Visual design language</p>
+              </div>
             </div>
           </div>
-          <!-- BTS Images on right -->
-          <div style="flex:1; min-width:280px; display:flex; gap:16px;">
-            <a href="ck-bts-1.jpg" class="lightbox-trigger" style="flex:1;">
-              <img src="ck-bts-1.jpg" alt="Behind the Scenes – Moodboard" class="ck-image" loading="lazy" style="width:100%; height:100%; object-fit:cover; aspect-ratio:3/4;"/>
+          
+          <!-- BTS Images side (Right Column) -->
+          <div style="flex:1.2; min-width:320px; display:grid; grid-template-columns: 1fr 1fr; gap:16px;">
+            <a href="ck-bts-1.jpg" class="lightbox-trigger" style="display:block; height:100%;">
+              <img src="ck-bts-1.jpg" alt="BTS Shot 1" class="ck-image" loading="lazy" style="width:100%; height:100%; object-fit:cover; border-radius:20px;"/>
             </a>
-            <a href="ck-bts-2.jpg" class="lightbox-trigger" style="flex:1;">
-              <img src="ck-bts-2.jpg" alt="Behind the Scenes – Sketch" class="ck-image" loading="lazy" style="width:100%; height:100%; object-fit:cover; aspect-ratio:3/4;"/>
+            <a href="ck-bts-2.jpg" class="lightbox-trigger" style="display:block; height:100%;">
+              <img src="ck-bts-2.jpg" alt="BTS Shot 2" class="ck-image" loading="lazy" style="width:100%; height:100%; object-fit:cover; border-radius:20px;"/>
             </a>
           </div>
         </div>
