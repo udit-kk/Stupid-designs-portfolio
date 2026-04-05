@@ -115,7 +115,7 @@
   </nav>
 
   <div class="project-hero">
-    <img src="roa-hero.png" alt="Roamentia Banner Mockup" loading="eager"/>
+    <img src="roa-hero.png" alt="Roamentia Hero Banner" loading="eager"/>
     <div class="hero-overlay">
       <div class="hero-text">
         <div class="section-label" style="color:var(--accent); margin-bottom: 12px; opacity:1;">Branding · Social Media · Travel Partner</div>
@@ -142,7 +142,7 @@
             </div>
           </div>
           <div>
-            <img src="roa-logo-graphic.png" alt="Roamentia Logo Design" loading="lazy" style="border-radius:20px; width:100%; border:1px solid rgba(255,255,255,0.05);"/>
+            <img src="roa-graphic-1.png" alt="Roamentia Logo Design" loading="lazy" style="border-radius:20px; width:100%; border:1px solid rgba(255,255,255,0.05);"/>
           </div>
         </div>
         <div class="stats-row">
@@ -171,7 +171,7 @@
             <img src="roa-creative-3.png" alt="Journey Motivation Creative" loading="lazy"/>
           </a>
           <a href="roa-creative-4.png" class="roa-item lightbox-trigger">
-            <img src="roa-creative-4.png" alt="Roamentia Featured Graphic" loading="lazy"/>
+            <img src="roa-creative-4.png" alt="Lost in the Map Creative" loading="lazy"/>
           </a>
         </div>
       </div>
@@ -227,35 +227,45 @@
             </div>
           </div>
           <div style="flex:1; min-width:300px;">
-            <img src="roa-graphic-1.png" alt="Roamentia Design Elements" loading="lazy" style="width:100%; border-radius:24px; border:1px solid rgba(255,255,255,0.05);"/>
+            <img src="roa-logo-graphic.png" alt="Roamentia Design Elements" loading="lazy" style="width:100%; border-radius:24px; border:1px solid rgba(255,255,255,0.05);"/>
           </div>
         </div>
       </div>
     </section>
 
-    <div class="related">
+    <section class="related reveal">
       <div class="container">
-        <div class="section-label">Explore More</div>
+        <h3 style="font-family:'Sora',sans-serif;font-size:1.3rem;font-weight:800;color:#fff;margin-bottom:24px;">Explore More</h3>
         <div class="related-grid">
           <a href="rishi-farms.html" class="related-card"><img src="rf-farm-hero.jpg" alt="Rishi Farms"/><div class="related-card-body"><div class="related-cat">Branding</div><div class="related-title">Rishi Farms</div></div></a>
           <a href="nandvrinda.html" class="related-card"><img src="nv-hero-banner.png" alt="Nandvrinda"/><div class="related-card-body"><div class="related-cat">Identity</div><div class="related-title">Nandvrinda</div></div></a>
           <a href="chosen-kicks.html" class="related-card"><img src="ck-hero.png" alt="Chosen Kicks"/><div class="related-card-body"><div class="related-cat">Streetwear</div><div class="related-title">Chosen Kicks</div></div></a>
         </div>
       </div>
-    </div>
+    </section>
   </main>
 
-  <!-- Lightbox -->
-  <div class="lightbox" id="lightbox">
-    <span class="lightbox-close">&times;</span>
-    <img class="lightbox-content" id="lightbox-img" src="" alt=""/>
-  </div>
-
-  <footer style="padding: 40px 0; border-top: 1px solid var(--border); text-align: center;">
-    <div class="container">
-      <div style="font-size: .85rem; color: var(--muted);">© 2025 Udit Kumar Chauhan · Portfolio</div>
+  <!-- FOOTER -->
+  <footer class="project-footer" style="padding: 80px 24px; text-align:center; background: rgba(0,0,0,.2); border-top: 1px solid rgba(255,255,255,.07);">
+    <p style="font-size:.8rem; text-transform:uppercase; letter-spacing:.14em; color:var(--blue); font-weight:700; margin-bottom:20px;">Like what you see?</p>
+    <h3 style="font-family:'Sora',sans-serif; font-size:clamp(1.6rem,4vw,2.4rem); font-weight:800; color:#fff; margin-bottom:36px; line-height:1.2;">See the full case study<br>on Behance</h3>
+    <a href="https://www.behance.net/gallery/218878689/-Roamentia-Your-Ultimate-Travel-Partner-" target="_blank"
+       style="display:inline-flex; align-items:center; gap:12px; background:var(--blue); color:#fff; padding:18px 44px; border-radius:100px; font-family:'Sora',sans-serif; font-weight:800; font-size:1.05rem; text-decoration:none; box-shadow:0 6px 32px rgba(46,91,255,.3); transition: transform .3s, box-shadow .3s;"
+       onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 14px 44px rgba(46,91,255,.5)';"
+       onmouseout="this.style.transform=''; this.style.boxShadow='0 6px 32px rgba(46,91,255,.3)';"
+    >
+      <i class="ph ph-behance-logo" style="font-size:1.4rem;"></i> View Full Project
+    </a>
+    <div style="margin-top:60px; padding-top:32px; border-top:1px solid rgba(255,255,255,.07); color:#64748b; font-size:.85rem;">
+      &copy; 2025 Udit Kumar Chauhan &nbsp;&middot;&nbsp; <a href="index.html" style="color:var(--blue);">Back to Portfolio</a>
     </div>
   </footer>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox">
+    <span class="lightbox-close">&times;</span>
+    <img src="" alt="Zoomed View" class="lightbox-content" id="lightbox-img">
+  </div>
 
   <script src="projects-master.js"></script>
 </body>
