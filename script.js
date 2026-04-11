@@ -297,3 +297,84 @@ document.querySelectorAll('.profile-card, .svc-card, .pr-card, .about-card, .pf-
 
 /* ── Init ────────────────────────────────────────────────── */
 syncNav();
+
+/* ── 13. Scroll Progress Bar ─────────────────────────────── */
+(function initScrollProgress() {
+  const bar = document.getElementById('scroll-progress');
+  if (!bar) return;
+  window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY;
+    const total    = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (scrolled / total * 100).toFixed(2) + '%';
+  }, { passive: true });
+})();
+
+/* ── 14. Hero scroll fade ────────────────────────────────── */
+(function initHeroFade() {
+  const heroFade = document.getElementById('hero-fade');
+  const heroSection = document.getElementById('home');
+  if (!heroFade || !heroSection) return;
+  window.addEventListener('scroll', () => {
+    const heroH = heroSection.offsetHeight;
+    const sy    = window.scrollY;
+    const pct   = Math.min(sy / (heroH * 0.6), 1);
+    heroFade.style.opacity   = 1 - pct * 0.6;
+    heroFade.style.transform = `translateY(${pct * 18}px)`;
+  }, { passive: true });
+})();
+
+/* ── 15. Word-split headings ─────────────────────────────── */
+(function initWordSplit() {
+  document.querySelectorAll('.sh').forEach(el => {
+    // Save and wrap each word
+    const rawHTML = el.innerHTML;
+    // Only wrap plain text nodes (skip <em> etc.)
+    el.classList.add('word-split');
+    // Rebuild innerHTML by wrapping text-only sections word by word
+    el.innerHTML = el.innerHTML.replace(/([^<>\s][^<>]*?)(?=<|$)/g, match => {
+      return match.split(' ').map(w => w ? `<span class="word">${w}</span>` : '').join(' ');
+    });
+    // Stagger each word
+    el.querySelectorAll('.word').forEach((w, i) => {
+      w.style.transitionDelay = `${0.05 + i * 0.07}s`;
+    });
+  });
+  // Observe them
+  const wordObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); wordObs.unobserve(e.target); }
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('.sh.word-split').forEach(el => wordObs.observe(el));
+})();
+
+/* ── 16. Reveal-stagger container observer ───────────────── */
+(function initStaggerContainers() {
+  const staggerObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        Array.from(e.target.children).forEach((child, i) => {
+          setTimeout(() => child.classList.add('visible'), i * 90);
+        });
+        staggerObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal-stagger').forEach(el => staggerObs.observe(el));
+})();
+
+/* ── 17. Magnetic CTA buttons ────────────────────────────── */
+(function initMagneticButtons() {
+  if (!window.matchMedia('(hover:hover)').matches) return;
+  document.querySelectorAll('.btn-primary, .btn-whatsapp').forEach(btn => {
+    btn.addEventListener('mousemove', e => {
+      const rect = btn.getBoundingClientRect();
+      const x = (e.clientX - rect.left - rect.width  / 2) * 0.25;
+      const y = (e.clientY - rect.top  - rect.height / 2) * 0.25;
+      btn.style.transform = `translate(${x}px, ${y}px)`;
+    });
+    btn.addEventListener('mouseleave', () => {
+      btn.style.transform = '';
+    });
+  });
+})();

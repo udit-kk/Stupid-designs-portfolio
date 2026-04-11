@@ -31,6 +31,9 @@
 </head>
 <body>
 
+  <!-- ---------- SCROLL PROGRESS BAR ------------------- -->
+  <div id="scroll-progress" aria-hidden="true"></div>
+
   <!-- ---------- NEON CURSOR DOT ---------------------- -->
   <div id="cursor-dot-outer" aria-hidden="true"></div>
   <div id="cursor-dot-inner" aria-hidden="true"></div>
@@ -70,7 +73,7 @@
   <section id="home" class="hero">
     <canvas id="hero-canvas" aria-hidden="true"></canvas>
 
-    <div class="hero-grid">
+    <div class="hero-grid hero-fade-wrap" id="hero-fade">
       <!-- Left -->
       <div class="hero-left reveal-left">
         <div class="hero-badge">
@@ -112,7 +115,7 @@
       </div>
 
       <!-- Right: Profile Card -->
-      <div class="hero-right reveal-right">
+      <div class="hero-right reveal-right float-bob-slow">
         <div class="profile-card">
           <div class="pc-glow"></div>
           <div class="pc-photo-wrap">
