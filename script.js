@@ -106,6 +106,10 @@ if (dotOuter && dotInner && window.matchMedia('(hover:hover)').matches) {
     requestAnimationFrame(tick);
   }
   window.addEventListener('resize', resize);
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    canvas.style.transform = `translateY(${scrollY * 0.15}px)`;
+  }, { passive: true });
   resize(); tick();
 })();
 
@@ -165,12 +169,19 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 });
 
 /* ── 7. Scroll Reveal Animations ──────────────────────────── */
-const revealEls = document.querySelectorAll('.reveal');
-const revealOptions = { threshold: 0.15, rootMargin: '0px 0px -50px 0px' };
+const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+const revealOptions = { threshold: 0.12, rootMargin: '0px 0px -40px 0px' };
 const revealObserver = new IntersectionObserver((entries, obs) => {
   entries.forEach(e => {
     if (e.isIntersecting) {
       e.target.classList.add('visible');
+      // If it's a staggered container, handle children
+      if (e.target.classList.contains('reveal-stagger')) {
+        const children = e.target.children;
+        Array.from(children).forEach((child, i) => {
+          setTimeout(() => child.classList.add('visible'), i * 100);
+        });
+      }
       obs.unobserve(e.target);
     }
   });

@@ -56,13 +56,12 @@
     }
     .meta-pill.gray { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.18); color: rgba(255,255,255,.85); }
 
-    /* ── Creative Grid ── */
+    /* ── Creative Grid (2x2) ── */
     .roa-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
+      gap: 32px;
       margin-top: 40px;
-      position: relative;
     }
     .roa-item {
       position: relative;
@@ -76,24 +75,34 @@
     .roa-item img { width: 100%; height: 100%; object-fit: cover; }
     .roa-item:hover { transform: scale(1.02); }
 
-    /* Route Dash Line (Desktop only) */
-    .roa-grid::before {
-      content: '';
-      position: absolute;
-      top: 20%; left: 10%; right: 10%; height: 60%;
-      border: 2px dashed var(--accent);
-      border-radius: 100px; opacity: 0.2;
-      pointer-events: none;
-      z-index: 0;
+    /* ── Mixed Grid (3x3) ── */
+    .mixed-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 20px;
     }
-
-    @media (max-width: 768px) {
-      .roa-grid { grid-template-columns: 1fr; gap: 20px; }
-      .roa-grid::before { display: none; }
+    .grid-item {
+      aspect-ratio: 1/1;
+      border-radius: 16px;
+      overflow: hidden;
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,0.05);
+      transition: transform 0.3s var(--ease);
+    }
+    .grid-item img { width: 100%; height: 100%; object-fit: cover; }
+    .grid-item:hover { transform: scale(1.03); z-index: 2; }
+    
+    /* Responsive Grids */
+    @media (max-width: 900px) {
+      .mixed-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .roa-grid, .mixed-grid { grid-template-columns: 1fr; }
       .hero-overlay { padding: 32px 24px; }
     }
 
-    /* ── Tool Cards ─────────────────────────────── */
+    /* ── Tool Cards ── */
     .tool-cards-col { display: flex; flex-direction: column; gap: 16px; flex: 1; min-width: 300px; }
     .tool-card { 
       background: var(--card); border: 1px solid rgba(255,255,255,.05); 
@@ -115,13 +124,13 @@
   </nav>
 
   <div class="project-hero">
-    <img src="roa-hero.png" alt="Roamentia Hero Banner" loading="eager"/>
+    <img src="roa-hero.png" alt="Roamentia Hero Banner"/>
     <div class="hero-overlay">
       <div class="hero-text">
         <div class="section-label" style="color:var(--accent); margin-bottom: 12px; opacity:1;">Branding · Social Media · Travel Partner</div>
-        <h1>Roamentia – Brand Identity <br/> & Campaign Strategy</h1>
+        <h1>Roamentia – Your Ultimate <br/> Travel Partner</h1>
         <div class="hero-meta">
-          <span class="meta-pill"><i class="ph ph-airplane"></i> Travel Partner</span>
+          <span class="meta-pill"><i class="ph ph-airplane"></i> Travel Brand</span>
           <span class="meta-pill"><i class="ph ph-palette"></i> Visual Identity</span>
           <span class="meta-pill gray"><i class="ph ph-calendar"></i> 2025</span>
         </div>
@@ -130,11 +139,12 @@
   </div>
 
   <main>
+    <!-- ── Vision & Problem ────────────────────────── -->
     <section class="project-section reveal">
       <div class="container">
         <div class="overview-grid">
           <div>
-            <div class="section-label">Vision & Problem</div>
+            <div class="section-label">Vision & Project Scope</div>
             <h2 class="section-title">Fueling the <em>Wanderlust</em></h2>
             <div class="section-body">
               <p>Roamentia aims to capture the thrill of traveling while ensuring a cohesive and compelling brand presence. Designed for Gaus Ahamad, the brand needed to stand out in a saturated travel agency market by offering something more adventurous and personalized.</p>
@@ -142,100 +152,88 @@
             </div>
           </div>
           <div>
-            <img src="roa-graphic-1.png" alt="Roamentia Logo Design" loading="lazy" style="border-radius:20px; width:100%; border:1px solid rgba(255,255,255,0.05);"/>
+            <img src="roa-graphic-1.png" alt="Roamentia Brand Mark" loading="lazy" style="border-radius:24px; width:100%; border:1px solid rgba(255,255,255,0.05);"/>
           </div>
         </div>
-        <div class="stats-row">
-          <div class="stat-box"><div class="stat-val">10+</div><div class="stat-lbl">Campaign Visuals</div></div>
-          <div class="stat-box"><div class="stat-val">2</div><div class="stat-lbl">Weeks to Build</div></div>
-          <div class="stat-box"><div class="stat-val">2025</div><div class="stat-lbl">Project Year</div></div>
-          <div class="stat-box"><div class="stat-val">✓</div><div class="stat-lbl">Market Ready</div></div>
-        </div>
       </div>
     </section>
 
+    <!-- ── Social Quad (2x2) ────────────────────────── -->
     <section class="project-section reveal">
       <div class="container">
-        <div class="section-label">The Creative Route</div>
-        <h2 class="section-title">Adventure <em>Interconnected</em></h2>
-        <div class="section-body"><p>A series of high-impact social media creatives designed to drive engagement. From destination spotlights to promotional offers, the brand maintains a high-energy aesthetic.</p></div>
+        <div class="section-label">High-Impact Creatives</div>
+        <h2 class="section-title">Adventure <em>Quad</em></h2>
         
         <div class="roa-grid">
-          <a href="roa-creative-1.png" class="roa-item lightbox-trigger">
-            <img src="roa-creative-1.png" alt="Italy Collection Creative" loading="lazy"/>
-          </a>
-          <a href="roa-creative-2.png" class="roa-item lightbox-trigger">
-            <img src="roa-creative-2.png" alt="Travel Partner Campaign" loading="lazy"/>
-          </a>
-          <a href="roa-creative-3.png" class="roa-item lightbox-trigger">
-            <img src="roa-creative-3.png" alt="Journey Motivation Creative" loading="lazy"/>
-          </a>
-          <a href="roa-creative-4.png" class="roa-item lightbox-trigger">
-            <img src="roa-creative-4.png" alt="Lost in the Map Creative" loading="lazy"/>
-          </a>
+          <a href="roa-creative-1.png" class="roa-item lightbox-trigger"><img src="roa-creative-1.png" alt="Creative 1" loading="lazy"/></a>
+          <a href="roa-creative-2.png" class="roa-item lightbox-trigger"><img src="roa-creative-2.png" alt="Creative 2" loading="lazy"/></a>
+          <a href="roa-creative-3.png" class="roa-item lightbox-trigger"><img src="roa-creative-3.png" alt="Creative 3" loading="lazy"/></a>
+          <a href="roa-creative-4.png" class="roa-item lightbox-trigger"><img src="roa-creative-4.png" alt="Creative 4" loading="lazy"/></a>
         </div>
       </div>
     </section>
 
+    <!-- ── Product Ecosystem (3x3 Mixed Grid) ────────── -->
     <section class="project-section reveal">
       <div class="container">
-        <div class="section-label">Mockups & Application</div>
-        <h2 class="section-title">Brand <em>In The Wild</em></h2>
-        <div class="section-body"><p>Seeing how the vibrant blue and flight motifs translate to physical and digital products.</p></div>
-        
-        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:20px; margin-top:36px;">
-          <a href="roa-mockup-bag.png" class="lightbox-trigger" style="border-radius:24px; overflow:hidden; border:1px solid rgba(255,255,255,0.05);">
-            <img src="roa-mockup-bag.png" alt="Travel Bag Brand Application" loading="lazy" style="width:100%; height:auto;"/>
-          </a>
-          <div style="display:grid; grid-template-rows: auto 1fr; gap:20px;">
-            <a href="roa-mockup-watch.png" class="lightbox-trigger" style="border-radius:24px; overflow:hidden; border:1px solid rgba(255,255,255,0.05);">
-              <img src="roa-mockup-watch.png" alt="Apple Watch Interface Concept" loading="lazy" style="width:100%; height:auto;"/>
-            </a>
-            <div style="background:var(--card); border:1px solid rgba(255,255,255,0.05); border-radius:24px; padding:32px; display:flex; align-items:center; justify-content:center; text-align:center;">
-              <div>
-                <i class="ph ph-globe" style="font-size:3.5rem; color:var(--accent); margin-bottom:16px;"></i>
-                <div style="font-weight:800; color:#fff; font-size:1.2rem;">Global Explorer</div>
-                <div style="font-size:0.9rem; color:var(--text); margin-top:8px;">Designed for the international traveler and modern agencies.</div>
-              </div>
+        <div class="section-label">Product Ecosystem</div>
+        <h2 class="section-title">Brand <em>Integration</em></h2>
+        <div class="section-body" style="margin-bottom:40px;"><p>A cohesive look across digital and physical touchpoints, from Suitcase mockups to DSLR camera interfaces.</p></div>
+
+        <div class="mixed-grid">
+          <!-- Row 1 -->
+          <div class="grid-item creative"><img src="roa-creative-1.png" alt="Creative 1"/></div>
+          <div class="grid-item mockup"><img src="roa-mockup-bag.png" alt="Suitcase Mockup"/></div>
+          <div class="grid-item creative"><img src="roa-creative-2.png" alt="Creative 2"/></div>
+          
+          <!-- Row 2 -->
+          <div class="grid-item mockup"><img src="roa-mockup-laptop.png" alt="Laptop Mockup"/></div>
+          <div class="grid-item graphic"><img src="roa-graphic-1.png" alt="Brand Graphic"/></div>
+          <div class="grid-item mockup"><img src="roa-mockup-camera.png" alt="Camera Mockup"/></div>
+          
+          <!-- Row 3 -->
+          <div class="grid-item creative"><img src="roa-creative-3.png" alt="Creative 3"/></div>
+          <div class="grid-item mockup"><img src="roa-mockup-watch.png" alt="Watch Mockup"/></div>
+          <div class="grid-item creative"><img src="roa-creative-4.png" alt="Creative 4"/></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Identity Elements ────────────────────────── -->
+    <section class="project-section reveal">
+      <div class="container">
+        <div class="section-label">Identity Construction</div>
+        <div style="display:grid; grid-template-columns: 1.2fr 0.8fr; gap:40px; align-items:center;">
+          <img src="roa-logo-graphic.png" alt="Logo Construction" style="width:100%; border-radius:24px; border:1px solid rgba(255,255,255,0.05);"/>
+          <div>
+            <h3 style="font-family:'Sora',sans-serif; color:#fff; font-size:1.8rem; margin-bottom:20px;">The Blue Path</h3>
+            <p style="color:var(--text); line-height:1.7;">The logotype focuses on travel paths and paper planes, symbolizing flight, freedom, and the 'Infinite Path' to one's destination.</p>
+            <div style="margin-top:32px; display:flex; flex-direction:column; gap:16px;">
+              <div style="display:flex; align-items:center; gap:12px;"><div style="width:40px; height:40px; border-radius:8px; background:var(--blue);"></div><span style="color:#fff; font-weight:700;">#2E5BFF · Royal Blue</span></div>
+              <div style="display:flex; align-items:center; gap:12px;"><div style="width:40px; height:40px; border-radius:8px; background:var(--accent);"></div><span style="color:#fff; font-weight:700;">#FFCC00 · Sunshine Yellow</span></div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- ── Tools ───────────────────────────────────── -->
     <section class="project-section reveal">
       <div class="container">
         <div class="section-label">Tools &amp; Process</div>
-        <h2 class="section-title">Built for <em>Performance</em></h2>
-        <div class="section-body"><p>Ensuring pixel-perfection and scalability across all marketing touchpoints.</p></div>
-        
-        <div style="display:flex; flex-wrap:wrap; gap:32px; margin-top:36px;">
-          <div class="tool-cards-col">
-            <div class="tool-card">
-              <i class="ph ph-pencil-simple-line tool-card-icon"></i>
-              <div class="tool-card-info">
-                <h4>Adobe Illustrator</h4>
-                <p>Vector icons & brand construction</p>
-              </div>
-            </div>
-            <div class="tool-card">
-              <i class="ph ph-image tool-card-icon"></i>
-              <div class="tool-card-info">
-                <h4>Adobe Photoshop</h4>
-                <p>Social compositions & product mockups</p>
-              </div>
-            </div>
-          </div>
-          <div style="flex:1; min-width:300px;">
-            <img src="roa-logo-graphic.png" alt="Roamentia Design Elements" loading="lazy" style="width:100%; border-radius:24px; border:1px solid rgba(255,255,255,0.05);"/>
-          </div>
+        <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:24px; margin-top:32px;">
+          <div class="stat-box"><div class="stat-val">Ai</div><div class="stat-lbl">Illustrator</div></div>
+          <div class="stat-box"><div class="stat-val">Ps</div><div class="stat-lbl">Photoshop</div></div>
+          <div class="stat-box"><div class="stat-val">Id</div><div class="stat-lbl">InDesign</div></div>
+          <div class="stat-box"><div class="stat-val">Pr</div><div class="stat-lbl">Premiere</div></div>
         </div>
       </div>
     </section>
 
+    <!-- ── Related Projects ────────────────────────── -->
     <section class="related reveal">
       <div class="container">
-        <h3 style="font-family:'Sora',sans-serif;font-size:1.3rem;font-weight:800;color:#fff;margin-bottom:24px;">Explore More</h3>
+        <h3 style="font-family:'Sora',sans-serif;font-size:1.3rem;font-weight:800;color:#fff;margin-bottom:24px;">Explore More Projects</h3>
         <div class="related-grid">
           <a href="rishi-farms.html" class="related-card"><img src="rf-farm-hero.jpg" alt="Rishi Farms"/><div class="related-card-body"><div class="related-cat">Branding</div><div class="related-title">Rishi Farms</div></div></a>
           <a href="nandvrinda.html" class="related-card"><img src="nv-hero-banner.png" alt="Nandvrinda"/><div class="related-card-body"><div class="related-cat">Identity</div><div class="related-title">Nandvrinda</div></div></a>
@@ -246,18 +244,19 @@
   </main>
 
   <!-- FOOTER -->
-  <footer class="project-footer" style="padding: 80px 24px; text-align:center; background: rgba(0,0,0,.2); border-top: 1px solid rgba(255,255,255,.07);">
+  <footer class="project-footer" style="padding: 100px 24px; text-align:center; background: rgba(5,10,20,0.4); border-top: 1px solid rgba(255,255,255,.05);">
     <p style="font-size:.8rem; text-transform:uppercase; letter-spacing:.14em; color:var(--blue); font-weight:700; margin-bottom:20px;">Like what you see?</p>
-    <h3 style="font-family:'Sora',sans-serif; font-size:clamp(1.6rem,4vw,2.4rem); font-weight:800; color:#fff; margin-bottom:36px; line-height:1.2;">See the full case study<br>on Behance</h3>
+    <h3 style="font-family:'Sora',sans-serif; font-size:clamp(1.8rem,5vw,2.8rem); font-weight:800; color:#fff; margin-bottom:40px; line-height:1.2;">See the full case study<br>on Behance</h3>
     <a href="https://www.behance.net/gallery/218878689/-Roamentia-Your-Ultimate-Travel-Partner-" target="_blank"
-       style="display:inline-flex; align-items:center; gap:12px; background:var(--blue); color:#fff; padding:18px 44px; border-radius:100px; font-family:'Sora',sans-serif; font-weight:800; font-size:1.05rem; text-decoration:none; box-shadow:0 6px 32px rgba(46,91,255,.3); transition: transform .3s, box-shadow .3s;"
-       onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 14px 44px rgba(46,91,255,.5)';"
-       onmouseout="this.style.transform=''; this.style.boxShadow='0 6px 32px rgba(46,91,255,.3)';"
+       style="display:inline-flex; align-items:center; gap:12px; background:var(--blue); color:#fff; padding:20px 50px; border-radius:100px; font-family:'Sora',sans-serif; font-weight:800; font-size:1.1rem; text-decoration:none; box-shadow:0 10px 40px rgba(46,91,255,.3); transition: transform .3s, box-shadow .3s;"
+       onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='0 20px 50px rgba(46,91,255,.5)';"
+       onmouseout="this.style.transform=''; this.style.boxShadow='0 10px 40px rgba(46,91,255,.3)';"
     >
-      <i class="ph ph-behance-logo" style="font-size:1.4rem;"></i> View Full Project
+      <i class="ph ph-behance-logo" style="font-size:1.6rem;"></i> View Full Project
     </a>
-    <div style="margin-top:60px; padding-top:32px; border-top:1px solid rgba(255,255,255,.07); color:#64748b; font-size:.85rem;">
-      &copy; 2025 Udit Kumar Chauhan &nbsp;&middot;&nbsp; <a href="index.html" style="color:var(--blue);">Back to Portfolio</a>
+    <div style="margin-top:60px; padding-top:40px; border-top:1px solid rgba(255,255,255,.05); color:rgba(255,255,255,.4); font-size:.85rem; display:flex; flex-direction:column; gap:12px;">
+      <div>&copy; 2025 Udit Kumar Chauhan</div>
+      <a href="index.html" style="color:var(--blue); font-weight:700; text-decoration:none;">Back to Portfolio</a>
     </div>
   </footer>
 
