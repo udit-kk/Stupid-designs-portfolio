@@ -273,18 +273,50 @@ h1,h2,h3,h4,.nav-logo,.pr-price,.stat-n,.sora{font-family:'Sora',sans-serif;}
 .section{padding:96px 0;}
 .container{max-width:1200px;margin:0 auto;padding:0 24px;}
 
+/* ── Scroll Progress Bar ─────────────────────── */
+#scroll-progress{
+  position:fixed;top:0;left:0;z-index:100000;
+  height:2px;width:0%;
+  background:linear-gradient(90deg,var(--blue),#60a5fa,var(--blue));
+  background-size:200% 100%;
+  animation:progressShimmer 2s linear infinite;
+  transition:width .05s linear;
+  box-shadow:0 0 8px rgba(24,119,242,.7);
+}
+@keyframes progressShimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+
 /* ── Reveal ──────────────────────────────────── */
 .reveal{opacity:0;transform:translateY(32px);transition:opacity .8s var(--ease),transform .8s var(--ease),filter .8s var(--ease);}
-.reveal-left{opacity:0;transform:translateX(-32px);transition:opacity .8s var(--ease),transform .8s var(--ease);}
-.reveal-right{opacity:0;transform:translateX(32px);transition:opacity .8s var(--ease),transform .8s var(--ease);}
-.reveal-scale{opacity:0;transform:scale(.94);transition:opacity .8s var(--ease),transform .8s var(--ease);}
+.reveal-left{opacity:0;transform:translateX(-40px);transition:opacity .9s var(--ease),transform .9s var(--ease);}
+.reveal-right{opacity:0;transform:translateX(40px);transition:opacity .9s var(--ease),transform .9s var(--ease);}
+.reveal-scale{opacity:0;transform:scale(.92);transition:opacity .8s var(--ease),transform .8s var(--ease);}
 
-.reveal.visible, .reveal-left.visible, .reveal-right.visible, .reveal-scale.visible{opacity:1;transform:translate(0,0) scale(1);filter:blur(0);}
+.reveal.visible,.reveal-left.visible,.reveal-right.visible,.reveal-scale.visible{opacity:1;transform:translate(0,0) scale(1);filter:blur(0);}
 
 .rd{transition-delay:.1s;}
 .rd2{transition-delay:.2s;}
 .rd3{transition-delay:.3s;}
 .rd4{transition-delay:.4s;}
+.rd5{transition-delay:.5s;}
+.rd6{transition-delay:.6s;}
+
+/* ── Word-split heading animation ────────────── */
+.word-split .word{
+  display:inline-block;
+  opacity:0;
+  transform:translateY(28px) rotateX(-40deg);
+  transition:opacity .7s var(--ease),transform .7s var(--ease);
+  transform-origin:bottom center;
+}
+.word-split.visible .word{opacity:1;transform:translateY(0) rotateX(0);}
+
+/* ── Floating bob ────────────────────────────── */
+@keyframes floatBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.float-bob{animation:floatBob 4s ease-in-out infinite;}
+.float-bob-slow{animation:floatBob 6s ease-in-out infinite;}
+
+/* ── Hero scroll fade ────────────────────────── */
+.hero-fade-wrap{transition:opacity .1s linear,transform .1s linear;}
 
 /* ── About ───────────────────────────────────── */
 .about-s{background:var(--dark);}
