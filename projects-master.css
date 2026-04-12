@@ -208,7 +208,7 @@ main { background: var(--bg); }
 .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .related-card { background: var(--card); border: 1px solid rgba(255,255,255,.05); border-radius: 12px; overflow: hidden; transition: transform .3s, border-color .3s; text-decoration: none; display: block; }
 .related-card:hover { transform: translateY(-4px); border-color: var(--blue); }
-.related-card img { width: 100%; aspect-ratio: 16/10; object-fit: cover; object-position: center; display: block; border-bottom: 1px solid rgba(255,255,255,.05); }
+.related-card img { width: 100%; aspect-ratio: 1/1; object-fit: cover; object-position: center; display: block; border-bottom: 1px solid rgba(255,255,255,.05); }
 .related-card-body { padding: 16px; }
 .related-cat { font-size: .65rem; color: var(--blue); font-weight: 700; text-transform: uppercase; letter-spacing: .1em; margin-bottom: 4px; }
 .related-title { font-family: 'Sora', sans-serif; font-size: .95rem; color: #fff; font-weight: 700; line-height: 1.2; }
