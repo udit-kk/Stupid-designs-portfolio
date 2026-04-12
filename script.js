@@ -378,3 +378,113 @@ syncNav();
     });
   });
 })();
+
+/* ── 18. Text-scramble on section pills ──────────────────── */
+(function initTextScramble() {
+  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%&';
+  function scramble(el) {
+    const original = el.dataset.text || el.textContent;
+    el.dataset.text = original;
+    let frame = 0;
+    const totalFrames = 18;
+    const id = setInterval(() => {
+      el.textContent = original.split('').map((ch, i) => {
+        if (ch === ' ') return ' ';
+        if (frame / totalFrames > i / original.length) return ch;
+        return chars[Math.floor(Math.random() * chars.length)];
+      }).join('');
+      if (++frame > totalFrames) { el.textContent = original; clearInterval(id); }
+    }, 30);
+  }
+  const pillObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { scramble(e.target); pillObs.unobserve(e.target); }
+    });
+  }, { threshold: 0.8 });
+  document.querySelectorAll('.pill').forEach(el => pillObs.observe(el));
+})();
+
+/* ── 19. Parallax depth on sections ─────────────────────── */
+(function initSectionParallax() {
+  const layers = [
+    { sel: '.svc-s',   speed: 0.08 },
+    { sel: '.pf-s',    speed: 0.05 },
+    { sel: '.pricing-s', speed: 0.06 },
+  ];
+  const targets = layers.map(l => ({ el: document.querySelector(l.sel), speed: l.speed }))
+                        .filter(t => t.el);
+  if (!targets.length) return;
+  window.addEventListener('scroll', () => {
+    const sy = window.scrollY;
+    targets.forEach(({ el, speed }) => {
+      const rect = el.getBoundingClientRect();
+      const mid  = rect.top + rect.height / 2 - window.innerHeight / 2;
+      el.style.backgroundPositionY = `calc(50% + ${mid * speed}px)`;
+    });
+  }, { passive: true });
+})();
+
+/* ── 20. Spotlight glow that follows active section ──────── */
+(function initSectionSpotlight() {
+  const spotlight = document.createElement('div');
+  spotlight.id = 'section-spotlight';
+  spotlight.style.cssText = [
+    'position:fixed', 'pointer-events:none', 'z-index:0',
+    'width:600px', 'height:600px', 'border-radius:50%',
+    'background:radial-gradient(circle,rgba(24,119,242,.07) 0%,transparent 70%)',
+    'transform:translate(-50%,-50%)', 'transition:top .8s ease,left .8s ease',
+    'top:50%', 'left:50%'
+  ].join(';');
+  document.body.appendChild(spotlight);
+  const sects = document.querySelectorAll('section[id]');
+  window.addEventListener('scroll', () => {
+    let active = sects[0];
+    sects.forEach(s => { if (window.scrollY >= s.offsetTop - 200) active = s; });
+    const r = active.getBoundingClientRect();
+    spotlight.style.top  = (r.top + r.height / 2 + window.scrollY) + 'px';
+    spotlight.style.left = (window.innerWidth / 2) + 'px';
+  }, { passive: true });
+})();
+
+/* ── 21. Smooth stat ticker (spring re-ease on re-scroll) ── */
+(function initSpringCounters() {
+  document.querySelectorAll('.stat-n').forEach(el => {
+    const target = parseInt(el.dataset.target || el.textContent, 10);
+    let current = 0, raf = null;
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          if (raf) cancelAnimationFrame(raf);
+          current = 0;
+          const step = () => {
+            const diff = target - current;
+            current += Math.max(1, Math.ceil(diff * 0.12));
+            el.textContent = Math.min(current, target);
+            if (current < target) raf = requestAnimationFrame(step);
+          };
+          raf = requestAnimationFrame(step);
+        }
+      });
+    }, { threshold: 0.6 });
+    obs.observe(el.closest('.stat-item') || el);
+  });
+})();
+
+/* ── 22. Service card subtle scroll-depth lift ───────────── */
+(function initSvcScrollLift() {
+  const cards = Array.from(document.querySelectorAll('.svc-card'));
+  if (!cards.length) return;
+  const lift = () => {
+    const vy = window.innerHeight;
+    cards.forEach((card, i) => {
+      const rect = card.getBoundingClientRect();
+      const pct  = 1 - Math.max(0, Math.min(1, (rect.top - vy * 0.1) / (vy * 0.8)));
+      const ty   = (1 - pct) * 30;
+      const op   = 0.4 + pct * 0.6;
+      card.style.transform = `translateY(${ty}px)`;
+      card.style.opacity   = op;
+    });
+  };
+  window.addEventListener('scroll', lift, { passive: true });
+  lift();
+})();

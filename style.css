@@ -318,6 +318,32 @@ h1,h2,h3,h4,.nav-logo,.pr-price,.stat-n,.sora{font-family:'Sora',sans-serif;}
 /* ── Hero scroll fade ────────────────────────── */
 .hero-fade-wrap{transition:opacity .1s linear,transform .1s linear;}
 
+/* ── Pill scramble ───────────────────────────── */
+.pill{
+  font-variant-numeric:tabular-nums;
+  letter-spacing:.02em;
+  transition:color .2s var(--ease), background .2s var(--ease);
+}
+
+/* ── Svc-card scroll lift ────────────────────── */
+.svc-card{
+  transition:transform .6s var(--ease), opacity .6s var(--ease),
+             border-color var(--t) var(--ease), box-shadow var(--t) var(--ease);
+}
+
+/* ── Portfolio image reveal shimmer ─────────── */
+.pf-img::before{
+  content:'';
+  position:absolute;inset:0;z-index:1;
+  background:linear-gradient(180deg, transparent 60%, rgba(5,10,20,.75) 100%);
+  opacity:0;
+  transition:opacity .4s var(--ease);
+}
+.pf-card:hover .pf-img::before{opacity:1;}
+
+/* ── Glowing cursor trail (desktop) ─────────── */
+#section-spotlight{mix-blend-mode:screen;}
+
 /* ── About ───────────────────────────────────── */
 .about-s{background:var(--dark);}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
