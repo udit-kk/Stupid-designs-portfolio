@@ -14,7 +14,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }, { threshold: 0.1 });
 
-  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+  document.querySelectorAll('.reveal, .reveal-up, .reveal-left, .reveal-right').forEach(el => revealObserver.observe(el));
+
+  /* ── 1b. Hero Parallax ─────────────────────────────────── */
+  const heroImg = document.querySelector('.project-hero img');
+  if (heroImg) {
+    window.addEventListener('scroll', () => {
+      const scrollPos = window.scrollY;
+      if (scrollPos < window.innerHeight) {
+        heroImg.style.transform = `translateY(${scrollPos * 0.3}px)`;
+      }
+    });
+  }
 
   /* ── 2. Lightbox / Image Zoom ───────────────────────────── */
   const lightbox = document.getElementById('lightbox');

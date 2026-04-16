@@ -66,8 +66,9 @@ body {
 :root { --cursor-color: #4ade80; } /* override per-page */
 #cursor-dot-outer, #cursor-dot-inner {
   position: fixed; pointer-events: none; border-radius: 50%;
-  transform: translate(-50%, -50%); z-index: 9999;
+  transform: translate(-50%, -50%); z-index: 99999;
   transition: transform .15s ease, opacity .2s ease;
+  mix-blend-mode: difference;
 }
 #cursor-dot-outer {
   width: 36px; height: 36px;
@@ -196,8 +197,19 @@ main { background: var(--bg); }
 }
 
 /* ── Reveal Animations ─────────────────────────── */
-.reveal { opacity: 0; transform: translateY(30px); transition: all .8s var(--ease); }
-.reveal.active { opacity: 1; transform: translateY(0); }
+/* ── Scroll Reveal ── */
+.reveal, .reveal-up, .reveal-left, .reveal-right {
+  opacity: 0;
+  transition: all 1s var(--ease);
+}
+.reveal-up { transform: translateY(50px); }
+.reveal-left { transform: translateX(-50px); }
+.reveal-right { transform: translateX(50px); }
+
+.reveal.active, .reveal-up.active, .reveal-left.active, .reveal-right.active {
+  opacity: 1;
+  transform: translate(0, 0);
+}
 
 /* ── Back to Top ──────────────────────────────── */
 .footer-links { margin-top: 40px; display: flex; justify-content: center; gap: 24px; }
@@ -206,9 +218,33 @@ main { background: var(--bg); }
 
 /* ── Related Projects ──────────────────────────── */
 .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-.related-card { background: var(--card); border: 1px solid rgba(255,255,255,.05); border-radius: 12px; overflow: hidden; transition: transform .3s, border-color .3s; text-decoration: none; display: block; }
-.related-card:hover { transform: translateY(-4px); border-color: var(--blue); }
-.related-card img { width: 100%; aspect-ratio: 1/1; object-fit: cover; object-position: center; display: block; border-bottom: 1px solid rgba(255,255,255,.05); }
+.related-card { 
+  background: var(--card); 
+  border: 1px solid rgba(255,255,255,.05); 
+  border-radius: 12px; 
+  overflow: hidden; 
+  transition: transform .3s var(--ease), border-color .3s var(--ease); 
+  text-decoration: none; 
+  display: flex;
+  flex-direction: column;
+}
+.related-card:hover { transform: translateY(-8px); border-color: var(--blue); box-shadow: 0 12px 30px rgba(0,0,0,0.4); }
+.related-thumb-wrapper {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  position: relative;
+  background: #000;
+}
+.related-card img { 
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; 
+  object-position: center; 
+  display: block; 
+  transition: transform 0.5s var(--ease);
+}
+.related-card:hover img { transform: scale(1.1); }
 .related-card-body { padding: 16px; }
 .related-cat { font-size: .65rem; color: var(--blue); font-weight: 700; text-transform: uppercase; letter-spacing: .1em; margin-bottom: 4px; }
 .related-title { font-family: 'Sora', sans-serif; font-size: .95rem; color: #fff; font-weight: 700; line-height: 1.2; }
