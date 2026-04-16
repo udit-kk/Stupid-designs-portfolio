@@ -24,22 +24,22 @@
 
     /* ── Hero ── */
     .project-hero {
-      width: 100%; overflow: hidden; position: relative;
-      background: #060d1c;
-      border-bottom: none;
+      width: 100%; height: 85vh; min-height: 500px;
+      overflow: hidden; position: relative;
+      background: #2E5BFF;
+      display: flex; align-items: center; justify-content: center;
     }
     .project-hero img {
       width: 100%;
-      height: auto;
-      min-height: 420px;
-      max-height: 600px;
+      height: 100%;
       object-fit: cover;
-      object-position: center center;
       display: block;
+      transition: transform 0.8s var(--ease);
     }
+    .project-hero:hover img { transform: scale(1.05); }
     .hero-overlay {
       position: absolute; inset: 0;
-      background: linear-gradient(to bottom, rgba(5,10,20,.1) 0%, rgba(5,10,20,.75) 100%);
+      background: linear-gradient(to bottom, rgba(5,10,20,0) 60%, rgba(5,10,20,1) 100%);
       display: flex; align-items: flex-end;
       padding: 60px 48px;
     }
@@ -56,10 +56,6 @@
       font-size: .82rem; font-weight: 700; color: #2E5BFF;
     }
     .meta-pill.gray { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.18); color: rgba(255,255,255,.85); }
-    @media (max-width: 768px) {
-      .hero-overlay { padding: 32px 24px; }
-      .project-hero img { min-height: 260px; max-height: 360px; }
-    }
 
     /* ── Creative Grid (2x2) ── */
     .roa-grid {
@@ -133,7 +129,7 @@
   </nav>
 
   <div class="project-hero">
-    <img src="Roamentia – Travel Brand.png" alt="Roamentia Hero Banner"/>
+    <img src="roabanner.png" alt="Roamentia Hero Banner"/>
     <div class="hero-overlay">
       <div class="hero-text">
         <div class="section-label" style="color:var(--accent); margin-bottom: 12px; opacity:1;">Branding · Social Media · Travel Partner</div>
@@ -149,10 +145,10 @@
 
   <main>
     <!-- ── Vision & Problem ────────────────────────── -->
-    <section class="project-section reveal">
+    <section class="project-section reveal-up">
       <div class="container">
         <div class="overview-grid">
-          <div>
+          <div class="reveal-left">
             <div class="section-label">Vision & Project Scope</div>
             <h2 class="section-title">Fueling the <em>Wanderlust</em></h2>
             <div class="section-body">
@@ -160,7 +156,7 @@
               <p>The mission: "Lost in the map, found in the journey." Every design element guides travelers through an immersive brand experience.</p>
             </div>
           </div>
-          <div>
+          <div class="reveal-right">
             <img src="roa-graphic-1.png" alt="Roamentia Brand Mark" loading="lazy" style="border-radius:24px; width:100%; border:1px solid rgba(255,255,255,0.05);"/>
           </div>
         </div>
@@ -168,16 +164,16 @@
     </section>
 
     <!-- ── Social Quad (2x2) ────────────────────────── -->
-    <section class="project-section reveal">
+    <section class="project-section reveal-up">
       <div class="container">
         <div class="section-label">High-Impact Creatives</div>
         <h2 class="section-title">Adventure <em>Quad</em></h2>
         
         <div class="roa-grid">
-          <a href="roa-creative-1.png" class="roa-item lightbox-trigger"><img src="roa-creative-1.png" alt="Creative 1" loading="lazy"/></a>
-          <a href="roa-creative-2.png" class="roa-item lightbox-trigger"><img src="roa-creative-2.png" alt="Creative 2" loading="lazy"/></a>
-          <a href="roa-creative-3.png" class="roa-item lightbox-trigger"><img src="roa-creative-3.png" alt="Creative 3" loading="lazy"/></a>
-          <a href="roa-creative-4.png" class="roa-item lightbox-trigger"><img src="roa-creative-4.png" alt="Creative 4" loading="lazy"/></a>
+          <a href="roa-creative-1.png" class="roa-item lightbox-trigger reveal" style="transition-delay:0.1s;"><img src="roa-creative-1.png" alt="Creative 1" loading="lazy"/></a>
+          <a href="roa-creative-2.png" class="roa-item lightbox-trigger reveal" style="transition-delay:0.2s;"><img src="roa-creative-2.png" alt="Creative 2" loading="lazy"/></a>
+          <a href="roa-creative-3.png" class="roa-item lightbox-trigger reveal" style="transition-delay:0.3s;"><img src="roa-creative-3.png" alt="Creative 3" loading="lazy"/></a>
+          <a href="roa-creative-4.png" class="roa-item lightbox-trigger reveal" style="transition-delay:0.4s;"><img src="roa-creative-4.png" alt="Creative 4" loading="lazy"/></a>
         </div>
       </div>
     </section>
@@ -227,13 +223,13 @@
     </section>
 
     <!-- ── Tools ───────────────────────────────────── -->
-    <section class="project-section reveal">
+    <section class="project-section reveal-up">
       <div class="container">
         <div class="section-label">Tools &amp; Process</div>
         <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:24px; margin-top:32px;">
-          <div class="stat-box"><div class="stat-val">Ai</div><div class="stat-lbl">Illustrator</div></div>
-          <div class="stat-box"><div class="stat-val">Ps</div><div class="stat-lbl">Photoshop</div></div>
-          <div class="stat-box"><div class="stat-val">AI</div><div class="stat-lbl">Midjourney AI</div></div>
+          <div class="stat-box reveal" style="transition-delay:0.1s;"><div class="stat-val">Ai</div><div class="stat-lbl">Illustrator</div></div>
+          <div class="stat-box reveal" style="transition-delay:0.2s;"><div class="stat-val">Ps</div><div class="stat-lbl">Photoshop</div></div>
+          <div class="stat-box reveal" style="transition-delay:0.3s;"><div class="stat-val">AI</div><div class="stat-lbl">Generative AI</div></div>
         </div>
       </div>
     </section>
@@ -243,9 +239,18 @@
       <div class="container">
         <h3 style="font-family:'Sora',sans-serif;font-size:1.3rem;font-weight:800;color:#fff;margin-bottom:24px;">Explore More Projects</h3>
         <div class="related-grid">
-          <a href="rishi-farms.html" class="related-card"><img src="Rishi Farms Branding.png" alt="Rishi Farms"/><div class="related-card-body"><div class="related-cat">Branding</div><div class="related-title">Rishi Farms</div></div></a>
-          <a href="nandvrinda.html" class="related-card"><img src="Nandvrinda – Essential Oils.jpg" alt="Nandvrinda"/><div class="related-card-body"><div class="related-cat">Identity</div><div class="related-title">Nandvrinda</div></div></a>
-          <a href="chosen-kicks.html" class="related-card"><img src="Chosen Kicks – Brand Identity.png" alt="Chosen Kicks"/><div class="related-card-body"><div class="related-cat">Streetwear</div><div class="related-title">Chosen Kicks</div></div></a>
+          <a href="rishi-farms.html" class="related-card">
+            <div class="related-thumb-wrapper"><img src="Rishi Farms Branding.png" alt="Rishi Farms"/></div>
+            <div class="related-card-body"><div class="related-cat">Branding</div><div class="related-title">Rishi Farms</div></div>
+          </a>
+          <a href="nandvrinda.html" class="related-card">
+            <div class="related-thumb-wrapper"><img src="Nandvrinda – Essential Oils.jpg" alt="Nandvrinda"/></div>
+            <div class="related-card-body"><div class="related-cat">Identity</div><div class="related-title">Nandvrinda</div></div>
+          </a>
+          <a href="chosen-kicks.html" class="related-card">
+            <div class="related-thumb-wrapper"><img src="Chosen Kicks – Brand Identity.png" alt="Chosen Kicks"/></div>
+            <div class="related-card-body"><div class="related-cat">Streetwear</div><div class="related-title">Chosen Kicks</div></div>
+          </a>
         </div>
       </div>
     </section>
