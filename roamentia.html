@@ -39,14 +39,12 @@
     .project-hero:hover img { transform: scale(1.05); }
     .hero-overlay {
       position: absolute; inset: 0;
-      background: linear-gradient(to bottom, rgba(5,10,20,0) 60%, rgba(5,10,20,1) 100%);
+      background: linear-gradient(to bottom, rgba(5,10,20,0) 40%, rgba(5,10,20,0.8) 100%);
       display: flex; align-items: flex-end;
       padding: 60px 48px;
     }
     .hero-text h1 {
-      font-family: 'Sora', sans-serif; font-size: clamp(2rem, 5vw, 3.5rem);
-      font-weight: 800; color: #fff; letter-spacing: -.03em;
-      line-height: 1.1; margin-bottom: 0;
+      display: none;
     }
     .hero-meta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 16px; }
     .meta-pill {
@@ -132,12 +130,10 @@
     <img src="roa-final-banner.png" alt="Roamentia Travel Brand" loading="eager"/>
     <div class="hero-overlay">
       <div class="hero-text">
-        <div class="section-label" style="color:var(--accent); margin-bottom: 12px; opacity:1;">Branding · Social Media · Travel Partner</div>
-        <h1>Roamentia – Your Ultimate <br/> Travel Partner</h1>
-        <div class="hero-meta">
-          <span class="meta-pill"><i class="ph ph-airplane"></i> Travel Brand</span>
-          <span class="meta-pill"><i class="ph ph-palette"></i> Visual Identity</span>
-          <span class="meta-pill gray"><i class="ph ph-calendar"></i> 2025</span>
+        <div class="section-label" style="color:var(--accent); margin-bottom: 12px; opacity:1; font-size:0.9rem;">Branding · Identity · Travel</div>
+        <div class="hero-meta" style="margin-top: 5px;">
+          <span class="meta-pill"><i class="ph ph-tag"></i> 2025 Brand</span>
+          <span class="meta-pill gray"><i class="ph ph-calendar"></i> Travel Partner</span>
         </div>
       </div>
     </div>
