@@ -31,6 +31,30 @@
     window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
   </script>
   <script defer src="/_vercel/speed-insights/script.js"></script>
+  <style>
+    .ft-bottom { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+    .resume-dl-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 24px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 8px;
+      color: #e2e8f0;
+      font-size: 0.82rem; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.3s, border-color 0.3s, color 0.3s, transform 0.2s;
+      cursor: pointer;
+    }
+    .resume-dl-btn i { font-size: 1rem; }
+    .resume-dl-btn:hover {
+      background: rgba(24,119,242,0.18);
+      border-color: #1877f2;
+      color: #60a5fa;
+      transform: translateY(-2px);
+    }
+    @media (max-width: 600px) { .resume-dl-btn { font-size: 0.76rem; padding: 9px 18px; } }
+  </style>
 </head>
 <body>
 
@@ -687,7 +711,12 @@
         </ul>
       </div>
     </div>
-    <div class="ft-bottom"><p>&copy; 2026 Udit Kumar Chauhan &nbsp;&bull;&nbsp; Creative Illustrator &amp; Brand Designer &nbsp;&bull;&nbsp; Gurgaon, India</p></div>
+    <div class="ft-bottom">
+      <a href="resume.pdf" download="Udit_Kumar_Chauhan_Resume.pdf" class="resume-dl-btn" id="resume-download-btn">
+        <i class="ph ph-download-simple"></i> Resume Download
+      </a>
+      <p>&copy; 2026 Udit Kumar Chauhan &nbsp;&bull;&nbsp; Creative Illustrator &amp; Brand Designer &nbsp;&bull;&nbsp; Gurgaon, India</p>
+    </div>
   </footer>
 
   <script src="script.js"></script>
